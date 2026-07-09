@@ -989,6 +989,19 @@ body .markdown-source-view.mod-cm6 .callout .callout-title {
 .metadata-properties-heading .collapse-indicator {
 	color: var(--text-muted);
 }
+.metadata-property {
+	border-bottom: none !important;
+	border-top: none !important;
+	outline: none !important;
+	box-shadow: none !important;
+}
+.metadata-property .metadata-property-key,
+.metadata-property .metadata-property-value {
+	border: none !important;
+}
+.metadata-property:focus-within {
+	background: transparent !important;
+}
 .metadata-property-key {
 	color: var(--text-muted);
 }
@@ -1008,7 +1021,17 @@ body .markdown-source-view.mod-cm6 .callout .callout-title {
 .metadata-property-value .multi-select-pill {
 	background: var(--background-primary);
 	color: var(--text-accent);
-	border: 1px solid var(--text-accent);
+	border: none !important;
+}
+.metadata-property-value .multi-select-pill .multi-select-pill-remove {
+	color: var(--text-muted) !important;
+}
+.metadata-property-value .multi-select-pill .multi-select-pill-remove:hover {
+	color: var(--text-muted) !important;
+}
+.metadata-property-value .multi-select-pill .multi-select-pill-remove svg {
+	color: var(--text-muted) !important;
+	stroke: var(--text-muted) !important;
 }
 
 .metadata-add-button {
