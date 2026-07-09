@@ -771,6 +771,20 @@ body .cm-hashtag-end {
 	position: relative !important;
 }
 
+/* Unchecked — live preview accent border */
+.HyperMD-list-line input[type="checkbox"]:not(:checked) {
+	-webkit-appearance: none !important;
+	-moz-appearance: none !important;
+	appearance: none !important;
+	background-image: none !important;
+	background: var(--background-primary) !important;
+	border: 1px solid var(--text-accent) !important;
+	width: 14px !important;
+	height: 14px !important;
+	box-shadow: none !important;
+	position: relative !important;
+}
+
 /* [x] / [X] = done — dark background, accent X mark */
 input[data-task="x"]:checked,
 input[data-task="X"]:checked,
