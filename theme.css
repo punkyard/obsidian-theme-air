@@ -189,8 +189,8 @@ body.theme-dark .tree-sorting-button {
 /* Remove structural pane/tab borders */
 body.theme-dark .workspace-leaf-resize-handle,
 body.theme-dark .view-header {
-	border: none;
-	box-shadow: none;
+	border: none !important;
+	box-shadow: none !important;
 }
 
 /* Bold, italic, highlight — direct element overrides */
@@ -290,9 +290,9 @@ body.theme-light .side-dock-vertical,
 body.theme-light .workspace-leaf-resize-area,
 body.theme-light .status-bar,
 body.theme-light .titlebar {
-	border-right: none;
-	border-top: none;
-	border-bottom: none;
+	border-right: none !important;
+	border-top: none !important;
+	border-bottom: none !important;
 }
 
 /* ============================================================
@@ -333,8 +333,8 @@ body .workspace-tab-header-container,
 body .workspace-side-prefer-input,
 body .workspace-side-prefer-output,
 body .workspace-leaf-resize-area {
-	border: none;
-	box-shadow: none;
+	border: none !important;
+	box-shadow: none !important;
 }
 
 /* Flat side panes */
@@ -345,19 +345,19 @@ body .side-dock-right,
 body .nav-files-container,
 body .file-tree-container,
 body .outline-container {
-	border-right: none;
-	border-left: none;
+	border-right: none !important;
+	border-left: none !important;
 }
 
 /* Flat titlebar */
 body .titlebar,
 body .titlebar-container {
-	border-bottom: none;
+	border-bottom: none !important;
 }
 
 /* Flat status bar */
 body .status-bar {
-	border-top: none;
+	border-top: none !important;
 }
 
 /* Flat menus */
@@ -365,37 +365,37 @@ body .menu,
 body .menu-content,
 body .context-menu,
 body .suggestion-container {
-	border: none;
-	box-shadow: none;
+	border: none !important;
+	box-shadow: none !important;
 }
 
 /* Flat tab bar */
 body .workspace-tab-header-inner,
 body .workspace-tab-header {
-	border-right: none;
-	border-left: none;
-	border-bottom: none;
+	border-right: none !important;
+	border-left: none !important;
+	border-bottom: none !important;
 }
 
 /* Flat modals */
 body .modal,
 body .modal-content,
 body .modal-bg {
-	border: none;
-	box-shadow: none;
+	border: none !important;
+	box-shadow: none !important;
 }
 
 /* Flat popovers */
 body .popover,
 body .popover-content {
-	border: none;
-	box-shadow: none;
+	border: none !important;
+	box-shadow: none !important;
 }
 
 /* Flat canvas */
 body .workspace-canvas,
 body .workspace-leaf-content {
-	border: none;
+	border: none !important;
 }
 
 /* Formatting markers (**, *, #, [], etc.) — dimmed in source / live preview */
@@ -970,7 +970,7 @@ body .markdown-source-view.mod-cm6 .callout .callout-title {
 
 .metadata-container {
 	background: var(--background-secondary);
-	border: none;
+	border: none !important;
 	border-radius: 0;
 	padding: var(--size-4-2);
 	margin-bottom: var(--size-4-4);
@@ -1035,14 +1035,14 @@ body .markdown-source-view.mod-cm6 .callout .callout-title {
 }
 .kanban-plugin__lane {
 	background: var(--background-secondary);
-	border: none;
+	border: none !important;
 }
 .kanban-plugin__lane-title {
 	color: var(--text-accent);
 }
 .kanban-plugin__item {
 	background: var(--background-primary);
-	border: none;
+	border: none !important;
 }
 
 /* Excalidraw */
