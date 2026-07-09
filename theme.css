@@ -576,36 +576,69 @@ body {
 	--inline-code-color: color-mix(in oklch, var(--color-accent), black 55%);
 }
 
-/* Inline code — reading mode */
-:not(pre) > code {
+/* Inline code — reading mode — dark */
+.theme-dark :not(pre) > code {
 	color: var(--inline-code-color) !important;
 	background: #1e1e1e !important;
 	border-radius: 0 !important;
 	padding: 0.15em 0.4em !important;
 }
 
-/* Inline code — live preview */
-.cm-inline-code:not(.cm-formatting):not(.cm-hmd-indented-code) {
+/* Inline code — reading mode — light */
+.theme-light :not(pre) > code {
+	color: var(--inline-code-color) !important;
+	background: #d0d0d0 !important;
+	border-radius: 0 !important;
+	padding: 0.15em 0.4em !important;
+}
+
+/* Inline code — live preview — dark */
+.theme-dark .cm-inline-code:not(.cm-formatting):not(.cm-hmd-indented-code) {
 	color: var(--inline-code-color) !important;
 	background: #1e1e1e !important;
 	border-radius: 0 !important;
 	padding: 0.15em 0.4em !important;
 }
 
-/* Code block — reading mode */
-.markdown-rendered pre {
+/* Inline code — live preview — light */
+.theme-light .cm-inline-code:not(.cm-formatting):not(.cm-hmd-indented-code) {
+	color: var(--inline-code-color) !important;
+	background: #d0d0d0 !important;
+	border-radius: 0 !important;
+	padding: 0.15em 0.4em !important;
+}
+
+/* Code block — reading mode — dark */
+.theme-dark .markdown-rendered pre {
 	background: #1e1e1e !important;
 	border-radius: 0 !important;
 }
-.markdown-rendered pre code {
+.theme-dark .markdown-rendered pre code {
 	background: #1e1e1e !important;
 	border-radius: 0 !important;
 	color: var(--inline-code-color) !important;
 }
 
-/* Code block — live preview / source */
-.HyperMD-codeblock {
+/* Code block — reading mode — light */
+.theme-light .markdown-rendered pre {
+	background: #d0d0d0 !important;
+	border-radius: 0 !important;
+}
+.theme-light .markdown-rendered pre code {
+	background: #d0d0d0 !important;
+	border-radius: 0 !important;
+	color: var(--inline-code-color) !important;
+}
+
+/* Code block — live preview / source — dark */
+.theme-dark .HyperMD-codeblock {
 	background: #1e1e1e !important;
+	color: var(--inline-code-color) !important;
+}
+
+/* Code block — live preview / source — light */
+.theme-light .HyperMD-codeblock {
+	background: #d0d0d0 !important;
 	color: var(--inline-code-color) !important;
 }
 
