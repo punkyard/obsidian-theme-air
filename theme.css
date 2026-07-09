@@ -801,19 +801,19 @@ input[data-task="X"]:checked::after,
 .markdown-preview-view li[data-task="X"] > .task-list-item-checkbox:checked::after,
 .HyperMD-list-line input[data-task="x"]:checked::after,
 .HyperMD-list-line input[data-task="X"]:checked::after {
-	content: '' !important;
+	content: '✕' !important;
 	position: absolute !important;
 	top: 50% !important;
 	left: 50% !important;
 	transform: translate(-50%, -50%) !important;
-	width: 10px !important;
-	height: 10px !important;
-	-webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='square'%3E%3Cline x1='4' y1='4' x2='20' y2='20'/%3E%3Cline x1='20' y1='4' x2='4' y2='20'/%3E%3C/svg%3E") !important;
-	-webkit-mask-size: 100% !important;
-	-webkit-mask-repeat: no-repeat !important;
-	-webkit-mask-position: center !important;
-	background-color: var(--text-accent) !important;
-	display: block !important;
+	width: 14px !important;
+	height: 14px !important;
+	display: flex !important;
+	align-items: center !important;
+	justify-content: center !important;
+	color: var(--text-accent) !important;
+	font-size: 11px !important;
+	line-height: 1 !important;
 }
 
 /* [v] / [V] = selected — accent background, dark checkmark
@@ -833,19 +833,19 @@ input[data-task="V"]:checked::after,
 .markdown-preview-view li[data-task="V"] > .task-list-item-checkbox:checked::after,
 .HyperMD-list-line input[data-task="v"]:checked::after,
 .HyperMD-list-line input[data-task="V"]:checked::after {
-	content: '' !important;
+	content: '✔' !important;
 	position: absolute !important;
 	top: 50% !important;
 	left: 50% !important;
 	transform: translate(-50%, -50%) !important;
-	width: 10px !important;
-	height: 10px !important;
-	-webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='square' stroke-linejoin='miter'%3E%3Cpolyline points='4 12 10 18 20 6'/%3E%3C/svg%3E") !important;
-	-webkit-mask-size: 100% !important;
-	-webkit-mask-repeat: no-repeat !important;
-	-webkit-mask-position: center !important;
-	background-color: var(--background-primary) !important;
-	display: block !important;
+	width: 14px !important;
+	height: 14px !important;
+	display: flex !important;
+	align-items: center !important;
+	justify-content: center !important;
+	color: var(--background-primary) !important;
+	font-size: 11px !important;
+	line-height: 1 !important;
 }
 
 /* [v] / [V] item text — accent color */
