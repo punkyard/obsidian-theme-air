@@ -771,14 +771,36 @@ body .cm-hashtag-end {
 	position: relative !important;
 }
 
-/* [x] / [X] = done — dark background, accent X mark */
-.markdown-preview-view li[data-task="x"] > .task-list-item-checkbox:checked,
-.markdown-preview-view li[data-task="X"] > .task-list-item-checkbox:checked {
-	background-color: var(--background-primary) !important;
+/* Unchecked — live preview accent border */
+.HyperMD-list-line input[type="checkbox"]:not(:checked) {
+	-webkit-appearance: none !important;
+	-moz-appearance: none !important;
+	appearance: none !important;
+	background-image: none !important;
+	background: var(--background-primary) !important;
+	border: 1px solid var(--text-accent) !important;
+	width: 14px !important;
+	height: 14px !important;
+	box-shadow: none !important;
+	position: relative !important;
 }
 
+/* [x] / [X] = done — dark background, accent X mark */
+input[data-task="x"]:checked,
+input[data-task="X"]:checked,
+.markdown-preview-view li[data-task="x"] > .task-list-item-checkbox:checked,
+.markdown-preview-view li[data-task="X"] > .task-list-item-checkbox:checked,
+.HyperMD-list-line input[data-task="x"]:checked,
+.HyperMD-list-line input[data-task="X"]:checked {
+	background-color: var(--text-muted) !important;
+}
+
+input[data-task="x"]:checked::after,
+input[data-task="X"]:checked::after,
 .markdown-preview-view li[data-task="x"] > .task-list-item-checkbox:checked::after,
-.markdown-preview-view li[data-task="X"] > .task-list-item-checkbox:checked::after {
+.markdown-preview-view li[data-task="X"] > .task-list-item-checkbox:checked::after,
+.HyperMD-list-line input[data-task="x"]:checked::after,
+.HyperMD-list-line input[data-task="X"]:checked::after {
 	content: '' !important;
 	position: absolute !important;
 	top: 50% !important;
@@ -824,6 +846,14 @@ input[data-task="V"]:checked::after,
 	-webkit-mask-position: center !important;
 	background-color: var(--background-primary) !important;
 	display: block !important;
+}
+
+/* [v] / [V] item text — accent color */
+.markdown-preview-view li[data-task="v"],
+.markdown-preview-view li[data-task="V"],
+.HyperMD-list-line[data-task="v"],
+.HyperMD-list-line[data-task="V"] {
+	color: var(--text-accent);
 }
 
 /* ============================================================
@@ -1049,12 +1079,14 @@ body .markdown-source-view.mod-cm6 .callout .callout-title {
 	border: none;
 	transition: background 0.15s ease;
 }
-.metadata-container:hover .metadata-property-value input,
-.metadata-container:hover .metadata-property-value .multi-select-container {
+.metadata-container:hover .metadata-property-value input {
 	background: var(--background-primary);
 }
+.metadata-container:hover .metadata-property-value .multi-select-container {
+	background: transparent;
+}
 .metadata-property-value .multi-select-pill {
-	background: var(--background-primary);
+	background: transparent;
 	color: var(--text-accent);
 	border: none !important;
 	--pill-color-remove: var(--text-faint);
@@ -1134,18 +1166,21 @@ body .markdown-source-view.mod-cm6 .callout .callout-title {
    GRAPH VIEW
    ============================================================ */
 
-.graph-view canvas {
+.theme-dark .graph-view canvas {
 	background: #0A0A0A;
 }
-.graph-view.color-fill              { color: #999999; }
+.theme-light .graph-view canvas {
+	background: #D8D8D8;
+}
+.graph-view.color-fill              { color: var(--graph-node); }
 .graph-view.color-fill-focused      { color: var(--text-accent); }
 .graph-view.color-fill-tag          { color: var(--text-accent); }
-.graph-view.color-fill-attachment   { color: #999999; }
-.graph-view.color-fill-unresolved   { color: #666666; }
+.graph-view.color-fill-attachment   { color: var(--graph-node-attachment); }
+.graph-view.color-fill-unresolved   { color: var(--graph-node-unresolved); }
 .graph-view.color-circle            { color: var(--text-accent); }
-.graph-view.color-line              { color: rgba(255, 255, 255, 0.06); }
-.graph-view.color-line-connection   { color: rgba(255, 255, 255, 0.06); }
-.graph-view.color-text              { color: #CCCCCC; }
+.graph-view.color-line              { color: var(--graph-line); }
+.graph-view.color-line-connection   { color: var(--graph-line); }
+.graph-view.color-text              { color: var(--graph-text); }
 .graph-view.color-fill-highlight    { color: var(--text-accent); }
 .graph-view.color-line-highlight    { color: var(--text-accent); }
-.graph-view.color-arrow             { color: #999999; }
+.graph-view.color-arrow             { color: var(--graph-node); }
