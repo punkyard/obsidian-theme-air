@@ -989,6 +989,12 @@ body .markdown-source-view.mod-cm6 .callout .callout-title {
 .metadata-properties-heading .collapse-indicator {
 	color: var(--text-muted);
 }
+.metadata-property {
+	border-bottom: none !important;
+}
+.metadata-property:focus-within {
+	background: transparent !important;
+}
 .metadata-property-key {
 	color: var(--text-muted);
 }
@@ -1009,6 +1015,9 @@ body .markdown-source-view.mod-cm6 .callout .callout-title {
 	background: var(--background-primary);
 	color: var(--text-accent);
 	border: 1px solid var(--text-accent);
+}
+.metadata-property-value .multi-select-pill .multi-select-pill-remove {
+	color: var(--text-accent);
 }
 
 .metadata-add-button {
