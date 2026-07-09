@@ -189,8 +189,8 @@ body.theme-dark .tree-sorting-button {
 /* Remove structural pane/tab borders */
 body.theme-dark .workspace-leaf-resize-handle,
 body.theme-dark .view-header {
-	border: none;
-	box-shadow: none;
+	border: none !important;
+	box-shadow: none !important;
 }
 
 /* Bold, italic, highlight — direct element overrides */
@@ -290,9 +290,9 @@ body.theme-light .side-dock-vertical,
 body.theme-light .workspace-leaf-resize-area,
 body.theme-light .status-bar,
 body.theme-light .titlebar {
-	border-right: none;
-	border-top: none;
-	border-bottom: none;
+	border-right: none !important;
+	border-top: none !important;
+	border-bottom: none !important;
 }
 
 /* ============================================================
@@ -333,8 +333,8 @@ body .workspace-tab-header-container,
 body .workspace-side-prefer-input,
 body .workspace-side-prefer-output,
 body .workspace-leaf-resize-area {
-	border: none;
-	box-shadow: none;
+	border: none !important;
+	box-shadow: none !important;
 }
 
 /* Flat side panes */
@@ -345,19 +345,19 @@ body .side-dock-right,
 body .nav-files-container,
 body .file-tree-container,
 body .outline-container {
-	border-right: none;
-	border-left: none;
+	border-right: none !important;
+	border-left: none !important;
 }
 
 /* Flat titlebar */
 body .titlebar,
 body .titlebar-container {
-	border-bottom: none;
+	border-bottom: none !important;
 }
 
 /* Flat status bar */
 body .status-bar {
-	border-top: none;
+	border-top: none !important;
 }
 
 /* Flat menus */
@@ -365,37 +365,37 @@ body .menu,
 body .menu-content,
 body .context-menu,
 body .suggestion-container {
-	border: none;
-	box-shadow: none;
+	border: none !important;
+	box-shadow: none !important;
 }
 
 /* Flat tab bar */
 body .workspace-tab-header-inner,
 body .workspace-tab-header {
-	border-right: none;
-	border-left: none;
-	border-bottom: none;
+	border-right: none !important;
+	border-left: none !important;
+	border-bottom: none !important;
 }
 
 /* Flat modals */
 body .modal,
 body .modal-content,
 body .modal-bg {
-	border: none;
-	box-shadow: none;
+	border: none !important;
+	box-shadow: none !important;
 }
 
 /* Flat popovers */
 body .popover,
 body .popover-content {
-	border: none;
-	box-shadow: none;
+	border: none !important;
+	box-shadow: none !important;
 }
 
 /* Flat canvas */
 body .workspace-canvas,
 body .workspace-leaf-content {
-	border: none;
+	border: none !important;
 }
 
 /* Formatting markers (**, *, #, [], etc.) — dimmed in source / live preview */
@@ -926,4 +926,128 @@ body .markdown-source-view.mod-cm6 .callout .callout-title {
 .theme-dark .lindar-view {
 	--background-modifier-border: rgba(255, 255, 255, 0.07);
 	--background-secondary: #141414;
+}
+
+/* ============================================================
+   GRAPH VIEW
+   ============================================================ */
+
+.graph-view.color-fill              { color: var(--text-muted); }
+.graph-view.color-fill-focused      { color: var(--text-accent); }
+.graph-view.color-fill-tag          { color: var(--text-accent); }
+.graph-view.color-fill-attachment   { color: var(--text-muted); }
+.graph-view.color-fill-unresolved   { color: var(--text-faint); }
+.graph-view.color-circle            { color: var(--text-accent); }
+.graph-view.color-line              { color: rgba(255, 255, 255, 0.06); }
+.graph-view.color-line-connection   { color: rgba(255, 255, 255, 0.06); }
+.graph-view.color-text              { color: var(--text-normal); }
+.graph-view.color-fill-highlight    { color: var(--text-accent); }
+.graph-view.color-line-highlight    { color: var(--text-accent); }
+
+/* ============================================================
+   SEARCH
+   ============================================================ */
+
+.search-result-file-title {
+	color: var(--text-accent);
+	font-weight: 600;
+}
+.search-result-file-matched-text {
+	background: transparent;
+	color: var(--text-accent);
+	font-weight: 600;
+}
+.search-result-file-match {
+	color: var(--text-muted);
+}
+.search-result:hover {
+	background: var(--background-secondary);
+}
+
+/* ============================================================
+   PROPERTIES (O 1.4+)
+   ============================================================ */
+
+.metadata-container {
+	background: var(--background-secondary);
+	border: none !important;
+	border-radius: 0;
+	padding: var(--size-4-2);
+	margin-bottom: var(--size-4-4);
+}
+.metadata-properties-heading {
+	color: var(--text-accent);
+}
+.metadata-properties-heading .collapse-indicator {
+	color: var(--text-muted);
+}
+.metadata-property-key {
+	color: var(--text-muted);
+}
+.metadata-property-value {
+	color: var(--text-normal);
+}
+.metadata-property-value input,
+.metadata-property-value .multi-select-container {
+	background: var(--background-primary);
+	border: none;
+}
+.metadata-property-value .multi-select-pill {
+	background: var(--background-primary);
+	color: var(--text-accent);
+	border: 1px solid var(--text-accent);
+}
+
+/* ============================================================
+   MOBILE
+   ============================================================ */
+
+.is-mobile .workspace-drawer {
+	background: var(--background-primary);
+}
+.is-mobile .workspace-drawer-header {
+	background: var(--background-secondary);
+}
+.is-mobile .workspace-drawer-header-name {
+	color: var(--text-accent);
+}
+.is-mobile .workspace-drawer-actions,
+.is-mobile .workspace-drawer-action-icon {
+	color: var(--text-accent);
+}
+.is-mobile .workspace-drawer-tab-option-item {
+	color: var(--text-normal);
+}
+.is-mobile .workspace-drawer-tab-option-item.is-active {
+	color: var(--text-accent);
+}
+.is-mobile .nav-files-container {
+	background: var(--background-primary);
+}
+
+/* ============================================================
+   PLUGIN OVERRIDES
+   ============================================================ */
+
+/* Kanban */
+.kanban-plugin__board {
+	background: var(--background-primary);
+}
+.kanban-plugin__lane {
+	background: var(--background-secondary);
+	border: none !important;
+}
+.kanban-plugin__lane-title {
+	color: var(--text-accent);
+}
+.kanban-plugin__item {
+	background: var(--background-primary);
+	border: none !important;
+}
+
+/* Excalidraw */
+.excalidraw .App-menu_top,
+.excalidraw .App-menu_bottom {
+	background: var(--background-secondary) !important;
+	--button-border: none;
 }
