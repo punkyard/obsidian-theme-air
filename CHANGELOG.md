@@ -10,4 +10,4 @@
 - Custom Syne heading font
 - Zero border-radius, no pane borders
 - Ribbon hides until hover
-- mobile suppor
+- mobile support

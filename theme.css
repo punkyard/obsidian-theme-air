@@ -109,88 +109,88 @@ body {
 }
 
 /* Flat dark background — all UI elements uniform */
-.theme-dark,
-.theme-dark .workspace,
-.theme-dark .workspace-split,
-.theme-dark .workspace-leaf,
-.theme-dark .workspace-tabs,
-.theme-dark .workspace-tab-header,
-.theme-dark .workspace-tab-header-container,
-.theme-dark .sidebar,
-.theme-dark .side-dock,
-.theme-dark .side-dock-left,
-.theme-dark .side-dock-right,
-.theme-dark .side-dock-top,
-.theme-dark .side-dock-bottom,
-.theme-dark .nav-files-container,
-.theme-dark .file-tree-container,
-.theme-dark .outline-container,
-.theme-dark .titlebar,
-.theme-dark .status-bar,
-.theme-dark .menu,
-.theme-dark .menu-content,
-.theme-dark .context-menu,
-.theme-dark .modal,
-.theme-dark .modal-content,
-.theme-dark .modal-bg,
-.theme-dark .popover,
-.theme-dark .popover-content,
-.theme-dark .suggestion-container,
-.theme-dark .suggestion-item,
-.theme-dark .prompt,
-.theme-dark .prompt-input,
-.theme-dark .prompt-results,
-.theme-dark .workspace-mobile-sidebar,
-.theme-dark .sidebar-toggle-button,
-.theme-dark .side-dock-settings,
-.theme-dark .side-dock-help,
-.theme-dark .side-dock-action,
-.theme-dark .nav-folder,
-.theme-dark .nav-file,
-.theme-dark .nav-file-title,
-.theme-dark .nav-folder-title,
-.theme-dark .workspace-left-sidebar,
-.theme-dark .workspace-right-sidebar,
-.theme-dark .view-header,
-.theme-dark .view-content,
-.theme-dark .pane,
-.theme-dark .pane-empty,
-.theme-dark .empty-state,
-.theme-dark .titlebar-button,
-.theme-dark .workspace-tab-header-inner,
-.theme-dark .side-dock-action-item,
-.theme-dark .nav-action-button,
-.theme-dark .side-dock-title,
-.theme-dark .status-bar-item,
-.theme-dark .nav-file-button,
-.theme-dark .nav-action,
-.theme-dark .workspace-leaf-content,
-.theme-dark .view-content > *,
-.theme-dark .mod-root .workspace-tabs,
-.theme-dark .mod-root .workspace-tab-container,
-.theme-dark .clickable-icon,
-.theme-dark .action-icon,
-.theme-dark .workspace-ribbon,
-.theme-dark .workspace-ribbon-side,
-.theme-dark .side-bar,
-.theme-dark .vault-switcher,
-.theme-dark .vault-switcher-item,
-.theme-dark .search-result-file-title,
-.theme-dark .tree-item-self,
-.theme-dark .tree-item-children,
-.theme-dark .nav-folder-children,
-.theme-dark .file-explorer,
-.theme-dark .file-explorer-collapse-indicator,
-.theme-dark .list-item,
-.theme-dark .tree-sorting-button {
-	background-color: var(--background-primary) !important;
+body.theme-dark,
+body.theme-dark .workspace,
+body.theme-dark .workspace-split,
+body.theme-dark .workspace-leaf,
+body.theme-dark .workspace-tabs,
+body.theme-dark .workspace-tab-header,
+body.theme-dark .workspace-tab-header-container,
+body.theme-dark .sidebar,
+body.theme-dark .side-dock,
+body.theme-dark .side-dock-left,
+body.theme-dark .side-dock-right,
+body.theme-dark .side-dock-top,
+body.theme-dark .side-dock-bottom,
+body.theme-dark .nav-files-container,
+body.theme-dark .file-tree-container,
+body.theme-dark .outline-container,
+body.theme-dark .titlebar,
+body.theme-dark .status-bar,
+body.theme-dark .menu,
+body.theme-dark .menu-content,
+body.theme-dark .context-menu,
+body.theme-dark .modal,
+body.theme-dark .modal-content,
+body.theme-dark .modal-bg,
+body.theme-dark .popover,
+body.theme-dark .popover-content,
+body.theme-dark .suggestion-container,
+body.theme-dark .suggestion-item,
+body.theme-dark .prompt,
+body.theme-dark .prompt-input,
+body.theme-dark .prompt-results,
+body.theme-dark .workspace-mobile-sidebar,
+body.theme-dark .sidebar-toggle-button,
+body.theme-dark .side-dock-settings,
+body.theme-dark .side-dock-help,
+body.theme-dark .side-dock-action,
+body.theme-dark .nav-folder,
+body.theme-dark .nav-file,
+body.theme-dark .nav-file-title,
+body.theme-dark .nav-folder-title,
+body.theme-dark .workspace-left-sidebar,
+body.theme-dark .workspace-right-sidebar,
+body.theme-dark .view-header,
+body.theme-dark .view-content,
+body.theme-dark .pane,
+body.theme-dark .pane-empty,
+body.theme-dark .empty-state,
+body.theme-dark .titlebar-button,
+body.theme-dark .workspace-tab-header-inner,
+body.theme-dark .side-dock-action-item,
+body.theme-dark .nav-action-button,
+body.theme-dark .side-dock-title,
+body.theme-dark .status-bar-item,
+body.theme-dark .nav-file-button,
+body.theme-dark .nav-action,
+body.theme-dark .workspace-leaf-content,
+body.theme-dark .view-content > *,
+body.theme-dark .mod-root .workspace-tabs,
+body.theme-dark .mod-root .workspace-tab-container,
+body.theme-dark .clickable-icon,
+body.theme-dark .action-icon,
+body.theme-dark .workspace-ribbon,
+body.theme-dark .workspace-ribbon-side,
+body.theme-dark .side-bar,
+body.theme-dark .vault-switcher,
+body.theme-dark .vault-switcher-item,
+body.theme-dark .search-result-file-title,
+body.theme-dark .tree-item-self,
+body.theme-dark .tree-item-children,
+body.theme-dark .nav-folder-children,
+body.theme-dark .file-explorer,
+body.theme-dark .file-explorer-collapse-indicator,
+body.theme-dark .list-item,
+body.theme-dark .tree-sorting-button {
+	background-color: var(--background-primary);
 }
 
 /* Remove structural pane/tab borders */
-.theme-dark .workspace-leaf-resize-handle,
-.theme-dark .view-header {
-	border: none !important;
-	box-shadow: none !important;
+body.theme-dark .workspace-leaf-resize-handle,
+body.theme-dark .view-header {
+	border: none;
+	box-shadow: none;
 }
 
 /* Bold, italic, highlight — direct element overrides */
@@ -279,20 +279,20 @@ body {
 }
 
 /* Flat borders — light mode */
-.theme-light .workspace-split,
-.theme-light .workspace-split > *,
-.theme-light .workspace-leaf,
-.theme-light .workspace-tabs,
-.theme-light .workspace-tab-header-container,
-.theme-light .workspace-side-prefer-input,
-.theme-light .workspace-side-prefer-output,
-.theme-light .side-dock-vertical,
-.theme-light .workspace-leaf-resize-area,
-.theme-light .status-bar,
-.theme-light .titlebar {
-	border-right: none !important;
-	border-top: none !important;
-	border-bottom: none !important;
+body.theme-light .workspace-split,
+body.theme-light .workspace-split > *,
+body.theme-light .workspace-leaf,
+body.theme-light .workspace-tabs,
+body.theme-light .workspace-tab-header-container,
+body.theme-light .workspace-side-prefer-input,
+body.theme-light .workspace-side-prefer-output,
+body.theme-light .side-dock-vertical,
+body.theme-light .workspace-leaf-resize-area,
+body.theme-light .status-bar,
+body.theme-light .titlebar {
+	border-right: none;
+	border-top: none;
+	border-bottom: none;
 }
 
 /* ============================================================
@@ -325,83 +325,83 @@ svg * {
 }
 
 /* Flat workspace splits */
-.workspace-split,
-.workspace-split > *,
-.workspace-leaf,
-.workspace-tabs,
-.workspace-tab-header-container,
-.workspace-side-prefer-input,
-.workspace-side-prefer-output,
-.workspace-leaf-resize-area {
-	border: none !important;
-	box-shadow: none !important;
+body .workspace-split,
+body .workspace-split > *,
+body .workspace-leaf,
+body .workspace-tabs,
+body .workspace-tab-header-container,
+body .workspace-side-prefer-input,
+body .workspace-side-prefer-output,
+body .workspace-leaf-resize-area {
+	border: none;
+	box-shadow: none;
 }
 
 /* Flat side panes */
-.side-dock,
-.side-dock-vertical,
-.side-dock-left,
-.side-dock-right,
-.nav-files-container,
-.file-tree-container,
-.outline-container {
-	border-right: none !important;
-	border-left: none !important;
+body .side-dock,
+body .side-dock-vertical,
+body .side-dock-left,
+body .side-dock-right,
+body .nav-files-container,
+body .file-tree-container,
+body .outline-container {
+	border-right: none;
+	border-left: none;
 }
 
 /* Flat titlebar */
-.titlebar,
-.titlebar-container {
-	border-bottom: none !important;
+body .titlebar,
+body .titlebar-container {
+	border-bottom: none;
 }
 
 /* Flat status bar */
-.status-bar {
-	border-top: none !important;
+body .status-bar {
+	border-top: none;
 }
 
 /* Flat menus */
-.menu,
-.menu-content,
-.context-menu,
-.suggestion-container {
-	border: none !important;
-	box-shadow: none !important;
+body .menu,
+body .menu-content,
+body .context-menu,
+body .suggestion-container {
+	border: none;
+	box-shadow: none;
 }
 
 /* Flat tab bar */
-.workspace-tab-header-inner,
-.workspace-tab-header {
-	border-right: none !important;
-	border-left: none !important;
-	border-bottom: none !important;
+body .workspace-tab-header-inner,
+body .workspace-tab-header {
+	border-right: none;
+	border-left: none;
+	border-bottom: none;
 }
 
 /* Flat modals */
-.modal,
-.modal-content,
-.modal-bg {
-	border: none !important;
-	box-shadow: none !important;
+body .modal,
+body .modal-content,
+body .modal-bg {
+	border: none;
+	box-shadow: none;
 }
 
 /* Flat popovers */
-.popover,
-.popover-content {
-	border: none !important;
-	box-shadow: none !important;
+body .popover,
+body .popover-content {
+	border: none;
+	box-shadow: none;
 }
 
 /* Flat canvas */
-.workspace-canvas,
-.workspace-leaf-content {
-	border: none !important;
+body .workspace-canvas,
+body .workspace-leaf-content {
+	border: none;
 }
 
 /* Formatting markers (**, *, #, [], etc.) — dimmed in source / live preview */
-.cm-s-obsidian .cm-formatting,
-.cm-editor .cm-formatting {
-	color: var(--text-faint) !important;
+body .cm-s-obsidian .cm-formatting,
+body .cm-editor .cm-formatting {
+	color: var(--text-faint);
 	opacity: 0.7;
 }
 
@@ -443,21 +443,21 @@ svg * {
    ============================================================ */
 
 /* Active tab title */
-.workspace-tab-header.is-active .workspace-tab-header-inner-title {
-	color: var(--text-accent) !important;
+body .workspace-tab-header.is-active .workspace-tab-header-inner-title {
+	color: var(--text-accent);
 }
 
 /* Active file in explorer */
-.nav-file-title.is-active,
+body .nav-file-title.is-active,
 body:not(.is-grabbing) .nav-file-title.is-active,
 body:not(.is-grabbing) .nav-file-title.is-active:hover {
-	color: var(--text-accent) !important;
+	color: var(--text-accent);
 }
 
 /* Active section in Outline panel */
-[data-type="outline"] .tree-item-self.is-active,
-[data-type="outline"] .tree-item-self.is-active .tree-item-inner {
-	color: var(--text-accent) !important;
+body [data-type="outline"] .tree-item-self.is-active,
+body [data-type="outline"] .tree-item-self.is-active .tree-item-inner {
+	color: var(--text-accent);
 }
 
 /* ============================================================
@@ -602,22 +602,22 @@ body {
 }
 
 /* Header row — grey background, accent text, no alternation */
-.markdown-rendered th,
-.markdown-source-view.mod-cm6 th {
-	background-color: rgba(255, 255, 255, 0.1) !important;
-	color: var(--text-accent) !important;
+body .markdown-rendered th,
+body .markdown-source-view.mod-cm6 th {
+	background-color: rgba(255, 255, 255, 0.1);
+	color: var(--text-accent);
 }
 
 /* Kill any alternating row colors */
-.markdown-rendered tr,
-.markdown-source-view.mod-cm6 tr {
-	background-color: transparent !important;
+body .markdown-rendered tr,
+body .markdown-source-view.mod-cm6 tr {
+	background-color: transparent;
 }
 
 /* Alternating body rows */
-.markdown-rendered tbody tr:nth-child(even),
-.markdown-source-view.mod-cm6 tbody tr:nth-child(even) {
-	background-color: rgba(255, 255, 255, 0.04) !important;
+body .markdown-rendered tbody tr:nth-child(even),
+body .markdown-source-view.mod-cm6 tbody tr:nth-child(even) {
+	background-color: rgba(255, 255, 255, 0.04);
 }
 
 /* ============================================================
@@ -656,8 +656,11 @@ body {
 }
 
 /* Live preview — bottom padding on last quote line only */
-.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote:not(:has(+ .HyperMD-quote)) {
+.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote {
 	padding-bottom: 0.6em;
+}
+.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote + .HyperMD-quote {
+	padding-bottom: 0;
 }
 
 /* ============================================================
@@ -680,26 +683,26 @@ body {
    ============================================================ */
 
 /* Reading view */
-a.tag {
-	padding: 0 !important;
-	margin: 0 !important;
-	background: none !important;
-	border: none !important;
-	border-radius: 0 !important;
-	color: var(--text-accent) !important;
-	line-height: inherit !important;
+body a.tag {
+	padding: 0;
+	margin: 0;
+	background: none;
+	border: none;
+	border-radius: 0;
+	color: var(--text-accent);
+	line-height: inherit;
 }
 
 /* Live preview / source mode */
-.cm-hashtag,
-.cm-hashtag-begin,
-.cm-hashtag-end {
-	padding: 0 !important;
-	margin: 0 !important;
-	background: none !important;
-	border: none !important;
-	border-radius: 0 !important;
-	color: var(--text-accent) !important;
+body .cm-hashtag,
+body .cm-hashtag-begin,
+body .cm-hashtag-end {
+	padding: 0;
+	margin: 0;
+	background: none;
+	border: none;
+	border-radius: 0;
+	color: var(--text-accent);
 }
 
 /* ============================================================
@@ -739,10 +742,6 @@ a.tag {
 	-webkit-mask-size: 100% !important;
 	-webkit-mask-repeat: no-repeat !important;
 	-webkit-mask-position: center !important;
-	mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='square'%3E%3Cline x1='4' y1='4' x2='20' y2='20'/%3E%3Cline x1='20' y1='4' x2='4' y2='20'/%3E%3C/svg%3E") !important;
-	mask-size: 100% !important;
-	mask-repeat: no-repeat !important;
-	mask-position: center !important;
 	background-color: var(--text-accent) !important;
 	display: block !important;
 }
@@ -775,10 +774,6 @@ input[data-task="V"]:checked::after,
 	-webkit-mask-size: 100% !important;
 	-webkit-mask-repeat: no-repeat !important;
 	-webkit-mask-position: center !important;
-	mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='square' stroke-linejoin='miter'%3E%3Cpolyline points='4 12 10 18 20 6'/%3E%3C/svg%3E") !important;
-	mask-size: 100% !important;
-	mask-repeat: no-repeat !important;
-	mask-position: center !important;
 	background-color: var(--background-primary) !important;
 	display: block !important;
 }
@@ -860,14 +855,14 @@ input[data-task="V"]:checked::after,
 }
 
 /* In live preview: zero internal top padding so line number aligns with callout title */
-.markdown-source-view.mod-cm6 .callout {
-	padding-top: 0 !important;
-	margin-top: 2em !important;
+body .markdown-source-view.mod-cm6 .callout {
+	padding-top: 0;
+	margin-top: 2em;
 }
 
 /* Restore visual top padding inside the title in live preview */
-.markdown-source-view.mod-cm6 .callout .callout-title {
-	padding-top: 12px !important;
+body .markdown-source-view.mod-cm6 .callout .callout-title {
+	padding-top: 12px;
 }
 
 /* ── Informational: hue shifts from accent, 8 groups × 45° ── */
