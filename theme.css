@@ -364,6 +364,7 @@ body .status-bar {
 body .menu,
 body .menu-content,
 body .context-menu,
+body .prompt,
 body .suggestion-container {
 	border: none !important;
 	box-shadow: none !important;
@@ -928,21 +929,7 @@ body .markdown-source-view.mod-cm6 .callout .callout-title {
 	--background-secondary: #141414;
 }
 
-/* ============================================================
-   GRAPH VIEW
-   ============================================================ */
 
-.graph-view.color-fill              { color: var(--text-muted); }
-.graph-view.color-fill-focused      { color: var(--text-accent); }
-.graph-view.color-fill-tag          { color: var(--text-accent); }
-.graph-view.color-fill-attachment   { color: var(--text-muted); }
-.graph-view.color-fill-unresolved   { color: var(--text-faint); }
-.graph-view.color-circle            { color: var(--text-accent); }
-.graph-view.color-line              { color: rgba(255, 255, 255, 0.06); }
-.graph-view.color-line-connection   { color: rgba(255, 255, 255, 0.06); }
-.graph-view.color-text              { color: var(--text-normal); }
-.graph-view.color-fill-highlight    { color: var(--text-accent); }
-.graph-view.color-line-highlight    { color: var(--text-accent); }
 
 /* ============================================================
    SEARCH
