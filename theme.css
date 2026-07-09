@@ -993,8 +993,13 @@ body .markdown-source-view.mod-cm6 .callout .callout-title {
 }
 .metadata-property-value input,
 .metadata-property-value .multi-select-container {
-	background: var(--background-primary);
+	background: transparent;
 	border: none;
+	transition: background 0.15s ease;
+}
+.metadata-container:hover .metadata-property-value input,
+.metadata-container:hover .metadata-property-value .multi-select-container {
+	background: var(--background-primary);
 }
 .metadata-property-value .multi-select-pill {
 	background: var(--background-primary);
