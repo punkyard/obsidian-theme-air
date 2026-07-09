@@ -1079,12 +1079,14 @@ body .markdown-source-view.mod-cm6 .callout .callout-title {
 	border: none;
 	transition: background 0.15s ease;
 }
-.metadata-container:hover .metadata-property-value input,
-.metadata-container:hover .metadata-property-value .multi-select-container {
+.metadata-container:hover .metadata-property-value input {
 	background: var(--background-primary);
 }
+.metadata-container:hover .metadata-property-value .multi-select-container {
+	background: transparent;
+}
 .metadata-property-value .multi-select-pill {
-	background: var(--background-primary);
+	background: transparent;
 	color: var(--text-accent);
 	border: none !important;
 	--pill-color-remove: var(--text-faint);
