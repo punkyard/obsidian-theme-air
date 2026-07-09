@@ -106,6 +106,15 @@ body {
 	--shadow-s: none;
 	--shadow-m: none;
 	--shadow-l: none;
+
+	/* Graph view */
+	--graph-text: #CCCCCC;
+	--graph-line: rgba(255, 255, 255, 0.06);
+	--graph-node: #999999;
+	--graph-node-focused: var(--text-accent);
+	--graph-node-unresolved: #666666;
+	--graph-node-tag: var(--text-accent);
+	--graph-node-attachment: #999999;
 }
 
 /* Flat dark background — all UI elements uniform */
@@ -239,6 +248,15 @@ body.theme-dark .view-header {
 	--shadow-s: none;
 	--shadow-m: none;
 	--shadow-l: none;
+
+	/* Graph view */
+	--graph-text: #333333;
+	--graph-line: rgba(0, 0, 0, 0.08);
+	--graph-node: #666666;
+	--graph-node-focused: var(--text-accent);
+	--graph-node-unresolved: #999999;
+	--graph-node-tag: var(--text-accent);
+	--graph-node-attachment: #666666;
 
 	/* Dividers */
 	--divider-color: transparent;
@@ -1042,8 +1060,19 @@ body .markdown-source-view.mod-cm6 .callout .callout-title {
 /* ============================================================
    GRAPH VIEW
    ============================================================ */
-/* remove ALL `.graph-view.color-*` — let Obsidian use its own
-   internal bridge + vars. Only set canvas bg so it matches theme. */
+
 .graph-view canvas {
 	background: #0A0A0A;
 }
+.graph-view.color-fill              { color: #999999; }
+.graph-view.color-fill-focused      { color: var(--text-accent); }
+.graph-view.color-fill-tag          { color: var(--text-accent); }
+.graph-view.color-fill-attachment   { color: #999999; }
+.graph-view.color-fill-unresolved   { color: #666666; }
+.graph-view.color-circle            { color: var(--text-accent); }
+.graph-view.color-line              { color: rgba(255, 255, 255, 0.06); }
+.graph-view.color-line-connection   { color: rgba(255, 255, 255, 0.06); }
+.graph-view.color-text              { color: #CCCCCC; }
+.graph-view.color-fill-highlight    { color: var(--text-accent); }
+.graph-view.color-line-highlight    { color: var(--text-accent); }
+.graph-view.color-arrow             { color: #999999; }
