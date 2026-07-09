@@ -1038,20 +1038,3 @@ body .markdown-source-view.mod-cm6 .callout .callout-title {
 	background: var(--background-secondary) !important;
 	--button-border: none;
 }
-
-/* ============================================================
-   GRAPH VIEW
-   ============================================================ */
-
-.graph-view.color-fill              { color: #999999 !important; }
-.graph-view.color-fill-focused      { color: var(--text-accent) !important; }
-.graph-view.color-fill-tag          { color: var(--text-accent) !important; }
-.graph-view.color-fill-attachment   { color: #999999 !important; }
-.graph-view.color-fill-unresolved   { color: #666666 !important; }
-.graph-view.color-circle            { color: var(--text-accent) !important; }
-.graph-view.color-line              { color: rgba(255, 255, 255, 0.06) !important; }
-.graph-view.color-line-connection   { color: rgba(255, 255, 255, 0.06) !important; }
-.graph-view.color-text              { color: #CCCCCC !important; }
-.graph-view.color-fill-highlight    { color: var(--text-accent) !important; }
-.graph-view.color-line-highlight    { color: var(--text-accent) !important; }
-.graph-view.color-arrow             { color: #999999 !important; }
