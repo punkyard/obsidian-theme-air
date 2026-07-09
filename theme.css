@@ -973,11 +973,15 @@ body .markdown-source-view.mod-cm6 .callout .callout-title {
    ============================================================ */
 
 .metadata-container {
-	background: var(--background-secondary);
+	background: transparent;
 	border: none !important;
 	border-radius: 0;
 	padding: var(--size-4-2);
 	margin-bottom: var(--size-4-4);
+	transition: background 0.15s ease;
+}
+.metadata-container:hover {
+	background: var(--background-secondary);
 }
 .metadata-properties-heading {
 	color: var(--text-accent);
@@ -1009,6 +1013,7 @@ body .markdown-source-view.mod-cm6 .callout .callout-title {
 
 .metadata-add-button {
 	opacity: 0;
+	border-top: none !important;
 	transition: opacity 0.15s ease;
 }
 .metadata-container:hover .metadata-add-button,
