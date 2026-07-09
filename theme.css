@@ -75,7 +75,7 @@ body {
 	--background-primary-alt: #0A0A0A;
 
 	/* Text */
-	--text-normal: color-mix(in srgb, #CCCCCC 90%, var(--text-accent));
+	--text-normal: #CCCCCC;
 	--text-muted: #999999;
 	--text-faint: #666666;
 
@@ -1042,16 +1042,8 @@ body .markdown-source-view.mod-cm6 .callout .callout-title {
 /* ============================================================
    GRAPH VIEW
    ============================================================ */
-
-.graph-view.color-fill              { color: #999999 !important; }
-.graph-view.color-fill-focused      { color: var(--text-accent) !important; }
-.graph-view.color-fill-tag          { color: var(--text-accent) !important; }
-.graph-view.color-fill-attachment   { color: #999999 !important; }
-.graph-view.color-fill-unresolved   { color: #666666 !important; }
-.graph-view.color-circle            { color: var(--text-accent) !important; }
-.graph-view.color-line              { color: rgba(255, 255, 255, 0.06) !important; }
-.graph-view.color-line-connection   { color: rgba(255, 255, 255, 0.06) !important; }
-.graph-view.color-text              { color: #CCCCCC !important; }
-.graph-view.color-fill-highlight    { color: var(--text-accent) !important; }
-.graph-view.color-line-highlight    { color: var(--text-accent) !important; }
-.graph-view.color-arrow             { color: #999999 !important; }
+/* remove ALL `.graph-view.color-*` — let Obsidian use its own
+   internal bridge + vars. Only set canvas bg so it matches theme. */
+.graph-view canvas {
+	background: #0A0A0A;
+}
