@@ -1002,6 +1002,15 @@ body .markdown-source-view.mod-cm6 .callout .callout-title {
 	border: 1px solid var(--text-accent);
 }
 
+.metadata-add-button {
+	opacity: 0;
+	transition: opacity 0.15s ease;
+}
+.metadata-container:hover .metadata-add-button,
+.metadata-add-button:focus-visible {
+	opacity: 1;
+}
+
 /* ============================================================
    MOBILE
    ============================================================ */
