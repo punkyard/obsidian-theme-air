@@ -984,7 +984,12 @@ body .markdown-source-view.mod-cm6 .callout .callout-title {
 	background: var(--background-secondary);
 }
 .metadata-properties-heading {
+	opacity: 0;
 	color: var(--text-accent);
+	transition: opacity 0.15s ease;
+}
+.metadata-container:hover .metadata-properties-heading {
+	opacity: 1;
 }
 .metadata-properties-heading .collapse-indicator {
 	color: var(--text-muted);
@@ -1022,16 +1027,13 @@ body .markdown-source-view.mod-cm6 .callout .callout-title {
 	background: var(--background-primary);
 	color: var(--text-accent);
 	border: none !important;
+	--pill-color-remove: var(--text-faint);
+	--pill-color-remove-hover: var(--text-faint);
 }
-.metadata-property-value .multi-select-pill .multi-select-pill-remove {
-	color: var(--text-muted) !important;
-}
-.metadata-property-value .multi-select-pill .multi-select-pill-remove:hover {
-	color: var(--text-muted) !important;
-}
-.metadata-property-value .multi-select-pill .multi-select-pill-remove svg {
-	color: var(--text-muted) !important;
-	stroke: var(--text-muted) !important;
+.metadata-properties .multi-select-pill svg.svg-icon {
+	--icon-color: var(--text-faint);
+	--icon-size: 11px;
+	color: var(--text-faint);
 }
 
 .metadata-add-button {
