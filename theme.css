@@ -474,6 +474,23 @@ body [data-type="outline"] .tree-item-self.is-active .tree-item-inner {
 }
 
 /* ============================================================
+   EXPLORER FOLDER DEPTH COLORS
+   ============================================================ */
+
+/* Root level (no / in data-path = top-level) — H1 */
+body .nav-files-container .nav-folder-title:not([data-path*="/"]) { color: var(--h1-color); }
+/* Level 1 — H2 */
+body .nav-files-container .nav-folder-children .nav-folder-title { color: var(--h2-color); }
+/* Level 2 — H3 */
+body .nav-files-container .nav-folder-children .nav-folder-children .nav-folder-title { color: var(--h3-color); }
+/* Level 3 — H4 */
+body .nav-files-container .nav-folder-children .nav-folder-children .nav-folder-children .nav-folder-title { color: var(--h4-color); }
+/* Level 4 — H5 */
+body .nav-files-container .nav-folder-children .nav-folder-children .nav-folder-children .nav-folder-children .nav-folder-title { color: var(--h5-color); }
+/* Level 5+ — cap at H6 */
+body .nav-files-container .nav-folder-children .nav-folder-children .nav-folder-children .nav-folder-children .nav-folder-children .nav-folder-title { color: var(--h6-color); }
+
+/* ============================================================
    HEADING AND PARAGRAPH SPACING
    ============================================================ */
 
