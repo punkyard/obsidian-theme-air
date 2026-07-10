@@ -748,12 +748,6 @@ body .markdown-source-view.mod-cm6 tbody tr:nth-child(even) {
 	padding-inline-end: 0.5em;
 }
 
-/* Live preview: bullet-to-text gap */
-.cm-formatting-list-ul,
-.cm-formatting-list-ol {
-	padding-inline-end: 0.4em;
-}
-
 /* ============================================================
    TAGS
    ============================================================ */
