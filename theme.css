@@ -1,19 +1,11 @@
-/* Punkyard Theme v1.0
- * 
- * Features:
- * - All headings (H1-H6) use Obsidian accent color from Settings → Appearance
- * - Bold, italic, highlight text use Obsidian accent color
- * - Ultra dark flat theme (no borders/dividers between panes)
- * - Text is light grey (#CCCCCC), never pure white
- * - Supports both light and dark modes
- * 
- * Dark mode colors:
- * - Background: #0A0A0A (primary), #111111 (secondary)
- * - Text: #CCCCCC (normal), #999999 (muted), #666666 (faint)
- * 
- * Light mode colors:
- * - Background: #F5F5F5 (primary), #EAEAEA (secondary)
- * - Text: #333333 (normal), #666666 (muted), #999999 (faint)
+/* Air — ultra-dark, accent-driven, flat with subtle rounding
+ *
+ * Apply a flat, ultra-dark interface with minimal chrome, padded headings,
+ * and zero border-radius. Extend your chosen accent color to headings,
+ * bold and italic text, highlights, tags, etc. The ribbon hides until hover.
+ *
+ * Dark mode:  #0A0A0A primary  ·  #111111 secondary
+ * Light mode: #F5F5F5 primary  ·  #EAEAEA secondary
  */
 
 /* ============================================================
@@ -32,15 +24,15 @@
    ============================================================ */
 
 body {
-	/* Border radius — zero everywhere */
-	--radius-s: 0px;
-	--radius-m: 0px;
-	--radius-l: 0px;
-	--input-radius: 0px;
-	--tab-radius-active: 0px;
-	--checkbox-radius: 0px;
-	--toggle-radius: 0px;
-	--toggle-thumb-radius: 0px;
+	/* Border radius — subtle 4px rounding */
+	--radius-s: 4px;
+	--radius-m: 4px;
+	--radius-l: 4px;
+	--input-radius: 4px;
+	--tab-radius-active: 4px;
+	--checkbox-radius: 4px;
+	--toggle-radius: 4px;
+	--toggle-thumb-radius: 4px;
 
 	/* Tag styling — bare accent-colored text, no pill */
 	--tag-padding-x: 0;
@@ -50,7 +42,7 @@ body {
 	--tag-border-width: 0;
 	--tag-border-color: transparent;
 	--tag-border-color-hover: transparent;
-	--tag-radius: 0;
+	--tag-radius: 4px;
 	--tag-color: var(--text-accent);
 	--tag-color-hover: var(--text-accent);
 
@@ -62,6 +54,9 @@ body {
 	/* Active tab title */
 	--tab-text-color-active: var(--text-accent);
 	--tab-text-color-focused-active: var(--text-accent);
+
+	/* Default radius — used by explicit border-radius overrides */
+	--radius: 4px;
 }
 
 /* ============================================================
@@ -450,7 +445,7 @@ body .cm-editor .cm-formatting {
 /* Notices — left accent border, flat */
 .notice {
 	border-left: 2px solid var(--color-accent);
-	border-radius: 0;
+	border-radius: var(--radius);
 	background-color: var(--background-secondary);
 	box-shadow: none;
 	color: var(--text-normal);
@@ -477,6 +472,23 @@ body [data-type="outline"] .tree-item-self.is-active,
 body [data-type="outline"] .tree-item-self.is-active .tree-item-inner {
 	color: var(--text-accent);
 }
+
+/* ============================================================
+   EXPLORER FOLDER DEPTH COLORS
+   ============================================================ */
+
+/* Root level (no / in data-path = top-level) — H1 */
+body .nav-files-container .nav-folder-title:not([data-path*="/"]) { color: var(--h1-color); }
+/* Level 1 — H2 */
+body .nav-files-container .nav-folder-children .nav-folder-title { color: var(--h2-color); }
+/* Level 2 — H3 */
+body .nav-files-container .nav-folder-children .nav-folder-children .nav-folder-title { color: var(--h3-color); }
+/* Level 3 — H4 */
+body .nav-files-container .nav-folder-children .nav-folder-children .nav-folder-children .nav-folder-title { color: var(--h4-color); }
+/* Level 4 — H5 */
+body .nav-files-container .nav-folder-children .nav-folder-children .nav-folder-children .nav-folder-children .nav-folder-title { color: var(--h5-color); }
+/* Level 5+ — cap at H6 */
+body .nav-files-container .nav-folder-children .nav-folder-children .nav-folder-children .nav-folder-children .nav-folder-children .nav-folder-title { color: var(--h6-color); }
 
 /* ============================================================
    HEADING AND PARAGRAPH SPACING
@@ -580,7 +592,7 @@ body {
 .theme-dark :not(pre) > code {
 	color: var(--inline-code-color) !important;
 	background: #1e1e1e !important;
-	border-radius: 0 !important;
+	border-radius: var(--radius) !important;
 	padding: 0.15em 0.4em !important;
 }
 
@@ -588,7 +600,7 @@ body {
 .theme-light :not(pre) > code {
 	color: var(--inline-code-color) !important;
 	background: #d0d0d0 !important;
-	border-radius: 0 !important;
+	border-radius: var(--radius) !important;
 	padding: 0.15em 0.4em !important;
 }
 
@@ -596,7 +608,7 @@ body {
 .theme-dark .cm-inline-code:not(.cm-formatting):not(.cm-hmd-indented-code) {
 	color: var(--inline-code-color) !important;
 	background: #1e1e1e !important;
-	border-radius: 0 !important;
+	border-radius: var(--radius) !important;
 	padding: 0.15em 0.4em !important;
 }
 
@@ -604,29 +616,29 @@ body {
 .theme-light .cm-inline-code:not(.cm-formatting):not(.cm-hmd-indented-code) {
 	color: var(--inline-code-color) !important;
 	background: #d0d0d0 !important;
-	border-radius: 0 !important;
+	border-radius: var(--radius) !important;
 	padding: 0.15em 0.4em !important;
 }
 
 /* Code block — reading mode — dark */
 .theme-dark .markdown-rendered pre {
 	background: #1e1e1e !important;
-	border-radius: 0 !important;
+	border-radius: var(--radius) !important;
 }
 .theme-dark .markdown-rendered pre code {
 	background: #1e1e1e !important;
-	border-radius: 0 !important;
+	border-radius: var(--radius) !important;
 	color: var(--inline-code-color) !important;
 }
 
 /* Code block — reading mode — light */
 .theme-light .markdown-rendered pre {
 	background: #d0d0d0 !important;
-	border-radius: 0 !important;
+	border-radius: var(--radius) !important;
 }
 .theme-light .markdown-rendered pre code {
 	background: #d0d0d0 !important;
-	border-radius: 0 !important;
+	border-radius: var(--radius) !important;
 	color: var(--inline-code-color) !important;
 }
 
@@ -640,6 +652,20 @@ body {
 .theme-light .HyperMD-codeblock {
 	background: #d0d0d0 !important;
 	color: var(--inline-code-color) !important;
+}
+
+/* Code block group — round outer corners (first line top, last line bottom) */
+.theme-dark .HyperMD-codeblock:not(:has(+ .HyperMD-codeblock)),
+.theme-light .HyperMD-codeblock:not(:has(+ .HyperMD-codeblock)) {
+	border-bottom-left-radius: var(--radius) !important;
+	border-bottom-right-radius: var(--radius) !important;
+}
+.theme-dark .cm-content :not(.HyperMD-codeblock) + .HyperMD-codeblock,
+.theme-light .cm-content :not(.HyperMD-codeblock) + .HyperMD-codeblock,
+.theme-dark .cm-content > .HyperMD-codeblock:first-child,
+.theme-light .cm-content > .HyperMD-codeblock:first-child {
+	border-top-left-radius: var(--radius) !important;
+	border-top-right-radius: var(--radius) !important;
 }
 
 /* ============================================================
@@ -689,6 +715,7 @@ body .markdown-source-view.mod-cm6 tbody tr:nth-child(even) {
 	color: var(--text-normal);
 	font-size: 1.05em;
 	letter-spacing: 0.02em;
+	border-radius: var(--radius);
 }
 
 /* Live preview — background + indent on all lines */
@@ -699,6 +726,7 @@ body .markdown-source-view.mod-cm6 tbody tr:nth-child(even) {
 	color: var(--text-normal);
 	font-size: 1.05em;
 	letter-spacing: 0.02em;
+	border-radius: var(--radius);
 }
 
 /* Live preview — top padding on first quote line only */
@@ -736,7 +764,7 @@ body a.tag {
 	margin: 0;
 	background: none;
 	border: none;
-	border-radius: 0;
+	border-radius: var(--radius);
 	color: var(--text-accent);
 	line-height: inherit;
 }
@@ -749,7 +777,7 @@ body .cm-hashtag-end {
 	margin: 0;
 	background: none;
 	border: none;
-	border-radius: 0;
+	border-radius: var(--radius);
 	color: var(--text-accent);
 }
 
@@ -923,8 +951,8 @@ input[data-task="V"]:checked::after,
 
 /* Base reset: no radius, left border only */
 .callout {
-	--callout-radius: 0;
-	border-radius: 0;
+	--callout-radius: var(--radius);
+	border-radius: var(--radius);
 	border-left: 2px solid;
 	border-top: none;
 	border-right: none;
@@ -1035,7 +1063,7 @@ body .markdown-source-view.mod-cm6 .callout .callout-title {
 .metadata-container {
 	background: transparent;
 	border: none !important;
-	border-radius: 0;
+	border-radius: var(--radius);
 	padding: var(--size-4-2);
 	margin-bottom: var(--size-4-4);
 	transition: background 0.15s ease;

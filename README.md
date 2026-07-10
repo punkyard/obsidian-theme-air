@@ -1,14 +1,10 @@
 # Air
+>A flat, ultra-dark Obsidian theme. Minimal chrome, padded headings, accent color drives everything.
 
-A flat, ultra-dark Obsidian theme. Minimal chrome, padded headings, accent color drives everything.
-
-![hero](assets/hero.png)
-
-![purple](assets/air-purple.png)
-
+![[assets/hero.png]]
 ## Design
 
-- Background `#0A0A0A` — one uniform surface, no pane borders
+- One uniform surface, no pane borders
 - Your chosen accent color propagates to headings (H1–H6), bold, italic, highlights, tags, active states, checkboxes, and list bullets
 - Text: near-white normal, stepped grays for muted/faint
 - Zero border-radius throughout
@@ -20,7 +16,14 @@ A flat, ultra-dark Obsidian theme. Minimal chrome, padded headings, accent color
 
 Search **Air** in *Settings > Appearance > Themes*
 Choose your favorite **accent color** from *Settings > Options > Appearance > Accent color*
+
 ![options](assets/air-color.png)
+
+| dark                  | light                           |
+| --------------------- | ------------------------------- |
+| ![dark](air-cyan.png) | ![light](assets/air-purple.png) |
+
+![[active-line.png]]
 
 ---
 
