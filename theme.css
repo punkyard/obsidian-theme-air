@@ -192,8 +192,8 @@ body.theme-dark .tree-sorting-button {
 /* Remove structural pane/tab borders */
 body.theme-dark .workspace-leaf-resize-handle,
 body.theme-dark .view-header {
-	border: none !important;
-	box-shadow: none !important;
+	border: none;
+	box-shadow: none;
 }
 
 /* Bold, italic, highlight — direct element overrides */
@@ -215,13 +215,13 @@ body.theme-dark .view-header {
 .theme-dark .markdown-preview-view hr,
 .theme-dark .markdown-rendered hr,
 .theme-dark .markdown-source-view hr {
-	border-top: 1px solid color-mix(in srgb, var(--text-accent) 25%, transparent) !important;
-	border-bottom: none !important;
-	border-left: none !important;
-	border-right: none !important;
-	background: none !important;
-	margin-top: 1.5em !important;
-	margin-bottom: 1.5em !important;
+	border-top: 1px solid color-mix(in srgb, var(--text-accent) 25%, transparent);
+	border-bottom: none;
+	border-left: none;
+	border-right: none;
+	background: none;
+	margin-top: 1.5em;
+	margin-bottom: 1.5em;
 }
 
 
@@ -302,9 +302,9 @@ body.theme-light .side-dock-vertical,
 body.theme-light .workspace-leaf-resize-area,
 body.theme-light .status-bar,
 body.theme-light .titlebar {
-	border-right: none !important;
-	border-top: none !important;
-	border-bottom: none !important;
+	border-right: none;
+	border-top: none;
+	border-bottom: none;
 }
 
 /* ============================================================
@@ -345,8 +345,8 @@ body .workspace-tab-header-container,
 body .workspace-side-prefer-input,
 body .workspace-side-prefer-output,
 body .workspace-leaf-resize-area {
-	border: none !important;
-	box-shadow: none !important;
+	border: none;
+	box-shadow: none;
 }
 
 /* Flat side panes */
@@ -357,19 +357,19 @@ body .side-dock-right,
 body .nav-files-container,
 body .file-tree-container,
 body .outline-container {
-	border-right: none !important;
-	border-left: none !important;
+	border-right: none;
+	border-left: none;
 }
 
 /* Flat titlebar */
 body .titlebar,
 body .titlebar-container {
-	border-bottom: none !important;
+	border-bottom: none;
 }
 
 /* Flat status bar */
 body .status-bar {
-	border-top: none !important;
+	border-top: none;
 }
 
 /* Flat menus */
@@ -538,22 +538,22 @@ body .nav-files-container .nav-folder-children .nav-folder-children .nav-folder-
 .markdown-rendered div.el-h4 + div.el-p,
 .markdown-rendered div.el-h5 + div.el-p,
 .markdown-rendered div.el-h6 + div.el-p {
-	padding-top: 0.8em !important;
+	padding-top: 0.8em;
 }
 
 /* Paragraph after heading — live preview */
-.markdown-source-view.mod-cm6.is-live-preview .cm-content .HyperMD-header + .cm-line:not(.HyperMD-header):not(:has(> br:only-child)):not(.HyperMD-list-line):not(.HyperMD-codeblock) {
-	padding-top: 0.8em !important;
+.markdown-source-view.mod-cm6.is-live-preview .cm-content .HyperMD-header + .cm-line:not(.HyperMD-header):not(.HyperMD-list-line):not(.HyperMD-codeblock) {
+	padding-top: 0.8em;
 }
 
 /* Space before first list item when preceded by a text paragraph */
-.markdown-source-view.mod-cm6.is-live-preview .cm-content .cm-line:not(.HyperMD-header):not(:has(> br:only-child)):not(.HyperMD-list-line):not(.HyperMD-codeblock) + .cm-line.HyperMD-list-line {
-	padding-top: 0.8em !important;
+.markdown-source-view.mod-cm6.is-live-preview .cm-content .cm-line:not(.HyperMD-header):not(.HyperMD-list-line):not(.HyperMD-codeblock) + .cm-line.HyperMD-list-line {
+	padding-top: 0.8em;
 }
 
 /* Space before first list item when preceded by a heading */
 .markdown-source-view.mod-cm6.is-live-preview .cm-content .HyperMD-header + .cm-line.HyperMD-list-line {
-	padding-top: 0.8em !important;
+	padding-top: 0.8em;
 }
 
 /* List after heading — reading mode */
@@ -569,7 +569,7 @@ body .nav-files-container .nav-folder-children .nav-folder-children .nav-folder-
 .markdown-rendered div.el-h4 + div.el-ol,
 .markdown-rendered div.el-h5 + div.el-ol,
 .markdown-rendered div.el-h6 + div.el-ol {
-	padding-top: 0.8em !important;
+	padding-top: 0.8em;
 }
 
 /* ============================================================
@@ -655,10 +655,15 @@ body {
 }
 
 /* Code block group — round outer corners (first line top, last line bottom) */
-.theme-dark .HyperMD-codeblock:not(:has(+ .HyperMD-codeblock)),
-.theme-light .HyperMD-codeblock:not(:has(+ .HyperMD-codeblock)) {
+.theme-dark .HyperMD-codeblock,
+.theme-light .HyperMD-codeblock {
 	border-bottom-left-radius: var(--radius) !important;
 	border-bottom-right-radius: var(--radius) !important;
+}
+.theme-dark .HyperMD-codeblock + .HyperMD-codeblock,
+.theme-light .HyperMD-codeblock + .HyperMD-codeblock {
+	border-bottom-left-radius: 0 !important;
+	border-bottom-right-radius: 0 !important;
 }
 .theme-dark .cm-content :not(.HyperMD-codeblock) + .HyperMD-codeblock,
 .theme-light .cm-content :not(.HyperMD-codeblock) + .HyperMD-codeblock,
@@ -735,8 +740,11 @@ body .markdown-source-view.mod-cm6 tbody tr:nth-child(even) {
 }
 
 /* Live preview — bottom padding on last quote line only */
-.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote:not(:has(+ .HyperMD-quote)) {
+.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote {
 	padding-bottom: 0.6em;
+}
+.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote + .HyperMD-quote {
+	padding-bottom: 0;
 }
 
 /* ============================================================
@@ -1056,7 +1064,7 @@ body .markdown-source-view.mod-cm6 .callout .callout-title {
 
 .metadata-container {
 	background: transparent;
-	border: none !important;
+	border: none;
 	border-radius: var(--radius);
 	padding: var(--size-4-2);
 	margin-bottom: var(--size-4-4);
@@ -1077,17 +1085,17 @@ body .markdown-source-view.mod-cm6 .callout .callout-title {
 	color: var(--text-muted);
 }
 .metadata-property {
-	border-bottom: none !important;
-	border-top: none !important;
-	outline: none !important;
-	box-shadow: none !important;
+	border-bottom: none;
+	border-top: none;
+	outline: none;
+	box-shadow: none;
 }
 .metadata-property .metadata-property-key,
 .metadata-property .metadata-property-value {
-	border: none !important;
+	border: none;
 }
 .metadata-property:focus-within {
-	background: transparent !important;
+	background: transparent;
 }
 .metadata-property-key {
 	color: var(--text-muted);
@@ -1110,7 +1118,7 @@ body .markdown-source-view.mod-cm6 .callout .callout-title {
 .metadata-property-value .multi-select-pill {
 	background: transparent;
 	color: var(--text-accent);
-	border: none !important;
+	border: none;
 	--pill-color-remove: var(--text-faint);
 	--pill-color-remove-hover: var(--text-faint);
 }
@@ -1122,7 +1130,7 @@ body .markdown-source-view.mod-cm6 .callout .callout-title {
 
 .metadata-add-button {
 	opacity: 0;
-	border-top: none !important;
+	border-top: none;
 	transition: opacity 0.15s ease;
 }
 .metadata-container:hover .metadata-add-button,
@@ -1167,20 +1175,20 @@ body .markdown-source-view.mod-cm6 .callout .callout-title {
 }
 .kanban-plugin__lane {
 	background: var(--background-secondary);
-	border: none !important;
+	border: none;
 }
 .kanban-plugin__lane-title {
 	color: var(--text-accent);
 }
 .kanban-plugin__item {
 	background: var(--background-primary);
-	border: none !important;
+	border: none;
 }
 
 /* Excalidraw */
 .excalidraw .App-menu_top,
 .excalidraw .App-menu_bottom {
-	background: var(--background-secondary) !important;
+	background: var(--background-secondary);
 	--button-border: none;
 }
 
