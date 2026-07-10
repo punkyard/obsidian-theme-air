@@ -1201,14 +1201,14 @@ body .markdown-source-view.mod-cm6 .callout .callout-title {
 	background: #D8D8D8;
 }
 .graph-view.color-fill              { color: var(--graph-node); }
-.graph-view.color-fill-focused      { color: var(--text-accent); }
-.graph-view.color-fill-tag          { color: var(--text-accent); }
-.graph-view.color-fill-attachment   { color: var(--graph-node-attachment); }
-.graph-view.color-fill-unresolved   { color: var(--graph-node-unresolved); }
-.graph-view.color-circle            { color: var(--text-accent); }
+.graph-view.color-fill-focused      { color: var(--h1-color); }
+.graph-view.color-fill-tag          { color: var(--h2-color); }
+.graph-view.color-fill-attachment   { color: var(--h3-color); }
+.graph-view.color-fill-unresolved   { color: var(--h5-color); }
+.graph-view.color-circle            { color: var(--h3-color); }
 .graph-view.color-line              { color: var(--graph-line); }
 .graph-view.color-line-connection   { color: var(--graph-line); }
 .graph-view.color-text              { color: var(--graph-text); }
-.graph-view.color-fill-highlight    { color: var(--text-accent); }
-.graph-view.color-line-highlight    { color: var(--text-accent); }
+.graph-view.color-fill-highlight    { color: var(--h1-color); }
+.graph-view.color-line-highlight    { color: var(--h1-color); }
 .graph-view.color-arrow             { color: var(--graph-node); }
