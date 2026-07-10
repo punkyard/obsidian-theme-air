@@ -378,37 +378,37 @@ body .menu-content,
 body .context-menu,
 body .prompt,
 body .suggestion-container {
-	border: none !important;
-	box-shadow: none !important;
+	border: none;
+	box-shadow: none;
 }
 
 /* Flat tab bar */
 body .workspace-tab-header-inner,
 body .workspace-tab-header {
-	border-right: none !important;
-	border-left: none !important;
-	border-bottom: none !important;
+	border-right: none;
+	border-left: none;
+	border-bottom: none;
 }
 
 /* Flat modals */
 body .modal,
 body .modal-content,
 body .modal-bg {
-	border: none !important;
-	box-shadow: none !important;
+	border: none;
+	box-shadow: none;
 }
 
 /* Flat popovers */
 body .popover,
 body .popover-content {
-	border: none !important;
-	box-shadow: none !important;
+	border: none;
+	box-shadow: none;
 }
 
 /* Flat canvas */
 body .workspace-canvas,
 body .workspace-leaf-content {
-	border: none !important;
+	border: none;
 }
 
 /* Formatting markers (**, *, #, [], etc.) — dimmed in source / live preview */
@@ -495,21 +495,21 @@ body .nav-files-container .nav-folder-children .nav-folder-children .nav-folder-
    ============================================================ */
 
 /* Heading space ABOVE — reading mode (hierarchical: H1 most, H4-H6 equal) */
-.markdown-rendered h1 { margin-top: 2.5em !important; }
-.markdown-rendered h2 { margin-top: 2em !important; }
-.markdown-rendered h3 { margin-top: 1.5em !important; }
+.markdown-rendered h1 { margin-top: 2.5em; }
+.markdown-rendered h2 { margin-top: 2em; }
+.markdown-rendered h3 { margin-top: 1.5em; }
 .markdown-rendered h4,
 .markdown-rendered h5,
-.markdown-rendered h6 { margin-top: 1em !important; }
+.markdown-rendered h6 { margin-top: 1em; }
 
 /* Heading space ABOVE — live preview
    padding-top on rendered text lines IS measured by CM6 on layout */
-.mod-cm6 .cm-editor .HyperMD-header-1 { padding-top: 2.5em !important; }
-.mod-cm6 .cm-editor .HyperMD-header-2 { padding-top: 2em !important; }
-.mod-cm6 .cm-editor .HyperMD-header-3 { padding-top: 1.5em !important; }
+.mod-cm6 .cm-editor .HyperMD-header-1 { padding-top: 2.5em; }
+.mod-cm6 .cm-editor .HyperMD-header-2 { padding-top: 2em; }
+.mod-cm6 .cm-editor .HyperMD-header-3 { padding-top: 1.5em; }
 .mod-cm6 .cm-editor .HyperMD-header-4,
 .mod-cm6 .cm-editor .HyperMD-header-5,
-.mod-cm6 .cm-editor .HyperMD-header-6 { padding-top: 1em !important; }
+.mod-cm6 .cm-editor .HyperMD-header-6 { padding-top: 1em; }
 
 /* Heading space BELOW */
 .markdown-rendered h1,
@@ -517,9 +517,9 @@ body .nav-files-container .nav-folder-children .nav-folder-children .nav-folder-
 .markdown-rendered h3,
 .markdown-rendered h4,
 .markdown-rendered h5,
-.markdown-rendered h6 { margin-bottom: 0.5em !important; }
+.markdown-rendered h6 { margin-bottom: 0.5em; }
 
-.mod-cm6 .cm-editor .HyperMD-header { padding-bottom: 0.5em !important; }
+.mod-cm6 .cm-editor .HyperMD-header { padding-bottom: 0.5em; }
 
 /* Reset — no extra space after headings inside callouts */
 .markdown-rendered .callout h1,
@@ -527,9 +527,9 @@ body .nav-files-container .nav-folder-children .nav-folder-children .nav-folder-
 .markdown-rendered .callout h3,
 .markdown-rendered .callout h4,
 .markdown-rendered .callout h5,
-.markdown-rendered .callout h6 { margin-bottom: 0 !important; }
+.markdown-rendered .callout h6 { margin-bottom: 0; }
 
-.mod-cm6 .cm-editor .callout .HyperMD-header { padding-bottom: 0 !important; }
+.mod-cm6 .cm-editor .callout .HyperMD-header { padding-bottom: 0; }
 
 /* Paragraph after heading — reading mode */
 .markdown-rendered div.el-h1 + div.el-p,
@@ -590,87 +590,87 @@ body {
 
 /* Inline code — reading mode — dark */
 .theme-dark :not(pre) > code {
-	color: var(--inline-code-color) !important;
-	background: #1e1e1e !important;
-	border-radius: var(--radius) !important;
-	padding: 0.15em 0.4em !important;
+	color: var(--inline-code-color);
+	background: #1e1e1e;
+	border-radius: var(--radius);
+	padding: 0.15em 0.4em;
 }
 
 /* Inline code — reading mode — light */
 .theme-light :not(pre) > code {
-	color: var(--inline-code-color) !important;
-	background: #d0d0d0 !important;
-	border-radius: var(--radius) !important;
-	padding: 0.15em 0.4em !important;
+	color: var(--inline-code-color);
+	background: #d0d0d0;
+	border-radius: var(--radius);
+	padding: 0.15em 0.4em;
 }
 
 /* Inline code — live preview — dark */
 .theme-dark .cm-inline-code:not(.cm-formatting):not(.cm-hmd-indented-code) {
-	color: var(--inline-code-color) !important;
-	background: #1e1e1e !important;
-	border-radius: var(--radius) !important;
-	padding: 0.15em 0.4em !important;
+	color: var(--inline-code-color);
+	background: #1e1e1e;
+	border-radius: var(--radius);
+	padding: 0.15em 0.4em;
 }
 
 /* Inline code — live preview — light */
 .theme-light .cm-inline-code:not(.cm-formatting):not(.cm-hmd-indented-code) {
-	color: var(--inline-code-color) !important;
-	background: #d0d0d0 !important;
-	border-radius: var(--radius) !important;
-	padding: 0.15em 0.4em !important;
+	color: var(--inline-code-color);
+	background: #d0d0d0;
+	border-radius: var(--radius);
+	padding: 0.15em 0.4em;
 }
 
 /* Code block — reading mode — dark */
 .theme-dark .markdown-rendered pre {
-	background: #1e1e1e !important;
-	border-radius: var(--radius) !important;
+	background: #1e1e1e;
+	border-radius: var(--radius);
 }
 .theme-dark .markdown-rendered pre code {
-	background: #1e1e1e !important;
-	border-radius: var(--radius) !important;
-	color: var(--inline-code-color) !important;
+	background: #1e1e1e;
+	border-radius: var(--radius);
+	color: var(--inline-code-color);
 }
 
 /* Code block — reading mode — light */
 .theme-light .markdown-rendered pre {
-	background: #d0d0d0 !important;
-	border-radius: var(--radius) !important;
+	background: #d0d0d0;
+	border-radius: var(--radius);
 }
 .theme-light .markdown-rendered pre code {
-	background: #d0d0d0 !important;
-	border-radius: var(--radius) !important;
-	color: var(--inline-code-color) !important;
+	background: #d0d0d0;
+	border-radius: var(--radius);
+	color: var(--inline-code-color);
 }
 
 /* Code block — live preview / source — dark */
 .theme-dark .HyperMD-codeblock {
-	background: #1e1e1e !important;
-	color: var(--inline-code-color) !important;
+	background: #1e1e1e;
+	color: var(--inline-code-color);
 }
 
 /* Code block — live preview / source — light */
 .theme-light .HyperMD-codeblock {
-	background: #d0d0d0 !important;
-	color: var(--inline-code-color) !important;
+	background: #d0d0d0;
+	color: var(--inline-code-color);
 }
 
 /* Code block group — round outer corners (first line top, last line bottom) */
 .theme-dark .HyperMD-codeblock,
 .theme-light .HyperMD-codeblock {
-	border-bottom-left-radius: var(--radius) !important;
-	border-bottom-right-radius: var(--radius) !important;
+	border-bottom-left-radius: var(--radius);
+	border-bottom-right-radius: var(--radius);
 }
 .theme-dark .HyperMD-codeblock + .HyperMD-codeblock,
 .theme-light .HyperMD-codeblock + .HyperMD-codeblock {
-	border-bottom-left-radius: 0 !important;
-	border-bottom-right-radius: 0 !important;
+	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 0;
 }
 .theme-dark .cm-content :not(.HyperMD-codeblock) + .HyperMD-codeblock,
 .theme-light .cm-content :not(.HyperMD-codeblock) + .HyperMD-codeblock,
 .theme-dark .cm-content > .HyperMD-codeblock:first-child,
 .theme-light .cm-content > .HyperMD-codeblock:first-child {
-	border-top-left-radius: var(--radius) !important;
-	border-top-right-radius: var(--radius) !important;
+	border-top-left-radius: var(--radius);
+	border-top-right-radius: var(--radius);
 }
 
 /* ============================================================
@@ -789,30 +789,30 @@ body .cm-hashtag-end {
 
 /* Base — reading mode only (class selector avoids breaking settings toggles) */
 .markdown-preview-view .task-list-item-checkbox {
-	-webkit-appearance: none !important;
-	-moz-appearance: none !important;
-	appearance: none !important;
-	background-image: none !important;
-	background: var(--background-primary) !important;
-	border: 1px solid var(--text-accent) !important;
-	width: 14px !important;
-	height: 14px !important;
-	box-shadow: none !important;
-	position: relative !important;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	background-image: none;
+	background: var(--background-primary);
+	border: 1px solid var(--text-accent);
+	width: 14px;
+	height: 14px;
+	box-shadow: none;
+	position: relative;
 }
 
 /* Unchecked — live preview accent border */
 .HyperMD-list-line input[type="checkbox"]:not(:checked) {
-	-webkit-appearance: none !important;
-	-moz-appearance: none !important;
-	appearance: none !important;
-	background-image: none !important;
-	background: var(--background-primary) !important;
-	border: 1px solid var(--text-accent) !important;
-	width: 14px !important;
-	height: 14px !important;
-	box-shadow: none !important;
-	position: relative !important;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	background-image: none;
+	background: var(--background-primary);
+	border: 1px solid var(--text-accent);
+	width: 14px;
+	height: 14px;
+	box-shadow: none;
+	position: relative;
 }
 
 /* [x] / [X] = done — dark background, accent X mark */
@@ -822,7 +822,7 @@ input[data-task="X"]:checked,
 .markdown-preview-view li[data-task="X"] > .task-list-item-checkbox:checked,
 .HyperMD-list-line input[data-task="x"]:checked,
 .HyperMD-list-line input[data-task="X"]:checked {
-	background-color: var(--text-muted) !important;
+	background-color: var(--text-muted);
 }
 
 input[data-task="x"]:checked::after,
@@ -831,19 +831,19 @@ input[data-task="X"]:checked::after,
 .markdown-preview-view li[data-task="X"] > .task-list-item-checkbox:checked::after,
 .HyperMD-list-line input[data-task="x"]:checked::after,
 .HyperMD-list-line input[data-task="X"]:checked::after {
-	content: '✕' !important;
-	position: absolute !important;
-	top: 50% !important;
-	left: 50% !important;
-	transform: translate(-50%, -50%) !important;
-	width: 14px !important;
-	height: 14px !important;
-	display: flex !important;
-	align-items: center !important;
-	justify-content: center !important;
-	color: var(--text-accent) !important;
-	font-size: 11px !important;
-	line-height: 1 !important;
+	content: '✕';
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 14px;
+	height: 14px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: var(--text-accent);
+	font-size: 11px;
+	line-height: 1;
 }
 
 /* [v] / [V] = selected — accent background, dark checkmark
@@ -854,7 +854,7 @@ input[data-task="V"]:checked,
 .markdown-preview-view li[data-task="V"] > .task-list-item-checkbox:checked,
 .HyperMD-list-line input[data-task="v"]:checked,
 .HyperMD-list-line input[data-task="V"]:checked {
-	background-color: var(--text-accent) !important;
+	background-color: var(--text-accent);
 }
 
 input[data-task="v"]:checked::after,
@@ -863,19 +863,19 @@ input[data-task="V"]:checked::after,
 .markdown-preview-view li[data-task="V"] > .task-list-item-checkbox:checked::after,
 .HyperMD-list-line input[data-task="v"]:checked::after,
 .HyperMD-list-line input[data-task="V"]:checked::after {
-	content: '✔' !important;
-	position: absolute !important;
-	top: 50% !important;
-	left: 50% !important;
-	transform: translate(-50%, -50%) !important;
-	width: 14px !important;
-	height: 14px !important;
-	display: flex !important;
-	align-items: center !important;
-	justify-content: center !important;
-	color: var(--background-primary) !important;
-	font-size: 11px !important;
-	line-height: 1 !important;
+	content: '✔';
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 14px;
+	height: 14px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: var(--background-primary);
+	font-size: 11px;
+	line-height: 1;
 }
 
 /* [v] / [V] item text — accent color */

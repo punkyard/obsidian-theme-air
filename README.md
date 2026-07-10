@@ -1,7 +1,7 @@
 # Air
 >A flat, ultra-dark Obsidian theme. Minimal chrome, padded headings, accent color drives everything.
 
-![[assets/hero.png]]
+![hero](assets/hero.png)
 ## Design
 
 - One uniform surface, no pane borders
@@ -19,9 +19,9 @@ Choose your favorite **accent color** from *Settings > Options > Appearance > Ac
 
 ![options](assets/air-color.png)
 
-| dark                  | light                           |
-| --------------------- | ------------------------------- |
-| ![dark](air-cyan.png) | ![light](assets/air-purple.png) |
+| dark                         | light                           |
+| ---------------------------- | ------------------------------- |
+| ![dark](assets/air-cyan.png) | ![light](assets/air-purple.png) |
 
 ![[active-line.png]]
 
