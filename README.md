@@ -2,15 +2,6 @@
 >A flat, ultra-dark Obsidian theme. Minimal chrome, padded headings, accent color drives everything.
 
 ![hero](assets/hero.png)
-## Design
-
-- One uniform surface, no pane borders
-- Your chosen accent color propagates to headings (H1–H6), bold, italic, highlights, tags, active states, checkboxes, and list bullets
-- Text: near-white normal, stepped grays for muted/faint
-- Zero border-radius throughout
-- Ribbon hides until hover
-- Tags: accent text, no background or border
-- Supports **dark** and **light** mode.
 
 ## Installation
 
@@ -19,11 +10,25 @@ Choose your favorite **accent color** from *Settings > Options > Appearance > Ac
 
 ![options](assets/air-color.png)
 
+---
+
+## Design
+
+- One uniform surface, no pane borders
+- Your chosen **accent color** propagates to headings (H1–H6), bold, italic, highlights, tags, active states, checkboxes, and list bullets
+- Text: near-white normal, stepped grays for muted/faint
+- Zero border-radius throughout
+- **Ribbon** hides until hover
+- **Properties** and Add property hide until hover
+- Active line highlights the line number
+- **Tags**: accent text, no background or border
+- Supports **dark** and **light** mode.
+
 | dark                         | light                           |
 | ---------------------------- | ------------------------------- |
 | ![dark](assets/air-cyan.png) | ![light](assets/air-purple.png) |
 
-![[active-line.png]]
+![active](assets/active-line.png)
 
 ---
 
