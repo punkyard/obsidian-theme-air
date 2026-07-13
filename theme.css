@@ -805,6 +805,14 @@ body .cm-hashtag-end {
 	position: relative;
 }
 
+/* Checked — match Obsidian's :checked specificity (0,2,1) so appearance:none wins */
+.HyperMD-list-line input[type="checkbox"]:checked,
+.markdown-preview-view .task-list-item-checkbox:checked {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+}
+
 /* [x] / [X] = done — dark background, accent X mark */
 input[data-task="x"]:checked,
 input[data-task="X"]:checked,
