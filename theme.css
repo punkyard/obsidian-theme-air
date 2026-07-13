@@ -289,23 +289,6 @@ body.theme-dark .view-header {
 	padding-inline: 0.15em;
 }
 
-/* Flat borders — light mode */
-body.theme-light .workspace-split,
-body.theme-light .workspace-split > *,
-body.theme-light .workspace-leaf,
-body.theme-light .workspace-tabs,
-body.theme-light .workspace-tab-header-container,
-body.theme-light .workspace-side-prefer-input,
-body.theme-light .workspace-side-prefer-output,
-body.theme-light .side-dock-vertical,
-body.theme-light .workspace-leaf-resize-area,
-body.theme-light .status-bar,
-body.theme-light .titlebar {
-	border-right: none;
-	border-top: none;
-	border-bottom: none;
-}
-
 /* ============================================================
    GLOBAL UI — applies to both modes
    ============================================================ */
@@ -333,19 +316,6 @@ svg * {
 
 .menu-separator {
 	margin: var(--size-2-1) calc(var(--size-2-1) * -1);
-}
-
-/* Flat workspace splits */
-body .workspace-split,
-body .workspace-split > *,
-body .workspace-leaf,
-body .workspace-tabs,
-body .workspace-tab-header-container,
-body .workspace-side-prefer-input,
-body .workspace-side-prefer-output,
-body .workspace-leaf-resize-area {
-	border: none;
-	box-shadow: none;
 }
 
 /* Flat side panes */
