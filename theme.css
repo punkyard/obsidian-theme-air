@@ -546,6 +546,17 @@ body .nav-files-container .nav-folder-children .nav-folder-children .nav-folder-
 	padding-top: 0.8em;
 }
 
+/* Space after last list item when followed by a text paragraph */
+.markdown-source-view.mod-cm6.is-live-preview .cm-content .HyperMD-list-line + .cm-line:not(.HyperMD-list-line):not(.HyperMD-header):not(.HyperMD-codeblock) {
+	padding-top: 0.8em;
+}
+
+/* List after paragraph — reading mode */
+.markdown-rendered div.el-p + div.el-ul,
+.markdown-rendered div.el-p + div.el-ol {
+	padding-top: 0.8em;
+}
+
 /* List after heading — reading mode */
 .markdown-rendered div.el-h1 + div.el-ul,
 .markdown-rendered div.el-h2 + div.el-ul,
@@ -707,6 +718,7 @@ body .markdown-source-view.mod-cm6 tbody tr:nth-child(even) {
 	background-color: var(--blockquote-background-color);
 	padding: 0.6em 1em;
 	margin-inline-start: 1.5em;
+	margin-bottom: 0.6em;
 	color: var(--text-normal);
 	font-size: 1.05em;
 	letter-spacing: 0.02em;
@@ -736,6 +748,9 @@ body .markdown-source-view.mod-cm6 tbody tr:nth-child(even) {
 .markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote + .HyperMD-quote {
 	padding-bottom: 0;
 }
+.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote + .cm-line:not(.HyperMD-quote):not(.HyperMD-header):not(.HyperMD-codeblock) {
+	padding-top: 0.6em;
+}
 
 /* ============================================================
    LISTS
@@ -744,6 +759,12 @@ body .markdown-source-view.mod-cm6 tbody tr:nth-child(even) {
 /* Reading mode: bullet-to-text gap */
 .markdown-rendered .list-bullet {
 	padding-inline-end: 0.5em;
+}
+
+/* Reading mode: bottom spacing after list */
+.markdown-rendered div.el-ul,
+.markdown-rendered div.el-ol {
+	margin-bottom: 0.8em;
 }
 
 /* ============================================================
