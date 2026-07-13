@@ -774,7 +774,7 @@ body .cm-hashtag-end {
 }
 
 /* ============================================================
-   CHECKBOXES — [x] done vs [v] selected
+   CHECKBOXES — done [x] / selected [v] / cancelled [-]
    ============================================================ */
 
 /* Base — reading mode only (class selector avoids breaking settings toggles) */
@@ -791,8 +791,8 @@ body .cm-hashtag-end {
 	position: relative;
 }
 
-/* Unchecked — live preview accent border */
-.HyperMD-list-line input[type="checkbox"]:not(:checked) {
+/* All checkboxes in live preview — kill native appearance */
+.HyperMD-list-line input[type="checkbox"] {
 	-webkit-appearance: none;
 	-moz-appearance: none;
 	appearance: none;
@@ -805,14 +805,23 @@ body .cm-hashtag-end {
 	position: relative;
 }
 
-/* [x] / [X] = done — dark background, accent X mark */
+/* Kill Obsidian's default ::after SVG checkmark — conflicts with our theme marks */
+.HyperMD-list-line input[type="checkbox"]:checked::after,
+.markdown-preview-view .task-list-item-checkbox:checked::after {
+	-webkit-mask-image: none !important;
+	mask-image: none !important;
+	background: transparent;
+	background-color: transparent;
+}
+
+/* [x] / [X] = done — accent border + check */
 input[data-task="x"]:checked,
 input[data-task="X"]:checked,
 .markdown-preview-view li[data-task="x"] > .task-list-item-checkbox:checked,
 .markdown-preview-view li[data-task="X"] > .task-list-item-checkbox:checked,
 .HyperMD-list-line input[data-task="x"]:checked,
 .HyperMD-list-line input[data-task="X"]:checked {
-	background-color: var(--text-muted);
+	background-color: var(--background-primary);
 }
 
 input[data-task="x"]:checked::after,
@@ -821,7 +830,7 @@ input[data-task="X"]:checked::after,
 .markdown-preview-view li[data-task="X"] > .task-list-item-checkbox:checked::after,
 .HyperMD-list-line input[data-task="x"]:checked::after,
 .HyperMD-list-line input[data-task="X"]:checked::after {
-	content: '✕';
+	content: '✔';
 	position: absolute;
 	top: 50%;
 	left: 50%;
@@ -836,15 +845,14 @@ input[data-task="X"]:checked::after,
 	line-height: 1;
 }
 
-/* [v] / [V] = selected — accent background, dark checkmark
-   Broad selectors: reading mode + live preview + HyperMD source */
+/* [v] / [V] = selected — accent border + check */
 input[data-task="v"]:checked,
 input[data-task="V"]:checked,
 .markdown-preview-view li[data-task="v"] > .task-list-item-checkbox:checked,
 .markdown-preview-view li[data-task="V"] > .task-list-item-checkbox:checked,
 .HyperMD-list-line input[data-task="v"]:checked,
 .HyperMD-list-line input[data-task="V"]:checked {
-	background-color: var(--text-accent);
+	background-color: var(--background-primary);
 }
 
 input[data-task="v"]:checked::after,
@@ -863,9 +871,50 @@ input[data-task="V"]:checked::after,
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	color: var(--background-primary);
+	color: var(--text-accent);
 	font-size: 11px;
 	line-height: 1;
+}
+
+/* [-] / [–] = cancelled/rejected — muted border, accent X */
+input[data-task="-"]:checked,
+input[data-task="–"]:checked,
+.markdown-preview-view li[data-task="-"] > .task-list-item-checkbox:checked,
+.markdown-preview-view li[data-task="–"] > .task-list-item-checkbox:checked,
+.HyperMD-list-line input[data-task="-"]:checked,
+.HyperMD-list-line input[data-task="–"]:checked {
+	background-color: var(--background-primary);
+	border-color: var(--text-muted);
+}
+
+input[data-task="-"]:checked::after,
+input[data-task="–"]:checked::after,
+.markdown-preview-view li[data-task="-"] > .task-list-item-checkbox:checked::after,
+.markdown-preview-view li[data-task="–"] > .task-list-item-checkbox:checked::after,
+.HyperMD-list-line input[data-task="-"]:checked::after,
+.HyperMD-list-line input[data-task="–"]:checked::after {
+	content: '✕';
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 14px;
+	height: 14px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: var(--text-muted);
+	font-size: 11px;
+	line-height: 1;
+}
+
+/* [-] / [–] item text — dimmed + strikethrough */
+.markdown-preview-view li[data-task="-"],
+.markdown-preview-view li[data-task="–"],
+.HyperMD-list-line[data-task="-"],
+.HyperMD-list-line[data-task="–"] {
+	color: var(--text-faint);
+	text-decoration: line-through;
 }
 
 /* [v] / [V] item text — accent color */
