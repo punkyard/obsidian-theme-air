@@ -724,6 +724,10 @@ body .markdown-source-view.mod-cm6 tbody tr:nth-child(even) {
 	letter-spacing: 0.02em;
 	border-radius: var(--radius);
 }
+/* Paragraph after blockquote — reading mode */
+.markdown-rendered blockquote + div.el-p {
+	padding-top: 0.6em;
+}
 
 /* Live preview — background + indent on all lines */
 .markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote {
@@ -742,21 +746,15 @@ body .markdown-source-view.mod-cm6 tbody tr:nth-child(even) {
 }
 
 /* Live preview — bottom spacing on last quote line only */
-.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote {
+.markdown-source-view.mod-cm6.is-live-preview .cm-content .HyperMD-quote {
 	padding-bottom: 0.6em;
 }
-.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote + .HyperMD-quote {
+.markdown-source-view.mod-cm6.is-live-preview .cm-content .HyperMD-quote + .HyperMD-quote {
 	padding-bottom: 0;
 }
-/* ::after masks the blockquote bg at bottom, creating transparent gap */
-.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote::after {
-	content: '';
-	display: block;
-	height: 0.6em;
-	background: var(--background-primary);
-}
-.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote + .HyperMD-quote::after {
-	display: none;
+/* Paragraph after blockquote */
+.markdown-source-view.mod-cm6.is-live-preview .cm-content .HyperMD-quote + .cm-line:not(.HyperMD-quote):not(.HyperMD-header):not(.HyperMD-codeblock) {
+	padding-top: 0.6em;
 }
 
 /* ============================================================
