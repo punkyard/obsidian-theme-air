@@ -47,7 +47,6 @@ body {
 	--tag-color-hover: var(--text-accent);
 
 	/* List markers */
-	--list-marker-color: var(--h5-color);
 	--list-marker-color-hover: var(--text-muted);
 	--list-marker-color-collapsed: var(--text-accent);
 
@@ -191,8 +190,8 @@ body.theme-dark .tree-sorting-button {
 /* Remove structural pane/tab borders */
 body.theme-dark .workspace-leaf-resize-handle,
 body.theme-dark .view-header {
-	border: none;
-	box-shadow: none;
+	border: none !important;
+	box-shadow: none !important;
 }
 
 /* Bold, italic, highlight — direct element overrides */
@@ -319,73 +318,86 @@ svg * {
 }
 
 /* Flat side panes */
-body .side-dock,
-body .side-dock-vertical,
-body .side-dock-left,
-body .side-dock-right,
-body .nav-files-container,
-body .file-tree-container,
-body .outline-container {
-	border-right: none;
-	border-left: none;
+.side-dock,
+.side-dock-vertical,
+.side-dock-left,
+.side-dock-right,
+.nav-files-container,
+.file-tree-container,
+.outline-container {
+	border-right: none !important;
+	border-left: none !important;
 }
 
 /* Flat titlebar */
-body .titlebar,
-body .titlebar-container {
-	border-bottom: none;
+.titlebar,
+.titlebar-container {
+	border-bottom: none !important;
 }
 
 /* Flat status bar */
-body .status-bar {
-	border-top: none;
+.status-bar {
+	border-top: none !important;
 }
 
 /* Flat menus */
-body .menu,
-body .menu-content,
-body .context-menu,
-body .prompt,
-body .suggestion-container {
-	border: none;
-	box-shadow: none;
+.menu,
+.menu-content,
+.context-menu,
+.prompt,
+.suggestion-container {
+	border: none !important;
+	box-shadow: none !important;
+}
+
+/* Flat workspace splits */
+.workspace-split,
+.workspace-split > *,
+.workspace-leaf,
+.workspace-tabs,
+.workspace-tab-header-container,
+.workspace-side-prefer-input,
+.workspace-side-prefer-output,
+.workspace-leaf-resize-area {
+	border: none !important;
+	box-shadow: none !important;
 }
 
 /* Flat tab bar */
-body .workspace-tab-header-inner,
-body .workspace-tab-header {
-	border-right: none;
-	border-left: none;
-	border-bottom: none;
+.workspace-tab-header-inner,
+.workspace-tab-header {
+	border-right: none !important;
+	border-left: none !important;
+	border-bottom: none !important;
 }
 
 /* Flat modals */
-body .modal,
-body .modal-content,
-body .modal-bg {
-	border: none;
-	box-shadow: none;
+.modal,
+.modal-content,
+.modal-bg {
+	border: none !important;
+	box-shadow: none !important;
 }
 
 /* Modal backdrop — subtle fade only */
 .theme-dark .modal-bg {
-	background: rgba(0, 0, 0, 0.4);
+	background: rgba(0, 0, 0, 0.1);
 }
 .theme-light .modal-bg {
-	background: rgba(0, 0, 0, 0.4);
+	background: rgba(0, 0, 0, 0.05);
 }
 
 /* Flat popovers */
-body .popover,
-body .popover-content {
-	border: none;
-	box-shadow: none;
+.popover,
+.popover-content {
+	border: none !important;
+	box-shadow: none !important;
 }
 
 /* Flat canvas */
-body .workspace-canvas,
-body .workspace-leaf-content {
-	border: none;
+.workspace-canvas,
+.workspace-leaf-content {
+	border: none !important;
 }
 
 /* Formatting markers (**, *, #, [], etc.) — dimmed in source / live preview */
