@@ -774,7 +774,7 @@ body .cm-hashtag-end {
 }
 
 /* ============================================================
-   CHECKBOXES — [x] done / [v] selected / [-] cancelled
+   CHECKBOXES — done [x] / selected [v] / cancelled [-]
    ============================================================ */
 
 /* Base — reading mode only (class selector avoids breaking settings toggles) */
@@ -814,14 +814,14 @@ body .cm-hashtag-end {
 	background-color: transparent;
 }
 
-/* [x] / [X] = done — dark background, accent X mark */
+/* [x] / [X] = done — accent border + check */
 input[data-task="x"]:checked,
 input[data-task="X"]:checked,
 .markdown-preview-view li[data-task="x"] > .task-list-item-checkbox:checked,
 .markdown-preview-view li[data-task="X"] > .task-list-item-checkbox:checked,
 .HyperMD-list-line input[data-task="x"]:checked,
 .HyperMD-list-line input[data-task="X"]:checked {
-	background-color: var(--text-muted);
+	background-color: var(--background-primary);
 }
 
 input[data-task="x"]:checked::after,
@@ -830,7 +830,7 @@ input[data-task="X"]:checked::after,
 .markdown-preview-view li[data-task="X"] > .task-list-item-checkbox:checked::after,
 .HyperMD-list-line input[data-task="x"]:checked::after,
 .HyperMD-list-line input[data-task="X"]:checked::after {
-	content: '✕';
+	content: '✔';
 	position: absolute;
 	top: 50%;
 	left: 50%;
@@ -845,15 +845,14 @@ input[data-task="X"]:checked::after,
 	line-height: 1;
 }
 
-/* [v] / [V] = selected — accent background, dark checkmark
-   Broad selectors: reading mode + live preview + HyperMD source */
+/* [v] / [V] = selected — accent border + check */
 input[data-task="v"]:checked,
 input[data-task="V"]:checked,
 .markdown-preview-view li[data-task="v"] > .task-list-item-checkbox:checked,
 .markdown-preview-view li[data-task="V"] > .task-list-item-checkbox:checked,
 .HyperMD-list-line input[data-task="v"]:checked,
 .HyperMD-list-line input[data-task="V"]:checked {
-	background-color: var(--text-accent);
+	background-color: var(--background-primary);
 }
 
 input[data-task="v"]:checked::after,
@@ -872,19 +871,20 @@ input[data-task="V"]:checked::after,
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	color: var(--background-primary);
+	color: var(--text-accent);
 	font-size: 11px;
 	line-height: 1;
 }
 
-/* [-] / [–] = cancelled/rejected — muted background, accent X */
+/* [-] / [–] = cancelled/rejected — muted border, accent X */
 input[data-task="-"]:checked,
 input[data-task="–"]:checked,
 .markdown-preview-view li[data-task="-"] > .task-list-item-checkbox:checked,
 .markdown-preview-view li[data-task="–"] > .task-list-item-checkbox:checked,
 .HyperMD-list-line input[data-task="-"]:checked,
 .HyperMD-list-line input[data-task="–"]:checked {
-	background-color: var(--text-muted);
+	background-color: var(--background-primary);
+	border-color: var(--text-muted);
 }
 
 input[data-task="-"]:checked::after,
@@ -903,7 +903,7 @@ input[data-task="–"]:checked::after,
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	color: var(--text-accent);
+	color: var(--text-muted);
 	font-size: 11px;
 	line-height: 1;
 }
