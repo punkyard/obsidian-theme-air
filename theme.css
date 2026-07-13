@@ -805,12 +805,13 @@ body .cm-hashtag-end {
 	position: relative;
 }
 
-/* Checked — match Obsidian's :checked specificity (0,2,1) so appearance:none wins */
-.HyperMD-list-line input[type="checkbox"]:checked,
-.markdown-preview-view .task-list-item-checkbox:checked {
-	-webkit-appearance: none;
-	-moz-appearance: none;
-	appearance: none;
+/* Kill Obsidian's default ::after SVG checkmark — conflicts with our theme marks */
+.HyperMD-list-line input[type="checkbox"]:checked::after,
+.markdown-preview-view .task-list-item-checkbox:checked::after {
+	-webkit-mask-image: none !important;
+	mask-image: none !important;
+	background: transparent;
+	background-color: transparent;
 }
 
 /* [x] / [X] = done — dark background, accent X mark */
