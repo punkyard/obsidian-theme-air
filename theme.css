@@ -47,6 +47,7 @@ body {
 	--tag-color-hover: var(--text-accent);
 
 	/* List markers */
+	--list-marker-color: var(--text-normal);
 	--list-marker-color-hover: var(--text-muted);
 	--list-marker-color-collapsed: var(--text-accent);
 
