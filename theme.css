@@ -11,13 +11,13 @@
 /* ============================================================
    FONTS
    ============================================================ */
-
 @font-face {
-	font-family: 'Syne';
-	src: url('Syne.woff2') format('woff2');
-	font-weight: 400 800;
+	font-family: 'HeadingFont';
+	src: url('headings-font.woff2') format('woff2');
+	font-weight: 100 900;
 	font-style: normal;
 }
+
 
 /* ============================================================
    GLOBAL — both dark and light modes
@@ -90,12 +90,12 @@ body {
 	--h4-color: var(--color-accent);
 	--h5-color: color-mix(in oklch, var(--color-accent), black 12%);
 	--h6-color: color-mix(in oklch, var(--color-accent), black 25%);
-	--h1-font: 'Syne', sans-serif;
-	--h2-font: 'Syne', sans-serif;
-	--h3-font: 'Syne', sans-serif;
-	--h4-font: 'Syne', sans-serif;
-	--h5-font: 'Syne', sans-serif;
-	--h6-font: 'Syne', sans-serif;
+	--h1-font: 'HeadingFont', sans-serif;
+	--h2-font: 'HeadingFont', sans-serif;
+	--h3-font: 'HeadingFont', sans-serif;
+	--h4-font: 'HeadingFont', sans-serif;
+	--h5-font: 'HeadingFont', sans-serif;
+	--h6-font: 'HeadingFont', sans-serif;
 
 	/* Shadows */
 	--shadow-s: none;
@@ -266,12 +266,12 @@ body.theme-dark .view-header {
 	--h4-color: var(--color-accent);
 	--h5-color: color-mix(in oklch, var(--color-accent), white 12%);
 	--h6-color: color-mix(in oklch, var(--color-accent), white 25%);
-	--h1-font: 'Syne', sans-serif;
-	--h2-font: 'Syne', sans-serif;
-	--h3-font: 'Syne', sans-serif;
-	--h4-font: 'Syne', sans-serif;
-	--h5-font: 'Syne', sans-serif;
-	--h6-font: 'Syne', sans-serif;
+	--h1-font: 'HeadingFont', sans-serif;
+	--h2-font: 'HeadingFont', sans-serif;
+	--h3-font: 'HeadingFont', sans-serif;
+	--h4-font: 'HeadingFont', sans-serif;
+	--h5-font: 'HeadingFont', sans-serif;
+	--h6-font: 'HeadingFont', sans-serif;
 }
 
 /* Bold, italic, highlight — direct element overrides */
@@ -484,6 +484,14 @@ body .nav-files-container .nav-folder-children .nav-folder-children .nav-folder-
    HEADING AND PARAGRAPH SPACING
    ============================================================ */
 
+/* Heading font — explicit rules (vars alone don't apply in Obsidian) */
+.markdown-rendered h1, .HyperMD-header-1 { font-family: 'HeadingFont', sans-serif !important; }
+.markdown-rendered h2, .HyperMD-header-2 { font-family: 'HeadingFont', sans-serif !important; }
+.markdown-rendered h3, .HyperMD-header-3 { font-family: 'HeadingFont', sans-serif !important; }
+.markdown-rendered h4, .HyperMD-header-4 { font-family: 'HeadingFont', sans-serif !important; }
+.markdown-rendered h5, .HyperMD-header-5 { font-family: 'HeadingFont', sans-serif !important; }
+.markdown-rendered h6, .HyperMD-header-6 { font-family: 'HeadingFont', sans-serif !important; }
+
 /* Heading space ABOVE — reading mode (hierarchical: H1 most, H4-H6 equal) */
 .markdown-rendered h1 { margin-top: 2.5em; }
 .markdown-rendered h2 { margin-top: 2em; }
@@ -543,6 +551,17 @@ body .nav-files-container .nav-folder-children .nav-folder-children .nav-folder-
 
 /* Space before first list item when preceded by a heading */
 .markdown-source-view.mod-cm6.is-live-preview .cm-content .HyperMD-header + .cm-line.HyperMD-list-line {
+	padding-top: 0.8em;
+}
+
+/* Space after last list item when followed by a text paragraph */
+.markdown-source-view.mod-cm6.is-live-preview .cm-content .HyperMD-list-line + .cm-line:not(.HyperMD-list-line):not(.HyperMD-header):not(.HyperMD-codeblock) {
+	padding-top: 0.8em;
+}
+
+/* List after paragraph — reading mode */
+.markdown-rendered div.el-p + div.el-ul,
+.markdown-rendered div.el-p + div.el-ol {
 	padding-top: 0.8em;
 }
 
@@ -644,23 +663,23 @@ body {
 	color: var(--inline-code-color);
 }
 
-/* Code block group — round outer corners (first line top, last line bottom) */
-.theme-dark .HyperMD-codeblock,
-.theme-light .HyperMD-codeblock {
-	border-bottom-left-radius: var(--radius);
-	border-bottom-right-radius: var(--radius);
-}
-.theme-dark .HyperMD-codeblock + .HyperMD-codeblock,
-.theme-light .HyperMD-codeblock + .HyperMD-codeblock {
-	border-bottom-left-radius: 0;
-	border-bottom-right-radius: 0;
-}
+/* Code block — round outer corners (first line top, last line bottom) */
 .theme-dark .cm-content :not(.HyperMD-codeblock) + .HyperMD-codeblock,
 .theme-light .cm-content :not(.HyperMD-codeblock) + .HyperMD-codeblock,
 .theme-dark .cm-content > .HyperMD-codeblock:first-child,
 .theme-light .cm-content > .HyperMD-codeblock:first-child {
 	border-top-left-radius: var(--radius);
 	border-top-right-radius: var(--radius);
+}
+.theme-dark .HyperMD-codeblock:has(+ *:not(.HyperMD-codeblock)),
+.theme-light .HyperMD-codeblock:has(+ *:not(.HyperMD-codeblock)) {
+	border-bottom-left-radius: var(--radius);
+	border-bottom-right-radius: var(--radius);
+}
+
+/* Code block inside list — bg only in content area, respects list indent padding */
+.HyperMD-codeblock.HyperMD-list-line-nobullet {
+	background-clip: content-box;
 }
 
 /* ============================================================
@@ -707,34 +726,50 @@ body .markdown-source-view.mod-cm6 tbody tr:nth-child(even) {
 	background-color: var(--blockquote-background-color);
 	padding: 0.6em 1em;
 	margin-inline-start: 1.5em;
+	margin-bottom: 0.6em;
 	color: var(--text-normal);
 	font-size: 1.05em;
 	letter-spacing: 0.02em;
 	border-radius: var(--radius);
 }
-
-/* Live preview — background + indent on all lines */
-.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote {
-	background-color: var(--blockquote-background-color);
-	margin-inline-start: 1.5em;
-	padding-inline: 1em;
-	color: var(--text-normal);
-	font-size: 1.05em;
-	letter-spacing: 0.02em;
-	border-radius: var(--radius);
-}
-
-/* Live preview — top padding on first quote line only */
-.markdown-source-view.mod-cm6.is-live-preview .cm-content > :not(.HyperMD-quote) + .HyperMD-quote {
+/* Paragraph after blockquote — reading mode */
+.markdown-rendered blockquote + div.el-p {
 	padding-top: 0.6em;
 }
 
-/* Live preview — bottom padding on last quote line only */
+/* Live preview — background + indent + left accent on all lines */
 .markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote {
-	padding-bottom: 0.6em;
+	background-color: var(--blockquote-background-color);
+	background-clip: padding-box;
+	margin-inline-start: calc(1.5em + 2px);
+	padding-inline: 1em;
+	border-left: none;
+	box-shadow: -2px 0 0 0 var(--color-accent);
+	color: var(--text-normal);
+	font-size: 1.05em;
+	letter-spacing: 0.02em;
+	position: relative;
 }
-.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote + .HyperMD-quote {
-	padding-bottom: 0;
+/* Hide Obsidian default ::before accent line */
+.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote::before {
+	display: none;
+}
+
+/* Live preview — top padding + top rounding on first quote line only */
+.markdown-source-view.mod-cm6.is-live-preview .cm-content > :not(.HyperMD-quote) + .HyperMD-quote {
+	padding-top: 0.6em;
+	border-top-left-radius: var(--radius);
+	border-top-right-radius: var(--radius);
+}
+
+/* Live preview — bottom gap + bottom rounding on last quote line only */
+.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote:has(+ *:not(.HyperMD-quote)) {
+	border-left: none;
+	box-shadow: -2px 0 0 0 var(--color-accent);
+	border-bottom: 0.6em solid var(--blockquote-background-color);
+	border-bottom-left-radius: var(--radius);
+	border-bottom-right-radius: var(--radius);
+	margin-inline-start: calc(1.5em + 2px);
 }
 
 /* ============================================================
@@ -744,6 +779,12 @@ body .markdown-source-view.mod-cm6 tbody tr:nth-child(even) {
 /* Reading mode: bullet-to-text gap */
 .markdown-rendered .list-bullet {
 	padding-inline-end: 0.5em;
+}
+
+/* Reading mode: bottom spacing after list */
+.markdown-rendered div.el-ul,
+.markdown-rendered div.el-ol {
+	margin-bottom: 0.8em;
 }
 
 /* ============================================================
