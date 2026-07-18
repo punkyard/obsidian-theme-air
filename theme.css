@@ -652,34 +652,233 @@ body {
 }
 
 /* Code block — live preview / source — dark */
-.theme-dark .HyperMD-codeblock {
+.theme-dark .cm-line[class*="HyperMD-codeblock"] {
 	background: #1e1e1e;
 	color: var(--inline-code-color);
 }
 
 /* Code block — live preview / source — light */
-.theme-light .HyperMD-codeblock {
+.theme-light .cm-line[class*="HyperMD-codeblock"] {
 	background: #d0d0d0;
 	color: var(--inline-code-color);
 }
 
 /* Code block — round outer corners (first line top, last line bottom) */
-.theme-dark .cm-content :not(.HyperMD-codeblock) + .HyperMD-codeblock,
-.theme-light .cm-content :not(.HyperMD-codeblock) + .HyperMD-codeblock,
-.theme-dark .cm-content > .HyperMD-codeblock:first-child,
-.theme-light .cm-content > .HyperMD-codeblock:first-child {
+.theme-dark .cm-content .cm-line:not([class*="HyperMD-codeblock"]) + .cm-line[class*="HyperMD-codeblock"],
+.theme-light .cm-content .cm-line:not([class*="HyperMD-codeblock"]) + .cm-line[class*="HyperMD-codeblock"],
+.theme-dark .cm-content > .cm-line[class*="HyperMD-codeblock"]:first-child,
+.theme-light .cm-content > .cm-line[class*="HyperMD-codeblock"]:first-child {
 	border-top-left-radius: var(--radius);
 	border-top-right-radius: var(--radius);
 }
-.theme-dark .HyperMD-codeblock:has(+ *:not(.HyperMD-codeblock)),
-.theme-light .HyperMD-codeblock:has(+ *:not(.HyperMD-codeblock)) {
+.theme-dark .cm-line[class*="HyperMD-codeblock"]:has(+ .cm-line:not([class*="HyperMD-codeblock"])),
+.theme-light .cm-line[class*="HyperMD-codeblock"]:has(+ .cm-line:not([class*="HyperMD-codeblock"])) {
 	border-bottom-left-radius: var(--radius);
 	border-bottom-right-radius: var(--radius);
 }
 
-/* Code block inside list — bg only in content area, respects list indent padding */
-.HyperMD-codeblock.HyperMD-list-line-nobullet {
-	background-clip: content-box;
+/* Code blocks nested in lists — align background, fences and code text.
+   Measured CodeMirror geometry:
+   marker width = 23.424px
+   one nested indent = 31.503px */
+
+.markdown-source-view.mod-cm6 {
+	--air-list-marker-width: 23.424px;
+	--air-list-indent-width: 31.503px;
+
+	/* Space between bullet and code-block background */
+	--air-list-code-gap: 0.5em;
+
+	/* Space between background edge and code text */
+	--air-list-code-padding: 0.75em;
+}
+
+.theme-dark .markdown-source-view.mod-cm6 {
+	--air-list-code-background: #1e1e1e;
+}
+
+.theme-light .markdown-source-view.mod-cm6 {
+	--air-list-code-background: #d0d0d0;
+}
+
+
+/* ============================================================
+   OPENING FENCE — depth is available directly on the line
+   ============================================================ */
+
+.markdown-source-view.mod-cm6
+.cm-line.HyperMD-codeblock-begin.HyperMD-list-line-1 {
+	--air-list-code-offset: calc(
+		var(--air-list-marker-width) +
+		var(--air-list-code-gap)
+	);
+}
+
+.markdown-source-view.mod-cm6
+.cm-line.HyperMD-codeblock-begin.HyperMD-list-line-2 {
+	--air-list-code-offset: calc(
+		var(--air-list-indent-width) +
+		var(--air-list-marker-width) +
+		var(--air-list-code-gap)
+	);
+}
+
+.markdown-source-view.mod-cm6
+.cm-line.HyperMD-codeblock-begin.HyperMD-list-line-3 {
+	--air-list-code-offset: calc(
+		var(--air-list-indent-width) +
+		var(--air-list-indent-width) +
+		var(--air-list-marker-width) +
+		var(--air-list-code-gap)
+	);
+}
+
+
+/* ============================================================
+   CONTENT LINE — infer depth from indentation spans
+   ============================================================ */
+
+/* Level 1 */
+.markdown-source-view.mod-cm6
+.cm-line.HyperMD-codeblock.HyperMD-list-line:not(.HyperMD-codeblock-begin):not(.HyperMD-codeblock-end):has(> .cm-hmd-codeblock > .cm-indent-spacing:first-child):not(:has(> .cm-hmd-codeblock > .cm-indent)) {
+	--air-list-code-offset: calc(
+		var(--air-list-marker-width) +
+		var(--air-list-code-gap)
+	);
+}
+
+/* Level 2 */
+.markdown-source-view.mod-cm6
+.cm-line.HyperMD-codeblock.HyperMD-list-line:not(.HyperMD-codeblock-begin):not(.HyperMD-codeblock-end):has(> .cm-hmd-codeblock > .cm-indent:first-child + .cm-indent-spacing) {
+	--air-list-code-offset: calc(
+		var(--air-list-indent-width) +
+		var(--air-list-marker-width) +
+		var(--air-list-code-gap)
+	);
+}
+
+/* Level 3 */
+.markdown-source-view.mod-cm6
+.cm-line.HyperMD-codeblock.HyperMD-list-line:not(.HyperMD-codeblock-begin):not(.HyperMD-codeblock-end):has(> .cm-hmd-codeblock > .cm-indent:first-child + .cm-indent + .cm-indent-spacing) {
+	--air-list-code-offset: calc(
+		var(--air-list-indent-width) +
+		var(--air-list-indent-width) +
+		var(--air-list-marker-width) +
+		var(--air-list-code-gap)
+	);
+}
+
+
+/* ============================================================
+   CLOSING FENCE — inherit depth from previous content line
+   ============================================================ */
+
+/* Level 1 */
+.markdown-source-view.mod-cm6
+.cm-line.HyperMD-codeblock.HyperMD-list-line:not(.HyperMD-codeblock-begin):not(.HyperMD-codeblock-end):has(> .cm-hmd-codeblock > .cm-indent-spacing:first-child):not(:has(> .cm-hmd-codeblock > .cm-indent))
++ .cm-line.HyperMD-codeblock-end.HyperMD-list-line,
+
+.markdown-source-view.mod-cm6
+.cm-line.HyperMD-codeblock-begin.HyperMD-list-line-1
++ .cm-line.HyperMD-codeblock-end.HyperMD-list-line {
+	--air-list-code-offset: calc(
+		var(--air-list-marker-width) +
+		var(--air-list-code-gap)
+	);
+}
+
+/* Level 2 */
+.markdown-source-view.mod-cm6
+.cm-line.HyperMD-codeblock.HyperMD-list-line:not(.HyperMD-codeblock-begin):not(.HyperMD-codeblock-end):has(> .cm-hmd-codeblock > .cm-indent:first-child + .cm-indent-spacing)
++ .cm-line.HyperMD-codeblock-end.HyperMD-list-line,
+
+.markdown-source-view.mod-cm6
+.cm-line.HyperMD-codeblock-begin.HyperMD-list-line-2
++ .cm-line.HyperMD-codeblock-end.HyperMD-list-line {
+	--air-list-code-offset: calc(
+		var(--air-list-indent-width) +
+		var(--air-list-marker-width) +
+		var(--air-list-code-gap)
+	);
+}
+
+/* Level 3 */
+.markdown-source-view.mod-cm6
+.cm-line.HyperMD-codeblock.HyperMD-list-line:not(.HyperMD-codeblock-begin):not(.HyperMD-codeblock-end):has(> .cm-hmd-codeblock > .cm-indent:first-child + .cm-indent + .cm-indent-spacing)
++ .cm-line.HyperMD-codeblock-end.HyperMD-list-line,
+
+.markdown-source-view.mod-cm6
+.cm-line.HyperMD-codeblock-begin.HyperMD-list-line-3
++ .cm-line.HyperMD-codeblock-end.HyperMD-list-line {
+	--air-list-code-offset: calc(
+		var(--air-list-indent-width) +
+		var(--air-list-indent-width) +
+		var(--air-list-marker-width) +
+		var(--air-list-code-gap)
+	);
+}
+
+
+/* ============================================================
+   COMMON BACKGROUND
+   ============================================================ */
+
+.markdown-source-view.mod-cm6
+.cm-line.HyperMD-codeblock.HyperMD-list-line {
+	background:
+		linear-gradient(
+			to right,
+			transparent 0 var(--air-list-code-offset, 0),
+			var(--air-list-code-background)
+				var(--air-list-code-offset, 0) 100%
+		) !important;
+}
+
+
+/* ============================================================
+   TEXT ALIGNMENT
+   ============================================================ */
+
+/* Opening fence padding after the list marker */
+.markdown-source-view.mod-cm6
+.cm-line.HyperMD-codeblock-begin.HyperMD-list-line
+> .cm-formatting-list {
+	margin-inline-end: calc(
+		var(--air-list-code-gap) +
+		var(--air-list-code-padding)
+	);
+}
+
+/* Closing fence alignment */
+.markdown-source-view.mod-cm6
+.cm-line.HyperMD-codeblock-end.HyperMD-list-line {
+	text-indent: calc(
+		var(--air-list-code-offset, 0) +
+		var(--air-list-code-padding)
+	);
+}
+
+/* Remove source indentation from visible code content */
+.markdown-source-view.mod-cm6
+.cm-line.HyperMD-codeblock.HyperMD-list-line:not(.HyperMD-codeblock-begin):not(.HyperMD-codeblock-end)
+> .cm-hmd-codeblock
+> :is(.cm-indent, .cm-indent-spacing) {
+	display: none !important;
+}
+
+/* Position content inside the shared background edge */
+.markdown-source-view.mod-cm6
+.cm-line.HyperMD-codeblock.HyperMD-list-line:not(.HyperMD-codeblock-begin):not(.HyperMD-codeblock-end)
+> .cm-hmd-codeblock {
+	display: inline-block;
+	margin-inline-start: var(--air-list-code-offset, 0);
+	padding-inline-start: var(--air-list-code-padding);
+}
+
+
+/* Hide guide decoration only */
+[class*="HyperMD-codeblock"] .cm-indent-guide {
+	display: none;
 }
 
 /* ============================================================
