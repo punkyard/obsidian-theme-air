@@ -809,16 +809,10 @@ body {
 	border-start-end-radius: var(--radius);
 }
 
-/* Level-1 hidden opening fence: reduce excess top area */
+/* Reduce the blank opening-fence row at all times */
 .markdown-source-view.mod-cm6
-.cm-line.HyperMD-codeblock-begin.HyperMD-list-line-1:not(.cm-active)::before {
-	inset-block-start: 0.1lh;
-}
-
-/* Restore the full row while editing the opening fence */
-.markdown-source-view.mod-cm6
-.cm-line.HyperMD-codeblock-begin.HyperMD-list-line-1.cm-active::before {
-	inset-block-start: 0;
+.cm-line.HyperMD-codeblock-begin.HyperMD-list-line::before {
+	inset-block-start: 0.4lh;
 }
 
 .markdown-source-view.mod-cm6 .cm-line.HyperMD-codeblock-end.HyperMD-list-line::before {
