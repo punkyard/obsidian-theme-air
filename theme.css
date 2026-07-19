@@ -671,205 +671,42 @@ body {
 	border-top-left-radius: var(--radius);
 	border-top-right-radius: var(--radius);
 }
-.theme-dark .cm-line[class*="HyperMD-codeblock"]:has(+ .cm-line:not([class*="HyperMD-codeblock"])),
-.theme-light .cm-line[class*="HyperMD-codeblock"]:has(+ .cm-line:not([class*="HyperMD-codeblock"])) {
+.theme-dark .cm-line.HyperMD-codeblock-end,
+.theme-light .cm-line.HyperMD-codeblock-end {
 	border-bottom-left-radius: var(--radius);
 	border-bottom-right-radius: var(--radius);
 }
 
-/* Code blocks nested in lists — final reset.
-   Uses the real CodeMirror DOM measured in this note. */
+/* Nested fenced code blocks: stable fallback */
 
-.markdown-source-view.mod-cm6 {
-	--air-list-marker-width: 23.424px;
-	--air-list-indent-width: 36px;
-	--air-list-code-gap: 8px;
-	--air-list-code-padding: 16px;
+.theme-dark .HyperMD-codeblock-begin.HyperMD-list-line-1 {
+	background:
+		linear-gradient(to right, transparent 1.67em, #1e1e1e 1.67em);
 }
 
-.theme-dark .markdown-source-view.mod-cm6 {
-	--air-list-code-background: #1e1e1e;
+.theme-dark .HyperMD-codeblock-begin.HyperMD-list-line-2 {
+	background:
+		linear-gradient(to right, transparent 4.21em, #1e1e1e 4.21em);
 }
 
-.theme-light .markdown-source-view.mod-cm6 {
-	--air-list-code-background: #d0d0d0;
+.theme-dark .HyperMD-codeblock-begin.HyperMD-list-line-3 {
+	background:
+		linear-gradient(to right, transparent 6.79em, #1e1e1e 6.79em);
 }
 
-/* Level-2 fenced-list lines use a narrower source tab than normal lists.
-   Fix only the indent wrapper; do not move the bullet itself. */
-.markdown-source-view.mod-cm6 .cm-line.HyperMD-codeblock-begin.HyperMD-list-line-2 > .cm-hmd-list-indent-2 {
-	display: inline-block !important;
-	box-sizing: border-box;
-	inline-size: var(--air-list-indent-width) !important;
-	min-inline-size: var(--air-list-indent-width) !important;
-	max-inline-size: var(--air-list-indent-width) !important;
-	padding: 0 !important;
-	margin: 0 !important;
+.theme-light .HyperMD-codeblock-begin.HyperMD-list-line-1 {
+	background:
+		linear-gradient(to right, transparent 1.67em, #d0d0d0 1.67em);
 }
 
-/* Opening-fence depth. */
-.markdown-source-view.mod-cm6 .cm-line.HyperMD-codeblock-begin.HyperMD-list-line-1 {
-	--air-list-code-offset: calc(
-		var(--air-list-marker-width) +
-		var(--air-list-code-gap)
-	);
+.theme-light .HyperMD-codeblock-begin.HyperMD-list-line-2 {
+	background:
+		linear-gradient(to right, transparent 4.21em, #d0d0d0 4.21em);
 }
 
-.markdown-source-view.mod-cm6 .cm-line.HyperMD-codeblock-begin.HyperMD-list-line-2 {
-	--air-list-code-offset: calc(
-		var(--air-list-indent-width) +
-		var(--air-list-marker-width) +
-		var(--air-list-code-gap)
-	);
-}
-
-.markdown-source-view.mod-cm6 .cm-line.HyperMD-codeblock-begin.HyperMD-list-line-3 {
-	--air-list-code-offset: calc(
-		(var(--air-list-indent-width) * 2) +
-		var(--air-list-marker-width) +
-		var(--air-list-code-gap)
-	);
-}
-
-/* Content-line depth.
-   Broad descendant tests are intentional: active CodeMirror lines can
-   insert extra wrappers around these indentation spans. */
-.markdown-source-view.mod-cm6 .cm-line.HyperMD-codeblock.HyperMD-list-line:not(.HyperMD-codeblock-begin):not(.HyperMD-codeblock-end):has(.cm-hmd-codeblock .cm-indent-spacing):not(:has(.cm-hmd-codeblock .cm-indent)) {
-	--air-list-code-offset: calc(
-		var(--air-list-marker-width) +
-		var(--air-list-code-gap)
-	);
-}
-
-.markdown-source-view.mod-cm6 .cm-line.HyperMD-codeblock.HyperMD-list-line:not(.HyperMD-codeblock-begin):not(.HyperMD-codeblock-end):has(.cm-hmd-codeblock .cm-indent):has(.cm-hmd-codeblock .cm-indent-spacing):not(:has(.cm-hmd-codeblock .cm-indent + .cm-indent)) {
-	--air-list-code-offset: calc(
-		var(--air-list-indent-width) +
-		var(--air-list-marker-width) +
-		var(--air-list-code-gap)
-	);
-}
-
-.markdown-source-view.mod-cm6 .cm-line.HyperMD-codeblock.HyperMD-list-line:not(.HyperMD-codeblock-begin):not(.HyperMD-codeblock-end):has(.cm-hmd-codeblock .cm-indent + .cm-indent):has(.cm-hmd-codeblock .cm-indent-spacing) {
-	--air-list-code-offset: calc(
-		(var(--air-list-indent-width) * 2) +
-		var(--air-list-marker-width) +
-		var(--air-list-code-gap)
-	);
-}
-
-/* Closing-fence depth comes from the preceding content line.
-   The second selector in each group covers an empty fenced block. */
-.markdown-source-view.mod-cm6 .cm-line.HyperMD-codeblock.HyperMD-list-line:not(.HyperMD-codeblock-begin):not(.HyperMD-codeblock-end):has(.cm-hmd-codeblock .cm-indent-spacing):not(:has(.cm-hmd-codeblock .cm-indent)) + .cm-line.HyperMD-codeblock-end.HyperMD-list-line,
-.markdown-source-view.mod-cm6 .cm-line.HyperMD-codeblock-begin.HyperMD-list-line-1 + .cm-line.HyperMD-codeblock-end.HyperMD-list-line {
-	--air-list-code-offset: calc(
-		var(--air-list-marker-width) +
-		var(--air-list-code-gap)
-	);
-}
-
-.markdown-source-view.mod-cm6 .cm-line.HyperMD-codeblock.HyperMD-list-line:not(.HyperMD-codeblock-begin):not(.HyperMD-codeblock-end):has(.cm-hmd-codeblock .cm-indent):has(.cm-hmd-codeblock .cm-indent-spacing):not(:has(.cm-hmd-codeblock .cm-indent + .cm-indent)) + .cm-line.HyperMD-codeblock-end.HyperMD-list-line,
-.markdown-source-view.mod-cm6 .cm-line.HyperMD-codeblock-begin.HyperMD-list-line-2 + .cm-line.HyperMD-codeblock-end.HyperMD-list-line {
-	--air-list-code-offset: calc(
-		var(--air-list-indent-width) +
-		var(--air-list-marker-width) +
-		var(--air-list-code-gap)
-	);
-}
-
-.markdown-source-view.mod-cm6 .cm-line.HyperMD-codeblock.HyperMD-list-line:not(.HyperMD-codeblock-begin):not(.HyperMD-codeblock-end):has(.cm-hmd-codeblock .cm-indent + .cm-indent):has(.cm-hmd-codeblock .cm-indent-spacing) + .cm-line.HyperMD-codeblock-end.HyperMD-list-line,
-.markdown-source-view.mod-cm6 .cm-line.HyperMD-codeblock-begin.HyperMD-list-line-3 + .cm-line.HyperMD-codeblock-end.HyperMD-list-line {
-	--air-list-code-offset: calc(
-		(var(--air-list-indent-width) * 2) +
-		var(--air-list-marker-width) +
-		var(--air-list-code-gap)
-	);
-}
-
-/* Draw one indented background layer per CodeMirror line. */
-.markdown-source-view.mod-cm6 .cm-line.HyperMD-codeblock.HyperMD-list-line {
-	position: relative;
-	isolation: isolate;
-	background: none !important;
-	border-radius: 0 !important;
-}
-
-.markdown-source-view.mod-cm6 .cm-line.HyperMD-codeblock.HyperMD-list-line::before {
-	content: "";
-	position: absolute;
-	z-index: -1;
-	pointer-events: none;
-	inset-block: 0;
-	inset-inline-start: var(--air-list-code-offset, 0px);
-	inset-inline-end: 0;
-	background: var(--air-list-code-background);
-}
-
-.markdown-source-view.mod-cm6 .cm-line.HyperMD-codeblock-begin.HyperMD-list-line::before {
-	border-start-start-radius: var(--radius);
-	border-start-end-radius: var(--radius);
-}
-
-/* Reduce the blank opening-fence row at all times */
-.markdown-source-view.mod-cm6
-.cm-line.HyperMD-codeblock-begin.HyperMD-list-line::before {
-	inset-block-start: 0.4lh;
-}
-
-.markdown-source-view.mod-cm6 .cm-line.HyperMD-codeblock-end.HyperMD-list-line::before {
-	border-end-start-radius: var(--radius);
-	border-end-end-radius: var(--radius);
-}
-
-/* Align the visible opening fence with the code content. */
-.markdown-source-view.mod-cm6 .cm-line.HyperMD-codeblock-begin.HyperMD-list-line > .cm-formatting-list {
-	margin-inline-end: calc(
-		var(--air-list-code-gap) +
-		var(--air-list-code-padding)
-	) !important;
-}
-
-/* Remove Markdown's source indentation, then place the actual code span
-   inside the indented background. */
-.markdown-source-view.mod-cm6 .cm-line.HyperMD-codeblock.HyperMD-list-line:not(.HyperMD-codeblock-begin):not(.HyperMD-codeblock-end) .cm-hmd-codeblock :is(.cm-indent, .cm-indent-spacing) {
-	display: none !important;
-}
-
-.markdown-source-view.mod-cm6 .cm-line.HyperMD-codeblock.HyperMD-list-line:not(.HyperMD-codeblock-begin):not(.HyperMD-codeblock-end) > .cm-hmd-codeblock {
-	display: inline-block !important;
-	margin: 0 !important;
-	margin-inline-start: calc(
-		var(--air-list-code-offset, 0px) +
-		var(--air-list-code-padding)
-	) !important;
-	padding: 0 !important;
-}
-
-/* Align a visible closing fence. */
-.markdown-source-view.mod-cm6 .cm-line.HyperMD-codeblock-end.HyperMD-list-line {
-	box-sizing: border-box;
-	padding-inline-start: calc(
-		var(--air-list-code-offset, 0px) +
-		var(--air-list-code-padding)
-	) !important;
-	text-indent: 0 !important;
-}
-
-.markdown-source-view.mod-cm6 .cm-line.HyperMD-codeblock-end.HyperMD-list-line :is(.cm-hmd-list-indent, .cm-indent, .cm-indent-spacing) {
-	display: none !important;
-}
-
-/* Hide list indentation guides without removing their layout width. */
-.markdown-source-view.mod-cm6 .cm-indent-guide,
-.markdown-source-view.mod-cm6 .cm-indent::before,
-.markdown-source-view.mod-cm6 .cm-hmd-list-indent::before {
-	display: none !important;
-}
-
-.markdown-source-view.mod-cm6 .cm-indent,
-.markdown-source-view.mod-cm6 .cm-hmd-list-indent {
-	border-inline-start: none !important;
-	box-shadow: none !important;
-	background-image: none !important;
+.theme-light .HyperMD-codeblock-begin.HyperMD-list-line-3 {
+	background:
+		linear-gradient(to right, transparent 6.79em, #d0d0d0 6.79em);
 }
 
 
@@ -1037,13 +874,11 @@ body .cm-hashtag-end {
 	position: relative;
 }
 
-/* Kill Obsidian's default ::after SVG checkmark — conflicts with our theme marks */
+/* Kill Obsidian's default ::after SVG checkmark — content rule + custom marks win */
 .HyperMD-list-line input[type="checkbox"]:checked::after,
 .markdown-preview-view .task-list-item-checkbox:checked::after {
-	-webkit-mask-image: none !important;
-	mask-image: none !important;
+	content: none;
 	background: transparent;
-	background-color: transparent;
 }
 
 /* [x] / [X] = done — accent border + check */
