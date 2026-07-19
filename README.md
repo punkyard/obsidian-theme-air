@@ -14,23 +14,23 @@ Choose your favorite **accent color** from *Settings > Options > Appearance > Ac
 
 ## Design
 
-- One uniform surface, no pane borders
-- Your chosen **accent color** propagates to headings (H1–H6), bold, italic, highlights, tags, active states, checkboxes, and list bullets
+- one uniform surface, no pane borders
+- your chosen **accent color** propagates to headings (H1–H6), bold, italic, highlights, tags, active states, checkboxes, list bullets and folders
 - `headings-font.woff2` is the font file used for all headings and can be replaced
-- Text: near-white normal, stepped grays for muted/faint
-- Zero border-radius throughout
-- **Ribbon** hides until hover
-- **Properties** and Add property hide until hover
-- Active line highlights the line number
-- **Tags**: accent text, no background or border
-- Supports **dark** and **light** mode
+- text: near-white normal, stepped grays for muted/faint
+- zero border-radius throughout
+- **ribbon** hides until hover
+- **Properties** and **Add property** hide until hover
+- active line highlights the line number
+- **tags**: accent text, no background or border
+- supports **code blocks** in lists
+- supports **dark** and **light** mode
 
 | dark                         | light                           |
 | ---------------------------- | ------------------------------- |
 | ![dark](assets/air-cyan.png) | ![light](assets/air-purple.png) |
 
-![active](assets/active-line.png)
-
+![code in lists](assets/inlist-code.png)
 
 ---
 
