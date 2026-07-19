@@ -1,5 +1,19 @@
 # Changelog
 
+## [Unreleased]
+
+## [0.1.5] — 2026-07-19
+
+### Fixed
+
+- Fenced code blocks inside bullet lists — background, fence, and text aligned properly at every nesting depth (L1/L2/L3) (#45)
+- List fenced code uses `::before` pseudo-element for rounded background corners
+- Hidden opening-fence row no longer paints oversized top area
+- List blockquote bottom padding balanced
+- Checkbox dual-mark rendering, all states use window background color (#44)
+- Light-mode border leaks and low-specificity border rules
+- List marker color uses `--text-normal` instead of accent
+
 ## [0.1.1] — 2026-07-10
 
 ### Fixed
