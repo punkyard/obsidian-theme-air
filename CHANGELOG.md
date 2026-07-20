@@ -2,6 +2,12 @@
 
 ## [Unreleased]
 
+## [0.2.0] — 2026-07-20
+
+### Fixed
+
+- Obsidian theme-review warnings: removed `!important`, `:has()`, `text-indent`, and `mask-image` from fenced code blocks inside lists — CSS-only gradient approach (#48, #50)
+
 ## [0.1.5] — 2026-07-19
 
 ### Fixed
