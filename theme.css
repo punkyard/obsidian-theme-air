@@ -191,8 +191,8 @@ body.theme-dark .tree-sorting-button {
 /* Remove structural pane/tab borders */
 body.theme-dark .workspace-leaf-resize-handle,
 body.theme-dark .view-header {
-	border: none !important;
-	box-shadow: none !important;
+	border: none;
+	box-shadow: none;
 }
 
 /* Bold, italic, highlight — direct element overrides */
@@ -326,19 +326,19 @@ svg * {
 .nav-files-container,
 .file-tree-container,
 .outline-container {
-	border-right: none !important;
-	border-left: none !important;
+	border-right: none;
+	border-left: none;
 }
 
 /* Flat titlebar */
 .titlebar,
 .titlebar-container {
-	border-bottom: none !important;
+	border-bottom: none;
 }
 
 /* Flat status bar */
 .status-bar {
-	border-top: none !important;
+	border-top: none;
 }
 
 /* Flat menus */
@@ -347,8 +347,8 @@ svg * {
 .context-menu,
 .prompt,
 .suggestion-container {
-	border: none !important;
-	box-shadow: none !important;
+	border: none;
+	box-shadow: none;
 }
 
 /* Flat workspace splits */
@@ -360,24 +360,24 @@ svg * {
 .workspace-side-prefer-input,
 .workspace-side-prefer-output,
 .workspace-leaf-resize-area {
-	border: none !important;
-	box-shadow: none !important;
+	border: none;
+	box-shadow: none;
 }
 
 /* Flat tab bar */
 .workspace-tab-header-inner,
 .workspace-tab-header {
-	border-right: none !important;
-	border-left: none !important;
-	border-bottom: none !important;
+	border-right: none;
+	border-left: none;
+	border-bottom: none;
 }
 
 /* Flat modals */
 .modal,
 .modal-content,
 .modal-bg {
-	border: none !important;
-	box-shadow: none !important;
+	border: none;
+	box-shadow: none;
 }
 
 /* Modal backdrop — subtle fade only */
@@ -391,14 +391,14 @@ svg * {
 /* Flat popovers */
 .popover,
 .popover-content {
-	border: none !important;
-	box-shadow: none !important;
+	border: none;
+	box-shadow: none;
 }
 
 /* Flat canvas */
 .workspace-canvas,
 .workspace-leaf-content {
-	border: none !important;
+	border: none;
 }
 
 /* Formatting markers (**, *, #, [], etc.) — dimmed in source / live preview */
@@ -485,12 +485,12 @@ body .nav-files-container .nav-folder-children .nav-folder-children .nav-folder-
    ============================================================ */
 
 /* Heading font — explicit rules (vars alone don't apply in Obsidian) */
-.markdown-rendered h1, .HyperMD-header-1 { font-family: 'HeadingFont', sans-serif !important; }
-.markdown-rendered h2, .HyperMD-header-2 { font-family: 'HeadingFont', sans-serif !important; }
-.markdown-rendered h3, .HyperMD-header-3 { font-family: 'HeadingFont', sans-serif !important; }
-.markdown-rendered h4, .HyperMD-header-4 { font-family: 'HeadingFont', sans-serif !important; }
-.markdown-rendered h5, .HyperMD-header-5 { font-family: 'HeadingFont', sans-serif !important; }
-.markdown-rendered h6, .HyperMD-header-6 { font-family: 'HeadingFont', sans-serif !important; }
+.markdown-rendered h1, .HyperMD-header-1 { font-family: 'HeadingFont', sans-serif; }
+.markdown-rendered h2, .HyperMD-header-2 { font-family: 'HeadingFont', sans-serif; }
+.markdown-rendered h3, .HyperMD-header-3 { font-family: 'HeadingFont', sans-serif; }
+.markdown-rendered h4, .HyperMD-header-4 { font-family: 'HeadingFont', sans-serif; }
+.markdown-rendered h5, .HyperMD-header-5 { font-family: 'HeadingFont', sans-serif; }
+.markdown-rendered h6, .HyperMD-header-6 { font-family: 'HeadingFont', sans-serif; }
 
 /* Heading space ABOVE — reading mode (hierarchical: H1 most, H4-H6 equal) */
 .markdown-rendered h1 { margin-top: 2.5em; }
@@ -653,7 +653,7 @@ body {
 
 /* ============================================================
    CODE BLOCKS — LIVE PREVIEW / SOURCE
-   CSS-only nested-list support
+   CSS-only nested-list support without relational parent selectors
    ============================================================ */
 
 /* Ordinary fenced code blocks */
@@ -687,15 +687,20 @@ body {
 	--air-list-code-indent-width: 36px;
 	--air-list-code-gap: 8px;
 	--air-list-code-padding: 16px;
+	--air-list-code-top-trim: 0.35lh;
+	--air-list-code-bottom-cap: 0.45em;
+
 	--air-list-code-l1: calc(
 		var(--air-list-code-marker-width) +
 		var(--air-list-code-gap)
 	);
+
 	--air-list-code-l2: calc(
 		var(--air-list-code-indent-width) +
 		var(--air-list-code-marker-width) +
 		var(--air-list-code-gap)
 	);
+
 	--air-list-code-l3: calc(
 		(var(--air-list-code-indent-width) * 2) +
 		var(--air-list-code-marker-width) +
@@ -711,19 +716,24 @@ body {
 	--air-list-code-background: #d0d0d0;
 }
 
-/* Never apply the ordinary full-width block background to list code. */
+/* Remove the ordinary full-width surface from list code lines. */
 body .markdown-source-view.mod-cm6
 .cm-line.HyperMD-codeblock.HyperMD-list-line {
-	--air-list-code-offset: var(--air-list-code-l1);
 	box-sizing: border-box;
-	background-color: transparent;
+	position: relative;
+	background: none;
 	color: var(--inline-code-color);
 }
 
-/* Opening fence depth is exposed directly by CodeMirror. */
+/* ============================================================
+   OPENING FENCE
+   The opening line keeps its numbered list-depth class.
+   ============================================================ */
+
 body .markdown-source-view.mod-cm6
-.cm-line.HyperMD-codeblock-begin.HyperMD-list-line-1 {
+.cm-line.HyperMD-codeblock-begin.HyperMD-list-line {
 	--air-list-code-offset: var(--air-list-code-l1);
+	isolation: isolate;
 }
 
 body .markdown-source-view.mod-cm6
@@ -736,7 +746,7 @@ body .markdown-source-view.mod-cm6
 	--air-list-code-offset: var(--air-list-code-l3);
 }
 
-/* Match Obsidian's normal nested-list indentation. */
+/* Match ordinary list indentation on nested opening lines. */
 body .markdown-source-view.mod-cm6
 .cm-line.HyperMD-codeblock-begin.HyperMD-list-line-2
 > .cm-hmd-list-indent-2,
@@ -761,123 +771,186 @@ body .markdown-source-view.mod-cm6
 	inline-size: calc(var(--air-list-code-indent-width) * 2);
 }
 
-/* Opening row: paint only the lower part of the hidden fence line. */
+/* Paint the opening surface behind, but not over, the list marker. */
 body .markdown-source-view.mod-cm6
-.cm-line.HyperMD-codeblock-begin.HyperMD-list-line {
-	background-image: linear-gradient(
-		to right,
-		transparent 0 var(--air-list-code-offset),
-		var(--air-list-code-background) var(--air-list-code-offset)
-	);
-	background-repeat: no-repeat;
-	background-position: left bottom;
-	background-size: 100% calc(100% - 0.4lh);
+.cm-line.HyperMD-codeblock-begin.HyperMD-list-line::before {
+	content: "";
+	position: absolute;
+	z-index: -1;
+	pointer-events: none;
+	inset-inline-start: var(--air-list-code-offset);
+	inset-inline-end: 0;
+	inset-block-start: var(--air-list-code-top-trim);
+	inset-block-end: 0;
+	background: var(--air-list-code-background);
 	border-start-start-radius: var(--radius);
 	border-start-end-radius: var(--radius);
 }
 
-/* Content defaults to level 1. One/two source-indent spans mean levels 2/3. */
+/* Place a visible opening fence/language label inside the box. */
 body .markdown-source-view.mod-cm6
-.cm-line.HyperMD-codeblock.HyperMD-list-line:not(.HyperMD-codeblock-begin):not(.HyperMD-codeblock-end) {
-	--air-list-code-offset: var(--air-list-code-l1);
-}
-
-body .markdown-source-view.mod-cm6
-.cm-line.HyperMD-codeblock.HyperMD-list-line:not(.HyperMD-codeblock-begin):not(.HyperMD-codeblock-end):has(
-	> .cm-hmd-codeblock > .cm-indent:first-child
-) {
-	--air-list-code-offset: var(--air-list-code-l2);
-}
-
-body .markdown-source-view.mod-cm6
-.cm-line.HyperMD-codeblock.HyperMD-list-line:not(.HyperMD-codeblock-begin):not(.HyperMD-codeblock-end):has(
-	> .cm-hmd-codeblock > .cm-indent:first-child + .cm-indent
-) {
-	--air-list-code-offset: var(--air-list-code-l3);
-}
-
-body .markdown-source-view.mod-cm6
-.cm-line.HyperMD-codeblock.HyperMD-list-line:not(.HyperMD-codeblock-begin):not(.HyperMD-codeblock-end) {
-	background-image: linear-gradient(
-		to right,
-		transparent 0 var(--air-list-code-offset),
-		var(--air-list-code-background) var(--air-list-code-offset)
-	);
-	padding-inline-start: calc(
-		var(--air-list-code-offset) +
+.cm-line.HyperMD-codeblock-begin.HyperMD-list-line
+> .cm-formatting-list {
+	margin-inline-end: calc(
+		var(--air-list-code-gap) +
 		var(--air-list-code-padding)
 	);
 }
 
-/*
- * The line already owns the list offset and code padding.
- * Remove the additional inset from the inner code token.
- */
+/* ============================================================
+   CONTENT ROWS
+   Depth is read directly from the existing child indentation spans.
+   Each row extends its surface into the following row. Later rows
+   overlap earlier rounded bottoms; only the final row remains visible.
+   ============================================================ */
+
+body .markdown-source-view.mod-cm6
+.cm-line.HyperMD-codeblock.HyperMD-list-line:not(.HyperMD-codeblock-begin):not(.HyperMD-codeblock-end) {
+	overflow: visible;
+}
+
 body .markdown-source-view.mod-cm6
 .cm-line.HyperMD-codeblock.HyperMD-list-line:not(.HyperMD-codeblock-begin):not(.HyperMD-codeblock-end)
 > .cm-hmd-codeblock {
-	display: inline;
+	display: block;
+	position: relative;
+	isolation: isolate;
+	box-sizing: border-box;
+	min-block-size: 1lh;
 	margin: 0;
 	padding: 0;
 }
 
-/* Remove the source indentation after replacing it with line padding. */
+/* One source-indent span equals one normal nested-list step. */
 body .markdown-source-view.mod-cm6
 .cm-line.HyperMD-codeblock.HyperMD-list-line:not(.HyperMD-codeblock-begin):not(.HyperMD-codeblock-end)
 > .cm-hmd-codeblock
-> :is(.cm-indent, .cm-indent-spacing) {
-	display: none;
+> .cm-indent {
+	display: inline-block;
+	box-sizing: border-box;
+	inline-size: var(--air-list-code-indent-width);
+	overflow: hidden;
+	color: transparent;
 }
 
-/* Closing fence inherits depth from the immediately preceding content row. */
+/*
+ * The final spacing span replaces:
+ * - the list-marker column,
+ * - the marker-to-box gap,
+ * - the code box's internal padding.
+ */
 body .markdown-source-view.mod-cm6
-.cm-line.HyperMD-codeblock.HyperMD-list-line:not(.HyperMD-codeblock-begin):not(.HyperMD-codeblock-end):has(
-	> .cm-hmd-codeblock > .cm-indent:first-child
-)
-+ .cm-line.HyperMD-codeblock-end.HyperMD-list-line {
-	--air-list-code-offset: var(--air-list-code-l2);
+.cm-line.HyperMD-codeblock.HyperMD-list-line:not(.HyperMD-codeblock-begin):not(.HyperMD-codeblock-end)
+> .cm-hmd-codeblock
+> .cm-indent-spacing {
+	display: inline-block;
+	box-sizing: border-box;
+	inline-size: calc(
+		var(--air-list-code-marker-width) +
+		var(--air-list-code-gap) +
+		var(--air-list-code-padding)
+	);
+	overflow: hidden;
+	color: transparent;
 }
 
+/* Shared content surface. Its containing block is .cm-hmd-codeblock. */
 body .markdown-source-view.mod-cm6
-.cm-line.HyperMD-codeblock.HyperMD-list-line:not(.HyperMD-codeblock-begin):not(.HyperMD-codeblock-end):has(
-	> .cm-hmd-codeblock > .cm-indent:first-child + .cm-indent
-)
-+ .cm-line.HyperMD-codeblock-end.HyperMD-list-line {
-	--air-list-code-offset: var(--air-list-code-l3);
+.cm-line.HyperMD-codeblock.HyperMD-list-line:not(.HyperMD-codeblock-begin):not(.HyperMD-codeblock-end)
+> .cm-hmd-codeblock
+> .cm-indent-spacing::before {
+	content: "";
+	position: absolute;
+	z-index: -1;
+	pointer-events: none;
+	inset-inline-end: 0;
+	inset-block-start: 0;
+	block-size: calc(1lh + var(--air-list-code-bottom-cap));
+	background: var(--air-list-code-background);
+	border-end-start-radius: var(--radius);
+	border-end-end-radius: var(--radius);
 }
 
-/* Empty level-2/3 blocks. */
+/* Level 1: spacing is the first structural span. */
 body .markdown-source-view.mod-cm6
-.cm-line.HyperMD-codeblock-begin.HyperMD-list-line-2
-+ .cm-line.HyperMD-codeblock-end.HyperMD-list-line {
-	--air-list-code-offset: var(--air-list-code-l2);
+.cm-line.HyperMD-codeblock.HyperMD-list-line:not(.HyperMD-codeblock-begin):not(.HyperMD-codeblock-end)
+> .cm-hmd-codeblock
+> .cm-indent-spacing:first-child::before {
+	inset-inline-start: var(--air-list-code-l1);
 }
 
+/* Level 2: one indent span precedes the spacing span. */
 body .markdown-source-view.mod-cm6
-.cm-line.HyperMD-codeblock-begin.HyperMD-list-line-3
-+ .cm-line.HyperMD-codeblock-end.HyperMD-list-line {
-	--air-list-code-offset: var(--air-list-code-l3);
+.cm-line.HyperMD-codeblock.HyperMD-list-line:not(.HyperMD-codeblock-begin):not(.HyperMD-codeblock-end)
+> .cm-hmd-codeblock
+> .cm-indent:first-child
++ .cm-indent-spacing::before {
+	inset-inline-start: var(--air-list-code-l2);
 }
+
+/* Level 3: two indent spans precede the spacing span. */
+body .markdown-source-view.mod-cm6
+.cm-line.HyperMD-codeblock.HyperMD-list-line:not(.HyperMD-codeblock-begin):not(.HyperMD-codeblock-end)
+> .cm-hmd-codeblock
+> .cm-indent:first-child
++ .cm-indent
++ .cm-indent-spacing::before {
+	inset-inline-start: var(--air-list-code-l3);
+}
+
+/* ============================================================
+   CLOSING FENCE
+   The final content row already paints the compact bottom cap.
+   ============================================================ */
 
 body .markdown-source-view.mod-cm6
 .cm-line.HyperMD-codeblock-end.HyperMD-list-line {
+	block-size: var(--air-list-code-bottom-cap);
+	min-block-size: var(--air-list-code-bottom-cap);
+	line-height: 0.45;
+	overflow: hidden;
+	background: none;
+	border-radius: 0;
+}
+
+/* Empty blocks: opening and closing rows are adjacent, so depth is known. */
+body .markdown-source-view.mod-cm6
+.cm-line.HyperMD-codeblock-begin.HyperMD-list-line-1
++ .cm-line.HyperMD-codeblock-end.HyperMD-list-line {
 	background-image: linear-gradient(
 		to right,
-		transparent 0 var(--air-list-code-offset),
-		var(--air-list-code-background) var(--air-list-code-offset)
+		transparent 0 var(--air-list-code-l1),
+		var(--air-list-code-background) var(--air-list-code-l1)
 	);
 	border-end-start-radius: var(--radius);
 	border-end-end-radius: var(--radius);
 }
 
-/* Compact the hidden closing fence without changing its active editing row. */
 body .markdown-source-view.mod-cm6
-.cm-line.HyperMD-codeblock-end.HyperMD-list-line:not(.cm-active) {
-	min-height: 0.45em;
-	line-height: 0.45;
+.cm-line.HyperMD-codeblock-begin.HyperMD-list-line-2
++ .cm-line.HyperMD-codeblock-end.HyperMD-list-line {
+	background-image: linear-gradient(
+		to right,
+		transparent 0 var(--air-list-code-l2),
+		var(--air-list-code-background) var(--air-list-code-l2)
+	);
+	border-end-start-radius: var(--radius);
+	border-end-end-radius: var(--radius);
 }
 
-/* Hide guide decoration while preserving indentation width. */
+body .markdown-source-view.mod-cm6
+.cm-line.HyperMD-codeblock-begin.HyperMD-list-line-3
++ .cm-line.HyperMD-codeblock-end.HyperMD-list-line {
+	background-image: linear-gradient(
+		to right,
+		transparent 0 var(--air-list-code-l3),
+		var(--air-list-code-background) var(--air-list-code-l3)
+	);
+	border-end-start-radius: var(--radius);
+	border-end-end-radius: var(--radius);
+}
+
+/* Hide guide decoration while preserving indentation geometry. */
 body .markdown-source-view.mod-cm6 .cm-indent-guide,
 body .markdown-source-view.mod-cm6 .cm-indent::before,
 body .markdown-source-view.mod-cm6 .cm-hmd-list-indent::before {
@@ -890,6 +963,7 @@ body .markdown-source-view.mod-cm6 .cm-hmd-list-indent {
 	box-shadow: none;
 	background-image: none;
 }
+
 
 /* ============================================================
    TABLES
@@ -926,7 +1000,7 @@ body .markdown-source-view.mod-cm6 tbody tr:nth-child(even) {
 
 /* Shared vars */
 .markdown-rendered blockquote,
-.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote {
+.markdown-source-view.mod-cm6.is-live-preview {
 	--blockquote-background-color: color-mix(in oklch, var(--color-accent), transparent 92%);
 }
 
@@ -971,15 +1045,27 @@ body .markdown-source-view.mod-cm6 tbody tr:nth-child(even) {
 	border-top-right-radius: var(--radius);
 }
 
-/* Live preview — bottom gap + bottom rounding on last quote line only */
-.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote:has(+ *:not(.HyperMD-quote)) {
-	border-left: none;
-	box-shadow: -2px 0 0 0 var(--color-accent);
-	border-bottom: 0.6em solid var(--blockquote-background-color);
+/*
+ * Live Preview — persistent bottom padding and rounding.
+ *
+ * Every quote line owns a 0.6em bottom cap. Each following quote line
+ * overlaps the previous cap, so internal rows keep normal spacing while
+ * the final row always retains the visible bottom padding—even at EOF.
+ */
+.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote {
+	border-block-end: 0.6em solid var(--blockquote-background-color);
 	border-bottom-left-radius: var(--radius);
 	border-bottom-right-radius: var(--radius);
-	margin-inline-start: calc(1.5em + 2px);
 }
+
+/* Cancel the extra cap between consecutive quote rows. */
+.markdown-source-view.mod-cm6.is-live-preview
+.HyperMD-quote + .HyperMD-quote {
+	margin-block-start: -0.6em;
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+}
+
 
 /* ============================================================
    LISTS
@@ -1055,13 +1141,11 @@ body .cm-hashtag-end {
 	position: relative;
 }
 
-/* Kill Obsidian's default ::after SVG checkmark — conflicts with our theme marks */
+/* Suppress Obsidian's default checkmark; task-specific rules below add ours. */
 .HyperMD-list-line input[type="checkbox"]:checked::after,
 .markdown-preview-view .task-list-item-checkbox:checked::after {
-	-webkit-mask-image: none !important;
-	mask-image: none !important;
+	content: none;
 	background: transparent;
-	background-color: transparent;
 }
 
 /* [x] / [X] = done — accent border + check */
