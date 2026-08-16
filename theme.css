@@ -681,14 +681,14 @@ body {
 	border-end-end-radius: var(--radius);
 }
 
-/* Nested-list geometry */
+/* Nested-list geometry — keep CodeMirror syntax tokens inline. */
 .markdown-source-view.mod-cm6 {
 	--air-list-code-marker-width: 23.424px;
 	--air-list-code-indent-width: 36px;
 	--air-list-code-gap: 8px;
 	--air-list-code-padding: 16px;
-	--air-list-code-top-trim: 0.35lh;
-	--air-list-code-bottom-cap: 0.45em;
+	--air-list-code-block-gap: 0.3em;
+	--air-list-code-bottom-padding: 10px;
 
 	--air-list-code-l1: calc(
 		var(--air-list-code-marker-width) +
@@ -721,6 +721,9 @@ body .markdown-source-view.mod-cm6
 .cm-line.HyperMD-codeblock.HyperMD-list-line {
 	box-sizing: border-box;
 	position: relative;
+	block-size: 1.5em;
+	min-block-size: 1.5em;
+	padding-block: 0;
 	background: none;
 	color: var(--inline-code-color);
 }
@@ -780,7 +783,7 @@ body .markdown-source-view.mod-cm6
 	pointer-events: none;
 	inset-inline-start: var(--air-list-code-offset);
 	inset-inline-end: 0;
-	inset-block-start: var(--air-list-code-top-trim);
+	inset-block-start: 1px;
 	inset-block-end: 0;
 	background: var(--air-list-code-background);
 	border-start-start-radius: var(--radius);
@@ -797,28 +800,59 @@ body .markdown-source-view.mod-cm6
 	);
 }
 
+/* Fit text language badges inside the fixed opening row. */
+body .markdown-source-view.mod-cm6
+.cm-line.HyperMD-codeblock-begin.HyperMD-list-line
+> .code-block-flair:not(:has(> svg)) {
+	inset-block-start: 0;
+	padding-block: 1px;
+}
+
 /* ============================================================
    CONTENT ROWS
    Depth is read directly from the existing child indentation spans.
-   Each row extends its surface into the following row. Later rows
-   overlap earlier rounded bottoms; only the final row remains visible.
+   Paint the surface on the full line, never on an inline syntax token.
    ============================================================ */
 
 body .markdown-source-view.mod-cm6
 .cm-line.HyperMD-codeblock.HyperMD-list-line:not(.HyperMD-codeblock-begin):not(.HyperMD-codeblock-end) {
+	--air-list-code-offset: var(--air-list-code-l1);
+	isolation: isolate;
 	overflow: visible;
 }
 
 body .markdown-source-view.mod-cm6
+.cm-line.HyperMD-codeblock.HyperMD-list-line:not(.HyperMD-codeblock-begin):not(.HyperMD-codeblock-end):has(
+	> .cm-hmd-codeblock > .cm-indent:first-child + .cm-indent-spacing
+) {
+	--air-list-code-offset: var(--air-list-code-l2);
+}
+
+body .markdown-source-view.mod-cm6
+.cm-line.HyperMD-codeblock.HyperMD-list-line:not(.HyperMD-codeblock-begin):not(.HyperMD-codeblock-end):has(
+	> .cm-hmd-codeblock > .cm-indent:first-child + .cm-indent + .cm-indent-spacing
+) {
+	--air-list-code-offset: var(--air-list-code-l3);
+}
+
+body .markdown-source-view.mod-cm6
+.cm-line.HyperMD-codeblock.HyperMD-list-line:not(.HyperMD-codeblock-begin):not(.HyperMD-codeblock-end)::before {
+	content: "";
+	position: absolute;
+	z-index: -1;
+	pointer-events: none;
+	inset-inline-start: var(--air-list-code-offset);
+	inset-inline-end: 0;
+	inset-block: 0;
+	background: var(--air-list-code-background);
+}
+
+/* Match the baseline of ordinary code rows without moving the surface. */
+body .markdown-source-view.mod-cm6
 .cm-line.HyperMD-codeblock.HyperMD-list-line:not(.HyperMD-codeblock-begin):not(.HyperMD-codeblock-end)
 > .cm-hmd-codeblock {
-	display: block;
 	position: relative;
-	isolation: isolate;
-	box-sizing: border-box;
-	min-block-size: 1lh;
-	margin: 0;
-	padding: 0;
+	inset-block-start: -0.4em;
 }
 
 /* One source-indent span equals one normal nested-list step. */
@@ -854,63 +888,109 @@ body .markdown-source-view.mod-cm6
 	color: transparent;
 }
 
-/* Shared content surface. Its containing block is .cm-hmd-codeblock. */
+/* ============================================================
+   CLOSING FENCE
+   Keep the native row height, exactly like code blocks outside lists.
+   ============================================================ */
+
+/* Every closing row owns the bottom padding, even when fences collapse. */
 body .markdown-source-view.mod-cm6
-.cm-line.HyperMD-codeblock.HyperMD-list-line:not(.HyperMD-codeblock-begin):not(.HyperMD-codeblock-end)
-> .cm-hmd-codeblock
-> .cm-indent-spacing::before {
+.cm-line.HyperMD-codeblock-end.HyperMD-list-line {
+	--air-list-code-offset: var(--air-list-code-l1);
+	isolation: isolate;
+	block-size: calc(1.5em + var(--air-list-code-bottom-padding));
+	min-block-size: calc(1.5em + var(--air-list-code-bottom-padding));
+	padding-block-end: var(--air-list-code-bottom-padding);
+}
+
+body .markdown-source-view.mod-cm6
+.cm-line.HyperMD-codeblock.HyperMD-list-line:not(.HyperMD-codeblock-begin):not(.HyperMD-codeblock-end):has(
+	> .cm-hmd-codeblock > .cm-indent:first-child + .cm-indent-spacing
+)
++ .cm-line.HyperMD-codeblock-end.HyperMD-list-line,
+body .markdown-source-view.mod-cm6
+.cm-line.HyperMD-codeblock-begin.HyperMD-list-line-2
++ .cm-line.HyperMD-codeblock-end.HyperMD-list-line {
+	--air-list-code-offset: var(--air-list-code-l2);
+}
+
+body .markdown-source-view.mod-cm6
+.cm-line.HyperMD-codeblock.HyperMD-list-line:not(.HyperMD-codeblock-begin):not(.HyperMD-codeblock-end):has(
+	> .cm-hmd-codeblock > .cm-indent:first-child + .cm-indent + .cm-indent-spacing
+)
++ .cm-line.HyperMD-codeblock-end.HyperMD-list-line,
+body .markdown-source-view.mod-cm6
+.cm-line.HyperMD-codeblock-begin.HyperMD-list-line-3
++ .cm-line.HyperMD-codeblock-end.HyperMD-list-line {
+	--air-list-code-offset: var(--air-list-code-l3);
+}
+
+/* Visible closing fence — recover depth from its cm-list-N token. */
+body .markdown-source-view.mod-cm6
+.cm-line.HyperMD-codeblock-end.HyperMD-list-line:has(> .cm-formatting-code-block) {
+	--air-list-code-offset: var(--air-list-code-l1);
+	--air-list-code-source-indent: 2ch;
+	box-sizing: border-box;
+	position: relative;
+	isolation: isolate;
+	padding-inline-start: calc(
+		var(--air-list-code-offset) +
+		var(--air-list-code-padding) -
+		var(--air-list-code-source-indent)
+	);
+	background: none;
+}
+
+body .markdown-source-view.mod-cm6
+.cm-line.HyperMD-codeblock-end.HyperMD-list-line:has(> .cm-list-2) {
+	--air-list-code-offset: var(--air-list-code-l2);
+	--air-list-code-source-indent: calc(31.503px + 2ch);
+}
+
+body .markdown-source-view.mod-cm6
+.cm-line.HyperMD-codeblock-end.HyperMD-list-line:has(> .cm-list-3) {
+	--air-list-code-offset: var(--air-list-code-l3);
+	--air-list-code-source-indent: calc(63.006px + 2ch);
+}
+
+body .markdown-source-view.mod-cm6
+.cm-line.HyperMD-codeblock-end.HyperMD-list-line::before {
 	content: "";
 	position: absolute;
 	z-index: -1;
 	pointer-events: none;
+	inset-inline-start: var(--air-list-code-offset);
 	inset-inline-end: 0;
 	inset-block-start: 0;
-	block-size: calc(1lh + var(--air-list-code-bottom-cap));
+	inset-block-end: var(--air-list-code-block-gap);
 	background: var(--air-list-code-background);
 	border-end-start-radius: var(--radius);
 	border-end-end-radius: var(--radius);
 }
 
-/* Level 1: spacing is the first structural span. */
+/* Keep the closing fence visible while editing anywhere in its block. */
 body .markdown-source-view.mod-cm6
-.cm-line.HyperMD-codeblock.HyperMD-list-line:not(.HyperMD-codeblock-begin):not(.HyperMD-codeblock-end)
-> .cm-hmd-codeblock
-> .cm-indent-spacing:first-child::before {
-	inset-inline-start: var(--air-list-code-l1);
+.cm-line.HyperMD-codeblock-end.HyperMD-list-line:not(.cm-active):has(> .cm-formatting-code-block)
+> .cm-formatting-code-block {
+	opacity: 0;
 }
 
-/* Level 2: one indent span precedes the spacing span. */
 body .markdown-source-view.mod-cm6
-.cm-line.HyperMD-codeblock.HyperMD-list-line:not(.HyperMD-codeblock-begin):not(.HyperMD-codeblock-end)
-> .cm-hmd-codeblock
-> .cm-indent:first-child
-+ .cm-indent-spacing::before {
-	inset-inline-start: var(--air-list-code-l2);
-}
-
-/* Level 3: two indent spans precede the spacing span. */
-body .markdown-source-view.mod-cm6
-.cm-line.HyperMD-codeblock.HyperMD-list-line:not(.HyperMD-codeblock-begin):not(.HyperMD-codeblock-end)
-> .cm-hmd-codeblock
-> .cm-indent:first-child
-+ .cm-indent
-+ .cm-indent-spacing::before {
-	inset-inline-start: var(--air-list-code-l3);
-}
-
-/* ============================================================
-   CLOSING FENCE
-   The final content row already paints the compact bottom cap.
-   ============================================================ */
-
-body .markdown-source-view.mod-cm6
-.cm-line.HyperMD-codeblock-end.HyperMD-list-line {
-	block-size: var(--air-list-code-bottom-cap);
-	min-block-size: var(--air-list-code-bottom-cap);
-	line-height: 0.45;
-	overflow: hidden;
-	background: none;
-	border-radius: 0;
+.cm-line.HyperMD-codeblock-end.HyperMD-list-line:not(.cm-active):has(> .cm-formatting-code-block)::after {
+	content: "```";
+	position: absolute;
+	pointer-events: none;
+	inset-inline-start: calc(
+		var(--air-list-code-offset) +
+		var(--air-list-code-padding)
+	);
+	inset-block-start: 0.75em;
+	transform: translateY(-50%);
+	color: var(--text-faint);
+	font-family: var(--font-monospace);
+	font-size: 0.875em;
+	line-height: 1;
+	opacity: 0.7;
 }
 
 /* Empty blocks: opening and closing rows are adjacent, so depth is known. */
@@ -948,6 +1028,13 @@ body .markdown-source-view.mod-cm6
 	);
 	border-end-start-radius: var(--radius);
 	border-end-end-radius: var(--radius);
+}
+
+body .markdown-source-view.mod-cm6
+.cm-line.HyperMD-codeblock-begin.HyperMD-list-line
++ .cm-line.HyperMD-codeblock-end.HyperMD-list-line {
+	background-size: 100% calc(100% - var(--air-list-code-block-gap));
+	background-repeat: no-repeat;
 }
 
 /* Hide guide decoration while preserving indentation geometry. */
@@ -1046,24 +1133,15 @@ body .markdown-source-view.mod-cm6 tbody tr:nth-child(even) {
 }
 
 /*
- * Live Preview — persistent bottom padding and rounding.
- *
- * Every quote line owns a 0.6em bottom cap. Each following quote line
- * overlaps the previous cap, so internal rows keep normal spacing while
- * the final row always retains the visible bottom padding—even at EOF.
+ * Live Preview — bottom padding and rounding on the final quote row only.
  */
-.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote {
+.markdown-source-view.mod-cm6.is-live-preview
+.HyperMD-quote:has(+ :not(.HyperMD-quote)),
+.markdown-source-view.mod-cm6.is-live-preview
+.cm-content > .HyperMD-quote:last-child {
 	border-block-end: 0.6em solid var(--blockquote-background-color);
 	border-bottom-left-radius: var(--radius);
 	border-bottom-right-radius: var(--radius);
-}
-
-/* Cancel the extra cap between consecutive quote rows. */
-.markdown-source-view.mod-cm6.is-live-preview
-.HyperMD-quote + .HyperMD-quote {
-	margin-block-start: -0.6em;
-	border-top-left-radius: 0;
-	border-top-right-radius: 0;
 }
 
 
