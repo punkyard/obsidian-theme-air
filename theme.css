@@ -687,6 +687,77 @@ body {
 	border-end-end-radius: var(--radius);
 }
 
+/* Match heading rhythm around regular fenced code blocks. */
+.markdown-source-view.mod-cm6
+.cm-line.HyperMD-codeblock-begin:not(.HyperMD-list-line) {
+	padding-block-start: 1em;
+	position: relative;
+	isolation: isolate;
+}
+
+.markdown-source-view.mod-cm6
+.cm-line.HyperMD-codeblock-end:not(.HyperMD-list-line) {
+    padding-block-end: 1em;
+	position: relative;
+	isolation: isolate;
+}
+
+.theme-dark .markdown-source-view.mod-cm6
+.cm-line.HyperMD-codeblock-begin:not(.HyperMD-list-line),
+.theme-dark .markdown-source-view.mod-cm6
+.cm-line.HyperMD-codeblock-end:not(.HyperMD-list-line),
+.theme-light .markdown-source-view.mod-cm6
+.cm-line.HyperMD-codeblock-begin:not(.HyperMD-list-line),
+.theme-light .markdown-source-view.mod-cm6
+.cm-line.HyperMD-codeblock-end:not(.HyperMD-list-line) {
+	background: transparent;
+}
+
+.markdown-source-view.mod-cm6
+.cm-line.HyperMD-codeblock-begin:not(.HyperMD-list-line)::before,
+.markdown-source-view.mod-cm6
+.cm-line.HyperMD-codeblock-end:not(.HyperMD-list-line)::before {
+	content: "";
+	position: absolute;
+	z-index: -1;
+	pointer-events: none;
+	inset-inline: 0;
+}
+
+.markdown-source-view.mod-cm6
+.cm-line.HyperMD-codeblock-begin:not(.HyperMD-list-line)::before {
+	inset-block: 1em 0;
+	border-start-start-radius: var(--radius);
+	border-start-end-radius: var(--radius);
+}
+
+.markdown-source-view.mod-cm6
+.cm-line.HyperMD-codeblock-end:not(.HyperMD-list-line)::before {
+    inset-block: 0 1em;
+	border-end-start-radius: var(--radius);
+	border-end-end-radius: var(--radius);
+}
+
+.theme-dark .markdown-source-view.mod-cm6
+.cm-line.HyperMD-codeblock-begin:not(.HyperMD-list-line)::before,
+.theme-dark .markdown-source-view.mod-cm6
+.cm-line.HyperMD-codeblock-end:not(.HyperMD-list-line)::before {
+	background: #1e1e1e;
+}
+
+.theme-light .markdown-source-view.mod-cm6
+.cm-line.HyperMD-codeblock-begin:not(.HyperMD-list-line)::before,
+.theme-light .markdown-source-view.mod-cm6
+.cm-line.HyperMD-codeblock-end:not(.HyperMD-list-line)::before {
+	background: #d0d0d0;
+}
+
+.markdown-source-view.mod-cm6
+.cm-line.HyperMD-codeblock-begin:not(.HyperMD-list-line)
+> .code-block-flair {
+	inset-block-start: calc(6px + 1em);
+}
+
 /* Nested-list geometry — keep CodeMirror syntax tokens inline. */
 .markdown-source-view.mod-cm6 {
 	--air-list-code-marker-width: 23.424px;
