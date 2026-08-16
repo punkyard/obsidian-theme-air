@@ -752,7 +752,14 @@ body .markdown-source-view.mod-cm6
 /* Match ordinary list indentation on nested opening lines. */
 body .markdown-source-view.mod-cm6
 .cm-line.HyperMD-codeblock-begin.HyperMD-list-line-2
+> .cm-hmd-list-indent-1,
+body .markdown-source-view.mod-cm6
+.cm-line.HyperMD-codeblock-begin.HyperMD-list-line-2
 > .cm-hmd-list-indent-2,
+body .markdown-source-view.mod-cm6
+.cm-line.HyperMD-codeblock-begin.HyperMD-list-line-2
+> .cm-hmd-list-indent-1
+> .cm-indent,
 body .markdown-source-view.mod-cm6
 .cm-line.HyperMD-codeblock-begin.HyperMD-list-line-2
 > .cm-hmd-list-indent-2
