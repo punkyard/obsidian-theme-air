@@ -195,6 +195,12 @@ body.theme-dark .view-header {
 	box-shadow: none;
 }
 
+/* Keep side-pane resize handles, without bright solid divider lines. */
+body .workspace-split.mod-left-split > .workspace-leaf-resize-handle,
+body .workspace-split.mod-right-split > .workspace-leaf-resize-handle {
+	border-inline-color: var(--divider-color);
+}
+
 /* Bold, italic, highlight — direct element overrides */
 .theme-dark .cm-strong,
 .theme-dark strong { color: var(--text-accent); font-weight: 700; }
