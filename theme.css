@@ -525,6 +525,11 @@ body .nav-files-container .nav-folder-children .nav-folder-children .nav-folder-
 
 .mod-cm6 .cm-editor .HyperMD-header { padding-bottom: 0.5em; }
 
+/* Space after ordinary text — live preview. */
+.mod-cm6 .cm-editor .cm-line:not(.HyperMD-header):not(.HyperMD-list-line):not(.HyperMD-codeblock):not(.HyperMD-quote) {
+	padding-bottom: 7px;
+}
+
 /* Reset — no extra space after headings inside callouts */
 .markdown-rendered .callout h1,
 .markdown-rendered .callout h2,
@@ -552,7 +557,7 @@ body .nav-files-container .nav-folder-children .nav-folder-children .nav-folder-
 
 /* Space before first list item when preceded by a text paragraph */
 .markdown-source-view.mod-cm6.is-live-preview .cm-content .cm-line:not(.HyperMD-header):not(.HyperMD-list-line):not(.HyperMD-codeblock) + .cm-line.HyperMD-list-line {
-	padding-top: 0.8em;
+	padding-top: 7px;
 }
 
 /* Space before first list item when preceded by a heading */
