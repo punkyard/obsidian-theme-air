@@ -716,6 +716,40 @@ body {
 	--air-list-code-background: #d0d0d0;
 }
 
+/* Share the code-box left edge with ordinary list content. */
+body .markdown-source-view.mod-cm6
+.cm-line.HyperMD-list-line:not(.HyperMD-codeblock)
+> .cm-formatting-list {
+	display: inline-block;
+	box-sizing: border-box;
+	min-inline-size: calc(
+		var(--air-list-code-marker-width) + var(--air-list-code-gap)
+	);
+}
+
+/* CodeMirror places a task label 4px before the line's marker column. */
+body .markdown-source-view.mod-cm6
+.cm-line.HyperMD-task-line:not(.HyperMD-codeblock)
+> .task-list-label {
+	display: inline-block;
+	box-sizing: border-box;
+	min-inline-size: calc(
+		var(--air-list-code-marker-width) +
+		var(--air-list-code-gap) +
+		4px
+	);
+}
+
+/* CodeMirror keeps one source space before task text. */
+body .markdown-source-view.mod-cm6
+.cm-line.HyperMD-task-line:not(.HyperMD-codeblock)
+> .task-list-label
++ .cm-widgetBuffer
++ .cm-list-1 {
+	display: inline-block;
+	text-indent: -0.25em;
+}
+
 /* Remove the ordinary full-width surface from list code lines. */
 body .markdown-source-view.mod-cm6
 .cm-line.HyperMD-codeblock.HyperMD-list-line {
