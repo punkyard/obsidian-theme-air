@@ -1504,6 +1504,8 @@ body a.tag {
 	background: none;
 	border: none;
 	border-radius: var(--radius);
+	font-family: inherit;
+	font-size: inherit;
 	color: var(--text-accent);
 	line-height: inherit;
 }
@@ -1517,6 +1519,8 @@ body .cm-hashtag-end {
 	background: none;
 	border: none;
 	border-radius: var(--radius);
+	font-family: inherit;
+	font-size: inherit;
 	color: var(--text-accent);
 }
 
