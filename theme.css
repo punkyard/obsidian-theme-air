@@ -698,6 +698,7 @@ body {
 	padding-block-start: 1em;
 	position: relative;
 	isolation: isolate;
+	overflow: visible;
 }
 
 .markdown-source-view.mod-cm6
@@ -760,7 +761,7 @@ body {
 .markdown-source-view.mod-cm6
 .cm-line.HyperMD-codeblock-begin:not(.HyperMD-list-line)
 > .code-block-flair {
-	inset-block-start: calc(6px + 1em);
+	inset-block-start: calc(5px + 1em);
 }
 
 /* Nested-list geometry — keep CodeMirror syntax tokens inline. */
@@ -785,6 +786,24 @@ body {
 
 	--air-list-code-l3: calc(
 		(var(--air-list-code-indent-width) * 2) +
+		var(--air-list-code-marker-width) +
+		var(--air-list-code-gap)
+	);
+
+	--air-list-code-l4: calc(
+		(var(--air-list-code-indent-width) * 3) +
+		var(--air-list-code-marker-width) +
+		var(--air-list-code-gap)
+	);
+
+	--air-list-code-l5: calc(
+		(var(--air-list-code-indent-width) * 4) +
+		var(--air-list-code-marker-width) +
+		var(--air-list-code-gap)
+	);
+
+	--air-list-code-l6: calc(
+		(var(--air-list-code-indent-width) * 5) +
 		var(--air-list-code-marker-width) +
 		var(--air-list-code-gap)
 	);
@@ -837,9 +856,10 @@ body .markdown-source-view.mod-cm6
 .cm-line.HyperMD-codeblock.HyperMD-list-line {
 	box-sizing: border-box;
 	position: relative;
-	block-size: 1.5em;
+	block-size: auto;
 	min-block-size: 1.5em;
 	padding-block: 0;
+	overflow: visible;
 	background: none;
 	color: var(--inline-code-color);
 }
@@ -852,7 +872,18 @@ body .markdown-source-view.mod-cm6
 body .markdown-source-view.mod-cm6
 .cm-line.HyperMD-codeblock-begin.HyperMD-list-line {
 	--air-list-code-offset: var(--air-list-code-l1);
+	block-size: 1.25em;
+	min-block-size: 1.25em;
 	isolation: isolate;
+	overflow: visible;
+	z-index: 2;
+}
+
+body .markdown-source-view.mod-cm6
+.cm-line.HyperMD-codeblock-begin.HyperMD-list-line
+> .code-block-flair {
+	z-index: 2;
+	overflow: visible;
 }
 
 body .markdown-source-view.mod-cm6
@@ -865,7 +896,92 @@ body .markdown-source-view.mod-cm6
 	--air-list-code-offset: var(--air-list-code-l3);
 }
 
+body .markdown-source-view.mod-cm6
+.cm-line.HyperMD-codeblock-begin.HyperMD-list-line-4 {
+	--air-list-code-offset: var(--air-list-code-l4);
+}
+
+body .markdown-source-view.mod-cm6
+.cm-line.HyperMD-codeblock-begin.HyperMD-list-line-5 {
+	--air-list-code-offset: var(--air-list-code-l5);
+}
+
+body .markdown-source-view.mod-cm6
+.cm-line.HyperMD-codeblock-begin.HyperMD-list-line-6 {
+	--air-list-code-offset: var(--air-list-code-l6);
+}
+
+body .markdown-source-view.mod-cm6
+.cm-line.HyperMD-codeblock-begin.HyperMD-list-line-7 {
+	--air-list-code-offset: var(--air-list-code-l6);
+}
+
+body .markdown-source-view.mod-cm6
+.cm-line.HyperMD-codeblock-begin.HyperMD-list-line:has(
+	> .cm-hmd-list-indent > .cm-indent:nth-child(5)
+) {
+	--air-list-code-offset: var(--air-list-code-l6);
+}
+
 /* Match ordinary list indentation on nested opening lines. */
+body .markdown-source-view.mod-cm6
+.cm-line.HyperMD-codeblock-begin.HyperMD-list-line-2
+> .cm-hmd-list-indent {
+	display: inline-block;
+	box-sizing: border-box;
+	inline-size: var(--air-list-code-indent-width);
+}
+
+body .markdown-source-view.mod-cm6
+.cm-line.HyperMD-codeblock-begin.HyperMD-list-line-3
+> .cm-hmd-list-indent {
+	display: inline-block;
+	box-sizing: border-box;
+	inline-size: calc(var(--air-list-code-indent-width) * 2);
+}
+
+body .markdown-source-view.mod-cm6
+.cm-line.HyperMD-codeblock-begin.HyperMD-list-line-4
+> .cm-hmd-list-indent {
+	display: inline-block;
+	box-sizing: border-box;
+	inline-size: calc(var(--air-list-code-indent-width) * 3);
+}
+
+body .markdown-source-view.mod-cm6
+.cm-line.HyperMD-codeblock-begin.HyperMD-list-line-5
+> .cm-hmd-list-indent {
+	display: inline-block;
+	box-sizing: border-box;
+	inline-size: calc(var(--air-list-code-indent-width) * 4);
+}
+
+body .markdown-source-view.mod-cm6
+.cm-line.HyperMD-codeblock-begin.HyperMD-list-line-6
+> .cm-hmd-list-indent {
+	display: inline-block;
+	box-sizing: border-box;
+	inline-size: calc(var(--air-list-code-indent-width) * 5);
+}
+
+body .markdown-source-view.mod-cm6
+.cm-line.HyperMD-codeblock-begin.HyperMD-list-line-7
+> .cm-hmd-list-indent {
+	display: inline-block;
+	box-sizing: border-box;
+	inline-size: calc(var(--air-list-code-indent-width) * 5);
+}
+
+body .markdown-source-view.mod-cm6
+.cm-line.HyperMD-codeblock-begin.HyperMD-list-line:has(
+	> .cm-hmd-list-indent > .cm-indent:nth-child(5)
+)
+> .cm-hmd-list-indent {
+	display: inline-block;
+	box-sizing: border-box;
+	inline-size: calc(var(--air-list-code-indent-width) * 5);
+}
+
 body .markdown-source-view.mod-cm6
 .cm-line.HyperMD-codeblock-begin.HyperMD-list-line-2
 > .cm-hmd-list-indent-1,
@@ -923,12 +1039,29 @@ body .markdown-source-view.mod-cm6
 	);
 }
 
-/* Fit text language badges inside the fixed opening row. */
+/* Deep opening rows already consume their internal padding in source indent. */
+body .markdown-source-view.mod-cm6
+.cm-line.HyperMD-codeblock-begin.HyperMD-list-line-6
+> .cm-formatting-list,
+body .markdown-source-view.mod-cm6
+.cm-line.HyperMD-codeblock-begin.HyperMD-list-line-7
+> .cm-formatting-list {
+	margin-inline-end: calc(var(--air-list-code-gap) + 12px);
+}
+
+body .markdown-source-view.mod-cm6
+.cm-line.HyperMD-codeblock-begin.HyperMD-list-line:has(
+	> .cm-hmd-list-indent > .cm-indent:nth-child(5)
+)
+> .cm-formatting-list {
+	margin-inline-end: calc(var(--air-list-code-gap) + 12px);
+}
+
+/* Keep generated copy controls at the top of fixed nested opening rows. */
 body .markdown-source-view.mod-cm6
 .cm-line.HyperMD-codeblock-begin.HyperMD-list-line
 > .code-block-flair:not(:has(> svg)) {
 	inset-block-start: 0;
-	padding-block: 1px;
 }
 
 /* ============================================================
@@ -959,6 +1092,27 @@ body .markdown-source-view.mod-cm6
 }
 
 body .markdown-source-view.mod-cm6
+.cm-line.HyperMD-codeblock.HyperMD-list-line:not(.HyperMD-codeblock-begin):not(.HyperMD-codeblock-end):has(
+	> .cm-hmd-codeblock > .cm-indent:nth-child(3) + .cm-indent-spacing
+) {
+	--air-list-code-offset: var(--air-list-code-l4);
+}
+
+body .markdown-source-view.mod-cm6
+.cm-line.HyperMD-codeblock.HyperMD-list-line:not(.HyperMD-codeblock-begin):not(.HyperMD-codeblock-end):has(
+	> .cm-hmd-codeblock > .cm-indent:nth-child(4) + .cm-indent-spacing
+) {
+	--air-list-code-offset: var(--air-list-code-l5);
+}
+
+body .markdown-source-view.mod-cm6
+.cm-line.HyperMD-codeblock.HyperMD-list-line:not(.HyperMD-codeblock-begin):not(.HyperMD-codeblock-end):has(
+	> .cm-hmd-codeblock > .cm-indent:nth-child(5) + .cm-indent-spacing
+) {
+	--air-list-code-offset: var(--air-list-code-l6);
+}
+
+body .markdown-source-view.mod-cm6
 .cm-line.HyperMD-codeblock.HyperMD-list-line:not(.HyperMD-codeblock-begin):not(.HyperMD-codeblock-end)::before {
 	content: "";
 	position: absolute;
@@ -970,12 +1124,11 @@ body .markdown-source-view.mod-cm6
 	background: var(--air-list-code-background);
 }
 
-/* Match the baseline of ordinary code rows without moving the surface. */
+/* Keep full glyph and control bounds inside the row at every depth. */
 body .markdown-source-view.mod-cm6
 .cm-line.HyperMD-codeblock.HyperMD-list-line:not(.HyperMD-codeblock-begin):not(.HyperMD-codeblock-end)
 > .cm-hmd-codeblock {
-	position: relative;
-	inset-block-start: -0.4em;
+	position: static;
 }
 
 /* One source-indent span equals one normal nested-list step. */
@@ -1021,7 +1174,7 @@ body .markdown-source-view.mod-cm6
 .cm-line.HyperMD-codeblock-end.HyperMD-list-line {
 	--air-list-code-offset: var(--air-list-code-l1);
 	isolation: isolate;
-	block-size: calc(1.5em + var(--air-list-code-bottom-padding));
+	block-size: auto;
 	min-block-size: calc(1.5em + var(--air-list-code-bottom-padding));
 	padding-block-end: var(--air-list-code-bottom-padding);
 }
@@ -1046,6 +1199,48 @@ body .markdown-source-view.mod-cm6
 .cm-line.HyperMD-codeblock-begin.HyperMD-list-line-3
 + .cm-line.HyperMD-codeblock-end.HyperMD-list-line {
 	--air-list-code-offset: var(--air-list-code-l3);
+}
+
+body .markdown-source-view.mod-cm6
+.cm-line.HyperMD-codeblock-begin.HyperMD-list-line:has(> .cm-hmd-list-indent-3)
++ .cm-line.HyperMD-codeblock-end.HyperMD-list-line {
+	--air-list-code-offset: var(--air-list-code-l4);
+}
+
+body .markdown-source-view.mod-cm6
+.cm-line.HyperMD-codeblock-begin.HyperMD-list-line:has(> .cm-hmd-list-indent-4)
++ .cm-line.HyperMD-codeblock-end.HyperMD-list-line {
+	--air-list-code-offset: var(--air-list-code-l5);
+}
+
+body .markdown-source-view.mod-cm6
+.cm-line.HyperMD-codeblock-begin.HyperMD-list-line:has(> .cm-hmd-list-indent-5)
++ .cm-line.HyperMD-codeblock-end.HyperMD-list-line {
+	--air-list-code-offset: var(--air-list-code-l6);
+}
+
+body .markdown-source-view.mod-cm6
+.cm-line.HyperMD-codeblock.HyperMD-list-line:not(.HyperMD-codeblock-begin):not(.HyperMD-codeblock-end):has(
+	> .cm-hmd-codeblock > .cm-indent:nth-child(3) + .cm-indent-spacing
+)
++ .cm-line.HyperMD-codeblock-end.HyperMD-list-line {
+	--air-list-code-offset: var(--air-list-code-l4);
+}
+
+body .markdown-source-view.mod-cm6
+.cm-line.HyperMD-codeblock.HyperMD-list-line:not(.HyperMD-codeblock-begin):not(.HyperMD-codeblock-end):has(
+	> .cm-hmd-codeblock > .cm-indent:nth-child(4) + .cm-indent-spacing
+)
++ .cm-line.HyperMD-codeblock-end.HyperMD-list-line {
+	--air-list-code-offset: var(--air-list-code-l5);
+}
+
+body .markdown-source-view.mod-cm6
+.cm-line.HyperMD-codeblock.HyperMD-list-line:not(.HyperMD-codeblock-begin):not(.HyperMD-codeblock-end):has(
+	> .cm-hmd-codeblock > .cm-indent:nth-child(5) + .cm-indent-spacing
+)
++ .cm-line.HyperMD-codeblock-end.HyperMD-list-line {
+	--air-list-code-offset: var(--air-list-code-l6);
 }
 
 /* Visible closing fence — recover depth from its cm-list-N token. */
@@ -1077,6 +1272,46 @@ body .markdown-source-view.mod-cm6
 }
 
 body .markdown-source-view.mod-cm6
+.cm-line.HyperMD-codeblock-end.HyperMD-list-line:has(> .cm-list-4) {
+	--air-list-code-offset: var(--air-list-code-l4);
+	--air-list-code-source-indent: calc(94.509px + 2ch);
+}
+
+body .markdown-source-view.mod-cm6
+.cm-line.HyperMD-codeblock-end.HyperMD-list-line:has(> .cm-list-5) {
+	--air-list-code-offset: var(--air-list-code-l5);
+	--air-list-code-source-indent: calc(126.012px + 2ch);
+}
+
+body .markdown-source-view.mod-cm6
+.cm-line.HyperMD-codeblock-end.HyperMD-list-line:has(
+	> .cm-formatting-code-block > .cm-indent:nth-child(2)
+) {
+	--air-list-code-source-indent: 63.006px;
+}
+
+body .markdown-source-view.mod-cm6
+.cm-line.HyperMD-codeblock-end.HyperMD-list-line:has(
+	> .cm-formatting-code-block > .cm-indent:nth-child(3)
+) {
+	--air-list-code-source-indent: calc(94.509px + 2ch);
+}
+
+body .markdown-source-view.mod-cm6
+.cm-line.HyperMD-codeblock-end.HyperMD-list-line:has(
+	> .cm-formatting-code-block > .cm-indent:nth-child(4)
+) {
+	--air-list-code-source-indent: 126.012px;
+}
+
+body .markdown-source-view.mod-cm6
+.cm-line.HyperMD-codeblock-end.HyperMD-list-line:has(
+	> .cm-formatting-code-block > .cm-indent:nth-child(5)
+) {
+	--air-list-code-source-indent: calc(31.503px * 5);
+}
+
+body .markdown-source-view.mod-cm6
 .cm-line.HyperMD-codeblock-end.HyperMD-list-line::before {
 	content: "";
 	position: absolute;
@@ -1085,35 +1320,10 @@ body .markdown-source-view.mod-cm6
 	inset-inline-start: var(--air-list-code-offset);
 	inset-inline-end: 0;
 	inset-block-start: 0;
-	inset-block-end: var(--air-list-code-block-gap);
+	inset-block-end: var(--air-list-code-bottom-padding);
 	background: var(--air-list-code-background);
 	border-end-start-radius: var(--radius);
 	border-end-end-radius: var(--radius);
-}
-
-/* Keep the closing fence visible while editing anywhere in its block. */
-body .markdown-source-view.mod-cm6
-.cm-line.HyperMD-codeblock-end.HyperMD-list-line:not(.cm-active):has(> .cm-formatting-code-block)
-> .cm-formatting-code-block {
-	opacity: 0;
-}
-
-body .markdown-source-view.mod-cm6
-.cm-line.HyperMD-codeblock-end.HyperMD-list-line:not(.cm-active):has(> .cm-formatting-code-block)::after {
-	content: "```";
-	position: absolute;
-	pointer-events: none;
-	inset-inline-start: calc(
-		var(--air-list-code-offset) +
-		var(--air-list-code-padding)
-	);
-	inset-block-start: 0.75em;
-	transform: translateY(-50%);
-	color: var(--text-faint);
-	font-family: var(--font-monospace);
-	font-size: 0.875em;
-	line-height: 1;
-	opacity: 0.7;
 }
 
 /* Empty blocks: opening and closing rows are adjacent, so depth is known. */
