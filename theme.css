@@ -8,11 +8,15 @@
  * Light mode: #F5F5F5 primary  ·  #EAEAEA secondary
  */
 
+/* stylelint-disable selector-class-pattern -- Obsidian and plugin class names are external APIs. */
+/* stylelint-disable no-descending-specificity -- Theme overrides intentionally follow base selectors. */
+/* stylelint-disable property-no-vendor-prefix -- Required for compatible custom checkbox rendering. */
+
 /* ============================================================
    FONTS
    ============================================================ */
 @font-face {
-	font-family: 'HeadingFont';
+	font-family: HeadingFont;
 	src: url('headings-font.woff2') format('woff2');
 	font-weight: 100 900;
 	font-style: normal;
@@ -65,17 +69,18 @@ body {
 
 .theme-dark {
 	--background-primary: #0A0A0A;
-	--background-secondary: #111111;
-	--background-secondary-alt: #111111;
+	--background-secondary: #111;
+	--background-secondary-alt: #111;
 	--background-primary-alt: #0A0A0A;
 
 	/* Text */
-	--text-normal: #CCCCCC;
-	--text-muted: #999999;
-	--text-faint: #666666;
+	--text-normal: #CCC;
+	--text-muted: #999;
+	--text-faint: #666;
 
 	/* Dividers */
 	--divider-color: transparent;
+
 	/* NOT zeroing --background-modifier-border globally — would break plugins */
 
 	/* Bold, italic, highlight */
@@ -84,12 +89,12 @@ body {
 	--text-highlight: var(--text-accent);
 
 	/* Headings — H4 = accent, H1 brightest, H6 darkest */
-	--h1-color: color-mix(in oklch, var(--color-accent), white 45%);
-	--h2-color: color-mix(in oklch, var(--color-accent), white 28%);
-	--h3-color: color-mix(in oklch, var(--color-accent), white 12%);
+	--h1-color: color-mix(in oklch, var(--color-accent), #fff 45%);
+	--h2-color: color-mix(in oklch, var(--color-accent), #fff 28%);
+	--h3-color: color-mix(in oklch, var(--color-accent), #fff 12%);
 	--h4-color: var(--color-accent);
-	--h5-color: color-mix(in oklch, var(--color-accent), black 12%);
-	--h6-color: color-mix(in oklch, var(--color-accent), black 25%);
+	--h5-color: color-mix(in oklch, var(--color-accent), #000 12%);
+	--h6-color: color-mix(in oklch, var(--color-accent), #000 25%);
 	--h1-font: 'HeadingFont', sans-serif;
 	--h2-font: 'HeadingFont', sans-serif;
 	--h3-font: 'HeadingFont', sans-serif;
@@ -103,13 +108,13 @@ body {
 	--shadow-l: none;
 
 	/* Graph view */
-	--graph-text: #CCCCCC;
-	--graph-line: rgba(255, 255, 255, 0.06);
-	--graph-node: #999999;
+	--graph-text: #CCC;
+	--graph-line: rgb(255 255 255 / 6%);
+	--graph-node: #999;
 	--graph-node-focused: var(--text-accent);
-	--graph-node-unresolved: #666666;
+	--graph-node-unresolved: #666;
 	--graph-node-tag: var(--text-accent);
-	--graph-node-attachment: #999999;
+	--graph-node-attachment: #999;
 }
 
 /* Flat dark background — all UI elements uniform */
@@ -203,10 +208,16 @@ body .workspace-split.mod-right-split > .workspace-leaf-resize-handle {
 
 /* Bold, italic, highlight — direct element overrides */
 .theme-dark .cm-strong,
-.theme-dark strong { color: var(--text-accent); font-weight: 700; }
+.theme-dark strong {
+	color: var(--text-accent);
+	font-weight: 700;
+}
 
 .theme-dark .cm-em,
-.theme-dark em { color: var(--text-accent); font-style: italic; }
+.theme-dark em {
+	color: var(--text-accent);
+	font-style: italic;
+}
 
 .theme-dark .cm-s-obsidian span.cm-highlight,
 .theme-dark .markdown-rendered mark,
@@ -239,9 +250,9 @@ body .workspace-split.mod-right-split > .workspace-leaf-resize-handle {
 	--background-secondary: #EAEAEA;
 	--background-secondary-alt: #EAEAEA;
 	--background-primary-alt: #F5F5F5;
-	--text-normal: #333333;
-	--text-muted: #666666;
-	--text-faint: #999999;
+	--text-normal: #333;
+	--text-muted: #666;
+	--text-faint: #999;
 
 	/* Shadows */
 	--shadow-s: none;
@@ -249,13 +260,13 @@ body .workspace-split.mod-right-split > .workspace-leaf-resize-handle {
 	--shadow-l: none;
 
 	/* Graph view */
-	--graph-text: #333333;
-	--graph-line: rgba(0, 0, 0, 0.08);
-	--graph-node: #666666;
+	--graph-text: #333;
+	--graph-line: rgb(0 0 0 / 8%);
+	--graph-node: #666;
 	--graph-node-focused: var(--text-accent);
-	--graph-node-unresolved: #999999;
+	--graph-node-unresolved: #999;
 	--graph-node-tag: var(--text-accent);
-	--graph-node-attachment: #666666;
+	--graph-node-attachment: #666;
 
 	/* Dividers */
 	--divider-color: transparent;
@@ -266,12 +277,12 @@ body .workspace-split.mod-right-split > .workspace-leaf-resize-handle {
 	--text-highlight: var(--text-accent);
 
 	/* Headings — H4 = accent, H1 darkest (most contrast on light bg), H6 lightest */
-	--h1-color: color-mix(in oklch, var(--color-accent), black 45%);
-	--h2-color: color-mix(in oklch, var(--color-accent), black 28%);
-	--h3-color: color-mix(in oklch, var(--color-accent), black 12%);
+	--h1-color: color-mix(in oklch, var(--color-accent), #000 45%);
+	--h2-color: color-mix(in oklch, var(--color-accent), #000 28%);
+	--h3-color: color-mix(in oklch, var(--color-accent), #000 12%);
 	--h4-color: var(--color-accent);
-	--h5-color: color-mix(in oklch, var(--color-accent), white 12%);
-	--h6-color: color-mix(in oklch, var(--color-accent), white 25%);
+	--h5-color: color-mix(in oklch, var(--color-accent), #fff 12%);
+	--h6-color: color-mix(in oklch, var(--color-accent), #fff 25%);
 	--h1-font: 'HeadingFont', sans-serif;
 	--h2-font: 'HeadingFont', sans-serif;
 	--h3-font: 'HeadingFont', sans-serif;
@@ -282,10 +293,16 @@ body .workspace-split.mod-right-split > .workspace-leaf-resize-handle {
 
 /* Bold, italic, highlight — direct element overrides */
 .theme-light .cm-strong,
-.theme-light strong { color: var(--text-accent); font-weight: 700; }
+.theme-light strong {
+	color: var(--text-accent);
+	font-weight: 700;
+}
 
 .theme-light .cm-em,
-.theme-light em { color: var(--text-accent); font-style: italic; }
+.theme-light em {
+	color: var(--text-accent);
+	font-style: italic;
+}
 
 .theme-light .cm-s-obsidian span.cm-highlight,
 .theme-light .markdown-rendered mark,
@@ -388,10 +405,11 @@ svg * {
 
 /* Modal backdrop — subtle fade only */
 .theme-dark .modal-bg {
-	background: rgba(0, 0, 0, 0.1);
+	background: rgb(0 0 0 / 10%);
 }
+
 .theme-light .modal-bg {
-	background: rgba(0, 0, 0, 0.05);
+	background: rgb(0 0 0 / 5%);
 }
 
 /* Flat popovers */
@@ -419,23 +437,29 @@ body .cm-editor .cm-formatting {
 	width: 4px;
 	height: 4px;
 }
+
 ::-webkit-scrollbar-track {
 	background: transparent;
 }
+
 ::-webkit-scrollbar-corner {
 	background: transparent;
 }
+
 .theme-dark ::-webkit-scrollbar-thumb {
-	background: rgba(255, 255, 255, 0.1);
+	background: rgb(255 255 255 / 10%);
 }
+
 .theme-dark ::-webkit-scrollbar-thumb:hover {
-	background: rgba(255, 255, 255, 0.2);
+	background: rgb(255 255 255 / 20%);
 }
+
 .theme-light ::-webkit-scrollbar-thumb {
-	background: rgba(0, 0, 0, 0.15);
+	background: rgb(0 0 0 / 15%);
 }
+
 .theme-light ::-webkit-scrollbar-thumb:hover {
-	background: rgba(0, 0, 0, 0.28);
+	background: rgb(0 0 0 / 28%);
 }
 
 /* Notices — left accent border, flat */
@@ -475,14 +499,19 @@ body [data-type="outline"] .tree-item-self.is-active .tree-item-inner {
 
 /* Root level (no / in data-path = top-level) — H1 */
 body .nav-files-container .nav-folder-title:not([data-path*="/"]) { color: var(--h1-color); }
+
 /* Level 1 — H2 */
 body .nav-files-container .nav-folder-children .nav-folder-title { color: var(--h2-color); }
+
 /* Level 2 — H3 */
 body .nav-files-container .nav-folder-children .nav-folder-children .nav-folder-title { color: var(--h3-color); }
+
 /* Level 3 — H4 */
 body .nav-files-container .nav-folder-children .nav-folder-children .nav-folder-children .nav-folder-title { color: var(--h4-color); }
+
 /* Level 4 — H5 */
 body .nav-files-container .nav-folder-children .nav-folder-children .nav-folder-children .nav-folder-children .nav-folder-title { color: var(--h5-color); }
+
 /* Level 5+ — cap at H6 */
 body .nav-files-container .nav-folder-children .nav-folder-children .nav-folder-children .nav-folder-children .nav-folder-children .nav-folder-title { color: var(--h6-color); }
 
@@ -491,17 +520,18 @@ body .nav-files-container .nav-folder-children .nav-folder-children .nav-folder-
    ============================================================ */
 
 /* Heading font — explicit rules (vars alone don't apply in Obsidian) */
-.markdown-rendered h1, .HyperMD-header-1 { font-family: 'HeadingFont', sans-serif; }
-.markdown-rendered h2, .HyperMD-header-2 { font-family: 'HeadingFont', sans-serif; }
-.markdown-rendered h3, .HyperMD-header-3 { font-family: 'HeadingFont', sans-serif; }
-.markdown-rendered h4, .HyperMD-header-4 { font-family: 'HeadingFont', sans-serif; }
-.markdown-rendered h5, .HyperMD-header-5 { font-family: 'HeadingFont', sans-serif; }
-.markdown-rendered h6, .HyperMD-header-6 { font-family: 'HeadingFont', sans-serif; }
+.markdown-rendered h1, .HyperMD-header-1 { font-family: HeadingFont, sans-serif; }
+.markdown-rendered h2, .HyperMD-header-2 { font-family: HeadingFont, sans-serif; }
+.markdown-rendered h3, .HyperMD-header-3 { font-family: HeadingFont, sans-serif; }
+.markdown-rendered h4, .HyperMD-header-4 { font-family: HeadingFont, sans-serif; }
+.markdown-rendered h5, .HyperMD-header-5 { font-family: HeadingFont, sans-serif; }
+.markdown-rendered h6, .HyperMD-header-6 { font-family: HeadingFont, sans-serif; }
 
 /* Heading space ABOVE — reading mode (hierarchical: H1 most, H4-H6 equal) */
 .markdown-rendered h1 { margin-top: 2.5em; }
 .markdown-rendered h2 { margin-top: 2em; }
 .markdown-rendered h3 { margin-top: 1.5em; }
+
 .markdown-rendered h4,
 .markdown-rendered h5,
 .markdown-rendered h6 { margin-top: 1em; }
@@ -511,6 +541,7 @@ body .nav-files-container .nav-folder-children .nav-folder-children .nav-folder-
 .mod-cm6 .cm-editor .HyperMD-header-1 { padding-top: 2.5em; }
 .mod-cm6 .cm-editor .HyperMD-header-2 { padding-top: 2em; }
 .mod-cm6 .cm-editor .HyperMD-header-3 { padding-top: 1.5em; }
+
 .mod-cm6 .cm-editor .HyperMD-header-4,
 .mod-cm6 .cm-editor .HyperMD-header-5,
 .mod-cm6 .cm-editor .HyperMD-header-6 { padding-top: 1em; }
@@ -526,7 +557,7 @@ body .nav-files-container .nav-folder-children .nav-folder-children .nav-folder-
 .mod-cm6 .cm-editor .HyperMD-header { padding-bottom: 0.5em; }
 
 /* Space after ordinary text — live preview. */
-.mod-cm6 .cm-editor .cm-line:not(.HyperMD-header):not(.HyperMD-list-line):not(.HyperMD-codeblock):not(.HyperMD-quote) {
+.mod-cm6 .cm-editor .cm-line:not(.HyperMD-header, .HyperMD-list-line, .HyperMD-codeblock, .HyperMD-quote) {
 	padding-bottom: 7px;
 }
 
@@ -551,12 +582,12 @@ body .nav-files-container .nav-folder-children .nav-folder-children .nav-folder-
 }
 
 /* Paragraph after heading — live preview */
-.markdown-source-view.mod-cm6.is-live-preview .cm-content .HyperMD-header + .cm-line:not(.HyperMD-header):not(.HyperMD-list-line):not(.HyperMD-codeblock) {
+.markdown-source-view.mod-cm6.is-live-preview .cm-content .HyperMD-header + .cm-line:not(.HyperMD-header, .HyperMD-list-line, .HyperMD-codeblock) {
 	padding-top: 0.8em;
 }
 
 /* Space before first list item when preceded by a text paragraph */
-.markdown-source-view.mod-cm6.is-live-preview .cm-content .cm-line:not(.HyperMD-header):not(.HyperMD-list-line):not(.HyperMD-codeblock) + .cm-line.HyperMD-list-line {
+.markdown-source-view.mod-cm6.is-live-preview .cm-content .cm-line:not(.HyperMD-header, .HyperMD-list-line, .HyperMD-codeblock) + .cm-line.HyperMD-list-line {
 	padding-top: 7px;
 }
 
@@ -566,7 +597,7 @@ body .nav-files-container .nav-folder-children .nav-folder-children .nav-folder-
 }
 
 /* Space after last list item when followed by a text paragraph */
-.markdown-source-view.mod-cm6.is-live-preview .cm-content .HyperMD-list-line + .cm-line:not(.HyperMD-list-line):not(.HyperMD-header):not(.HyperMD-codeblock) {
+.markdown-source-view.mod-cm6.is-live-preview .cm-content .HyperMD-list-line + .cm-line:not(.HyperMD-list-line, .HyperMD-header, .HyperMD-codeblock) {
 	padding-top: 0.8em;
 }
 
@@ -600,12 +631,13 @@ body .nav-files-container .nav-folder-children .nav-folder-children .nav-folder-
 body {
 	--code-radius: 0;
 	--code-background: var(--background-secondary);
+
 	/* Inline code text: accent lightened enough to always read on dark bg */
-	--inline-code-color: color-mix(in oklch, var(--color-accent), white 55%);
+	--inline-code-color: color-mix(in oklch, var(--color-accent), #fff 55%);
 }
 
 .theme-light {
-	--inline-code-color: color-mix(in oklch, var(--color-accent), black 55%);
+	--inline-code-color: color-mix(in oklch, var(--color-accent), #000 55%);
 }
 
 /* Inline code — reading mode — dark */
@@ -625,7 +657,7 @@ body {
 }
 
 /* Inline code — live preview — dark */
-.theme-dark .cm-inline-code:not(.cm-formatting):not(.cm-hmd-indented-code) {
+.theme-dark .cm-inline-code:not(.cm-formatting, .cm-hmd-indented-code) {
 	color: var(--inline-code-color);
 	background: #1e1e1e;
 	border-radius: var(--radius);
@@ -633,7 +665,7 @@ body {
 }
 
 /* Inline code — live preview — light */
-.theme-light .cm-inline-code:not(.cm-formatting):not(.cm-hmd-indented-code) {
+.theme-light .cm-inline-code:not(.cm-formatting, .cm-hmd-indented-code) {
 	color: var(--inline-code-color);
 	background: #d0d0d0;
 	border-radius: var(--radius);
@@ -645,6 +677,7 @@ body {
 	background: #1e1e1e;
 	border-radius: var(--radius);
 }
+
 .theme-dark .markdown-rendered pre code {
 	background: #1e1e1e;
 	border-radius: var(--radius);
@@ -656,6 +689,7 @@ body {
 	background: #d0d0d0;
 	border-radius: var(--radius);
 }
+
 .theme-light .markdown-rendered pre code {
 	background: #d0d0d0;
 	border-radius: var(--radius);
@@ -772,36 +806,30 @@ body {
 	--air-list-code-padding: 16px;
 	--air-list-code-block-gap: 0.3em;
 	--air-list-code-bottom-padding: 10px;
-
 	--air-list-code-l1: calc(
 		var(--air-list-code-marker-width) +
 		var(--air-list-code-gap)
 	);
-
 	--air-list-code-l2: calc(
 		var(--air-list-code-indent-width) +
 		var(--air-list-code-marker-width) +
 		var(--air-list-code-gap)
 	);
-
 	--air-list-code-l3: calc(
 		(var(--air-list-code-indent-width) * 2) +
 		var(--air-list-code-marker-width) +
 		var(--air-list-code-gap)
 	);
-
 	--air-list-code-l4: calc(
 		(var(--air-list-code-indent-width) * 3) +
 		var(--air-list-code-marker-width) +
 		var(--air-list-code-gap)
 	);
-
 	--air-list-code-l5: calc(
 		(var(--air-list-code-indent-width) * 4) +
 		var(--air-list-code-marker-width) +
 		var(--air-list-code-gap)
 	);
-
 	--air-list-code-l6: calc(
 		(var(--air-list-code-indent-width) * 5) +
 		var(--air-list-code-marker-width) +
@@ -846,9 +874,9 @@ body .markdown-source-view.mod-cm6
 .cm-line.HyperMD-task-line:not(.HyperMD-codeblock)
 > .task-list-label
 + .cm-widgetBuffer
-+ .cm-list-1 {
+	+ .cm-list-1 {
 	display: inline-block;
-	text-indent: -0.25em;
+	transform: translateX(-0.25em);
 }
 
 /* Remove the ordinary full-width surface from list code lines. */
@@ -872,8 +900,10 @@ body .markdown-source-view.mod-cm6
 body .markdown-source-view.mod-cm6
 .cm-line.HyperMD-codeblock-begin.HyperMD-list-line {
 	--air-list-code-offset: var(--air-list-code-l1);
-	block-size: 1.25em;
-	min-block-size: 1.25em;
+
+	block-size: 1em;
+	min-block-size: 1em;
+	line-height: 1em;
 	isolation: isolate;
 	overflow: visible;
 	z-index: 2;
@@ -913,13 +943,6 @@ body .markdown-source-view.mod-cm6
 
 body .markdown-source-view.mod-cm6
 .cm-line.HyperMD-codeblock-begin.HyperMD-list-line-7 {
-	--air-list-code-offset: var(--air-list-code-l6);
-}
-
-body .markdown-source-view.mod-cm6
-.cm-line.HyperMD-codeblock-begin.HyperMD-list-line:has(
-	> .cm-hmd-list-indent > .cm-indent:nth-child(5)
-) {
 	--air-list-code-offset: var(--air-list-code-l6);
 }
 
@@ -973,16 +996,6 @@ body .markdown-source-view.mod-cm6
 }
 
 body .markdown-source-view.mod-cm6
-.cm-line.HyperMD-codeblock-begin.HyperMD-list-line:has(
-	> .cm-hmd-list-indent > .cm-indent:nth-child(5)
-)
-> .cm-hmd-list-indent {
-	display: inline-block;
-	box-sizing: border-box;
-	inline-size: calc(var(--air-list-code-indent-width) * 5);
-}
-
-body .markdown-source-view.mod-cm6
 .cm-line.HyperMD-codeblock-begin.HyperMD-list-line-2
 > .cm-hmd-list-indent-1,
 body .markdown-source-view.mod-cm6
@@ -1020,10 +1033,8 @@ body .markdown-source-view.mod-cm6
 	position: absolute;
 	z-index: -1;
 	pointer-events: none;
-	inset-inline-start: var(--air-list-code-offset);
-	inset-inline-end: 0;
-	inset-block-start: 1px;
-	inset-block-end: 0;
+	inset-inline: var(--air-list-code-offset) 0;
+	inset-block: 1px 0;
 	background: var(--air-list-code-background);
 	border-start-start-radius: var(--radius);
 	border-start-end-radius: var(--radius);
@@ -1049,18 +1060,10 @@ body .markdown-source-view.mod-cm6
 	margin-inline-end: calc(var(--air-list-code-gap) + 12px);
 }
 
-body .markdown-source-view.mod-cm6
-.cm-line.HyperMD-codeblock-begin.HyperMD-list-line:has(
-	> .cm-hmd-list-indent > .cm-indent:nth-child(5)
-)
-> .cm-formatting-list {
-	margin-inline-end: calc(var(--air-list-code-gap) + 12px);
-}
-
 /* Keep generated copy controls at the top of fixed nested opening rows. */
 body .markdown-source-view.mod-cm6
 .cm-line.HyperMD-codeblock-begin.HyperMD-list-line
-> .code-block-flair:not(:has(> svg)) {
+> .code-block-flair {
 	inset-block-start: 0;
 }
 
@@ -1071,69 +1074,69 @@ body .markdown-source-view.mod-cm6
    ============================================================ */
 
 body .markdown-source-view.mod-cm6
-.cm-line.HyperMD-codeblock.HyperMD-list-line:not(.HyperMD-codeblock-begin):not(.HyperMD-codeblock-end) {
-	--air-list-code-offset: var(--air-list-code-l1);
+.cm-line.HyperMD-codeblock.HyperMD-list-line:not(.HyperMD-codeblock-begin, .HyperMD-codeblock-end) {
 	isolation: isolate;
 	overflow: visible;
 }
 
+/* Paint from the final structural spacing span, whose preceding indent count
+   exposes nesting depth without a relational parent selector. */
 body .markdown-source-view.mod-cm6
-.cm-line.HyperMD-codeblock.HyperMD-list-line:not(.HyperMD-codeblock-begin):not(.HyperMD-codeblock-end):has(
-	> .cm-hmd-codeblock > .cm-indent:first-child + .cm-indent-spacing
-) {
-	--air-list-code-offset: var(--air-list-code-l2);
-}
-
-body .markdown-source-view.mod-cm6
-.cm-line.HyperMD-codeblock.HyperMD-list-line:not(.HyperMD-codeblock-begin):not(.HyperMD-codeblock-end):has(
-	> .cm-hmd-codeblock > .cm-indent:first-child + .cm-indent + .cm-indent-spacing
-) {
-	--air-list-code-offset: var(--air-list-code-l3);
-}
-
-body .markdown-source-view.mod-cm6
-.cm-line.HyperMD-codeblock.HyperMD-list-line:not(.HyperMD-codeblock-begin):not(.HyperMD-codeblock-end):has(
-	> .cm-hmd-codeblock > .cm-indent:nth-child(3) + .cm-indent-spacing
-) {
-	--air-list-code-offset: var(--air-list-code-l4);
-}
-
-body .markdown-source-view.mod-cm6
-.cm-line.HyperMD-codeblock.HyperMD-list-line:not(.HyperMD-codeblock-begin):not(.HyperMD-codeblock-end):has(
-	> .cm-hmd-codeblock > .cm-indent:nth-child(4) + .cm-indent-spacing
-) {
-	--air-list-code-offset: var(--air-list-code-l5);
-}
-
-body .markdown-source-view.mod-cm6
-.cm-line.HyperMD-codeblock.HyperMD-list-line:not(.HyperMD-codeblock-begin):not(.HyperMD-codeblock-end):has(
-	> .cm-hmd-codeblock > .cm-indent:nth-child(5) + .cm-indent-spacing
-) {
-	--air-list-code-offset: var(--air-list-code-l6);
-}
-
-body .markdown-source-view.mod-cm6
-.cm-line.HyperMD-codeblock.HyperMD-list-line:not(.HyperMD-codeblock-begin):not(.HyperMD-codeblock-end)::before {
+.cm-line.HyperMD-codeblock.HyperMD-list-line:not(.HyperMD-codeblock-begin, .HyperMD-codeblock-end)
+> .cm-hmd-codeblock
+> .cm-indent-spacing::before {
 	content: "";
 	position: absolute;
 	z-index: -1;
 	pointer-events: none;
-	inset-inline-start: var(--air-list-code-offset);
-	inset-inline-end: 0;
-	inset-block: 0;
+	inset-inline: var(--air-list-code-l1) 0;
+	inset-block-start: 0;
+	block-size: calc(100% + 1.5em);
 	background: var(--air-list-code-background);
+	border-end-start-radius: var(--radius);
+	border-end-end-radius: var(--radius);
+}
+
+body .markdown-source-view.mod-cm6
+.cm-line.HyperMD-codeblock.HyperMD-list-line:not(.HyperMD-codeblock-begin, .HyperMD-codeblock-end)
+> .cm-hmd-codeblock > .cm-indent + .cm-indent-spacing::before {
+	inset-inline-start: var(--air-list-code-l2);
+}
+
+body .markdown-source-view.mod-cm6
+.cm-line.HyperMD-codeblock.HyperMD-list-line:not(.HyperMD-codeblock-begin, .HyperMD-codeblock-end)
+> .cm-hmd-codeblock > .cm-indent + .cm-indent + .cm-indent-spacing::before {
+	inset-inline-start: var(--air-list-code-l3);
+}
+
+body .markdown-source-view.mod-cm6
+.cm-line.HyperMD-codeblock.HyperMD-list-line:not(.HyperMD-codeblock-begin, .HyperMD-codeblock-end)
+> .cm-hmd-codeblock > .cm-indent:nth-child(3) + .cm-indent-spacing::before {
+	inset-inline-start: var(--air-list-code-l4);
+}
+
+body .markdown-source-view.mod-cm6
+.cm-line.HyperMD-codeblock.HyperMD-list-line:not(.HyperMD-codeblock-begin, .HyperMD-codeblock-end)
+> .cm-hmd-codeblock > .cm-indent:nth-child(4) + .cm-indent-spacing::before {
+	inset-inline-start: var(--air-list-code-l5);
+}
+
+body .markdown-source-view.mod-cm6
+.cm-line.HyperMD-codeblock.HyperMD-list-line:not(.HyperMD-codeblock-begin, .HyperMD-codeblock-end)
+> .cm-hmd-codeblock > .cm-indent:nth-child(5) + .cm-indent-spacing::before {
+	inset-inline-start: var(--air-list-code-l6);
 }
 
 /* Keep full glyph and control bounds inside the row at every depth. */
 body .markdown-source-view.mod-cm6
-.cm-line.HyperMD-codeblock.HyperMD-list-line:not(.HyperMD-codeblock-begin):not(.HyperMD-codeblock-end)
+.cm-line.HyperMD-codeblock.HyperMD-list-line:not(.HyperMD-codeblock-begin, .HyperMD-codeblock-end)
 > .cm-hmd-codeblock {
 	position: static;
 }
 
 /* One source-indent span equals one normal nested-list step. */
 body .markdown-source-view.mod-cm6
-.cm-line.HyperMD-codeblock.HyperMD-list-line:not(.HyperMD-codeblock-begin):not(.HyperMD-codeblock-end)
+.cm-line.HyperMD-codeblock.HyperMD-list-line:not(.HyperMD-codeblock-begin, .HyperMD-codeblock-end)
 > .cm-hmd-codeblock
 > .cm-indent {
 	display: inline-block;
@@ -1150,7 +1153,7 @@ body .markdown-source-view.mod-cm6
  * - the code box's internal padding.
  */
 body .markdown-source-view.mod-cm6
-.cm-line.HyperMD-codeblock.HyperMD-list-line:not(.HyperMD-codeblock-begin):not(.HyperMD-codeblock-end)
+.cm-line.HyperMD-codeblock.HyperMD-list-line:not(.HyperMD-codeblock-begin, .HyperMD-codeblock-end)
 > .cm-hmd-codeblock
 > .cm-indent-spacing {
 	display: inline-block;
@@ -1172,158 +1175,59 @@ body .markdown-source-view.mod-cm6
 /* Every closing row owns the bottom padding, even when fences collapse. */
 body .markdown-source-view.mod-cm6
 .cm-line.HyperMD-codeblock-end.HyperMD-list-line {
-	--air-list-code-offset: var(--air-list-code-l1);
 	isolation: isolate;
+	box-sizing: border-box;
 	block-size: auto;
 	min-block-size: calc(1.5em + var(--air-list-code-bottom-padding));
 	padding-block-end: var(--air-list-code-bottom-padding);
 }
 
+/* Visible closing fence: fixed marker/padding base plus one normal width per
+   direct source-indent span preserves every depth without parent matching. */
 body .markdown-source-view.mod-cm6
-.cm-line.HyperMD-codeblock.HyperMD-list-line:not(.HyperMD-codeblock-begin):not(.HyperMD-codeblock-end):has(
-	> .cm-hmd-codeblock > .cm-indent:first-child + .cm-indent-spacing
-)
-+ .cm-line.HyperMD-codeblock-end.HyperMD-list-line,
-body .markdown-source-view.mod-cm6
-.cm-line.HyperMD-codeblock-begin.HyperMD-list-line-2
-+ .cm-line.HyperMD-codeblock-end.HyperMD-list-line {
-	--air-list-code-offset: var(--air-list-code-l2);
-}
-
-body .markdown-source-view.mod-cm6
-.cm-line.HyperMD-codeblock.HyperMD-list-line:not(.HyperMD-codeblock-begin):not(.HyperMD-codeblock-end):has(
-	> .cm-hmd-codeblock > .cm-indent:first-child + .cm-indent + .cm-indent-spacing
-)
-+ .cm-line.HyperMD-codeblock-end.HyperMD-list-line,
-body .markdown-source-view.mod-cm6
-.cm-line.HyperMD-codeblock-begin.HyperMD-list-line-3
-+ .cm-line.HyperMD-codeblock-end.HyperMD-list-line {
-	--air-list-code-offset: var(--air-list-code-l3);
-}
-
-body .markdown-source-view.mod-cm6
-.cm-line.HyperMD-codeblock-begin.HyperMD-list-line:has(> .cm-hmd-list-indent-3)
-+ .cm-line.HyperMD-codeblock-end.HyperMD-list-line {
-	--air-list-code-offset: var(--air-list-code-l4);
-}
-
-body .markdown-source-view.mod-cm6
-.cm-line.HyperMD-codeblock-begin.HyperMD-list-line:has(> .cm-hmd-list-indent-4)
-+ .cm-line.HyperMD-codeblock-end.HyperMD-list-line {
-	--air-list-code-offset: var(--air-list-code-l5);
-}
-
-body .markdown-source-view.mod-cm6
-.cm-line.HyperMD-codeblock-begin.HyperMD-list-line:has(> .cm-hmd-list-indent-5)
-+ .cm-line.HyperMD-codeblock-end.HyperMD-list-line {
-	--air-list-code-offset: var(--air-list-code-l6);
-}
-
-body .markdown-source-view.mod-cm6
-.cm-line.HyperMD-codeblock.HyperMD-list-line:not(.HyperMD-codeblock-begin):not(.HyperMD-codeblock-end):has(
-	> .cm-hmd-codeblock > .cm-indent:nth-child(3) + .cm-indent-spacing
-)
-+ .cm-line.HyperMD-codeblock-end.HyperMD-list-line {
-	--air-list-code-offset: var(--air-list-code-l4);
-}
-
-body .markdown-source-view.mod-cm6
-.cm-line.HyperMD-codeblock.HyperMD-list-line:not(.HyperMD-codeblock-begin):not(.HyperMD-codeblock-end):has(
-	> .cm-hmd-codeblock > .cm-indent:nth-child(4) + .cm-indent-spacing
-)
-+ .cm-line.HyperMD-codeblock-end.HyperMD-list-line {
-	--air-list-code-offset: var(--air-list-code-l5);
-}
-
-body .markdown-source-view.mod-cm6
-.cm-line.HyperMD-codeblock.HyperMD-list-line:not(.HyperMD-codeblock-begin):not(.HyperMD-codeblock-end):has(
-	> .cm-hmd-codeblock > .cm-indent:nth-child(5) + .cm-indent-spacing
-)
-+ .cm-line.HyperMD-codeblock-end.HyperMD-list-line {
-	--air-list-code-offset: var(--air-list-code-l6);
-}
-
-/* Visible closing fence — recover depth from its cm-list-N token. */
-body .markdown-source-view.mod-cm6
-.cm-line.HyperMD-codeblock-end.HyperMD-list-line:has(> .cm-formatting-code-block) {
-	--air-list-code-offset: var(--air-list-code-l1);
-	--air-list-code-source-indent: 2ch;
+.cm-line.HyperMD-codeblock-end.HyperMD-list-line
+> .cm-formatting-code-block {
 	box-sizing: border-box;
-	position: relative;
-	isolation: isolate;
 	padding-inline-start: calc(
-		var(--air-list-code-offset) +
-		var(--air-list-code-padding) -
-		var(--air-list-code-source-indent)
+		var(--air-list-code-l1) + var(--air-list-code-padding) - 2ch
 	);
-	background: none;
 }
 
 body .markdown-source-view.mod-cm6
-.cm-line.HyperMD-codeblock-end.HyperMD-list-line:has(> .cm-list-2) {
-	--air-list-code-offset: var(--air-list-code-l2);
-	--air-list-code-source-indent: calc(31.503px + 2ch);
+.cm-line.HyperMD-codeblock-end.HyperMD-list-line
+> .cm-formatting-code-block > .cm-indent {
+	color: transparent;
 }
 
+/* Level 2 was already correctly placed: retain its former 36px indent. */
 body .markdown-source-view.mod-cm6
-.cm-line.HyperMD-codeblock-end.HyperMD-list-line:has(> .cm-list-3) {
-	--air-list-code-offset: var(--air-list-code-l3);
-	--air-list-code-source-indent: calc(63.006px + 2ch);
+.cm-line.HyperMD-codeblock-end.HyperMD-list-line
+> .cm-formatting-code-block.cm-list-2 > .cm-indent:only-child {
+	margin-inline-end: calc(var(--air-list-code-indent-width) - 31.503px);
 }
 
+/* Level 3: align closing fence with opening fence. */
 body .markdown-source-view.mod-cm6
-.cm-line.HyperMD-codeblock-end.HyperMD-list-line:has(> .cm-list-4) {
-	--air-list-code-offset: var(--air-list-code-l4);
-	--air-list-code-source-indent: calc(94.509px + 2ch);
+.cm-line.HyperMD-codeblock-end.HyperMD-list-line
+> .cm-formatting-code-block
+> .cm-indent:first-child + .cm-indent + .cm-indent-spacing {
+	margin-inline-end: 9px;
 }
 
+/* Level 5: compensate its extra closing-fence tab. */
 body .markdown-source-view.mod-cm6
-.cm-line.HyperMD-codeblock-end.HyperMD-list-line:has(> .cm-list-5) {
-	--air-list-code-offset: var(--air-list-code-l5);
-	--air-list-code-source-indent: calc(126.012px + 2ch);
+.cm-line.HyperMD-codeblock-end.HyperMD-list-line
+> .cm-formatting-code-block.cm-list-2
+> .cm-indent:first-child + .cm-indent + .cm-indent + .cm-indent + .cm-indent {
+	margin-inline-end: 3.287px;
 }
 
+/* Level 6: compensate its extra closing-fence tab. */
 body .markdown-source-view.mod-cm6
-.cm-line.HyperMD-codeblock-end.HyperMD-list-line:has(
-	> .cm-formatting-code-block > .cm-indent:nth-child(2)
-) {
-	--air-list-code-source-indent: 63.006px;
-}
-
-body .markdown-source-view.mod-cm6
-.cm-line.HyperMD-codeblock-end.HyperMD-list-line:has(
-	> .cm-formatting-code-block > .cm-indent:nth-child(3)
-) {
-	--air-list-code-source-indent: calc(94.509px + 2ch);
-}
-
-body .markdown-source-view.mod-cm6
-.cm-line.HyperMD-codeblock-end.HyperMD-list-line:has(
-	> .cm-formatting-code-block > .cm-indent:nth-child(4)
-) {
-	--air-list-code-source-indent: 126.012px;
-}
-
-body .markdown-source-view.mod-cm6
-.cm-line.HyperMD-codeblock-end.HyperMD-list-line:has(
-	> .cm-formatting-code-block > .cm-indent:nth-child(5)
-) {
-	--air-list-code-source-indent: calc(31.503px * 5);
-}
-
-body .markdown-source-view.mod-cm6
-.cm-line.HyperMD-codeblock-end.HyperMD-list-line::before {
-	content: "";
-	position: absolute;
-	z-index: -1;
-	pointer-events: none;
-	inset-inline-start: var(--air-list-code-offset);
-	inset-inline-end: 0;
-	inset-block-start: 0;
-	inset-block-end: var(--air-list-code-bottom-padding);
-	background: var(--air-list-code-background);
-	border-end-start-radius: var(--radius);
-	border-end-end-radius: var(--radius);
+.cm-line.HyperMD-codeblock-end.HyperMD-list-line
+> .cm-formatting-code-block.cm-list-3
+> .cm-indent:first-child + .cm-indent + .cm-indent + .cm-indent + .cm-indent + .cm-indent {
+	margin-inline-end: 3.789px;
 }
 
 /* Empty blocks: opening and closing rows are adjacent, so depth is known. */
@@ -1392,13 +1296,13 @@ body .markdown-source-view.mod-cm6 .cm-hmd-list-indent {
 /* Entire table — discrete background */
 .markdown-rendered table,
 .markdown-source-view.mod-cm6 table {
-	background-color: rgba(255, 255, 255, 0.03);
+	background-color: rgb(255 255 255 / 3%);
 }
 
 /* Header row — grey background, accent text, no alternation */
 body .markdown-rendered th,
 body .markdown-source-view.mod-cm6 th {
-	background-color: rgba(255, 255, 255, 0.1);
+	background-color: rgb(255 255 255 / 10%);
 	color: var(--text-accent);
 }
 
@@ -1411,7 +1315,7 @@ body .markdown-source-view.mod-cm6 tr {
 /* Alternating body rows */
 body .markdown-rendered tbody tr:nth-child(even),
 body .markdown-source-view.mod-cm6 tbody tr:nth-child(even) {
-	background-color: rgba(255, 255, 255, 0.04);
+	background-color: rgb(255 255 255 / 4%);
 }
 
 /* ============================================================
@@ -1435,6 +1339,7 @@ body .markdown-source-view.mod-cm6 tbody tr:nth-child(even) {
 	letter-spacing: 0.02em;
 	border-radius: var(--radius);
 }
+
 /* Paragraph after blockquote — reading mode */
 .markdown-rendered blockquote + div.el-p {
 	padding-top: 0.6em;
@@ -1453,6 +1358,7 @@ body .markdown-source-view.mod-cm6 tbody tr:nth-child(even) {
 	letter-spacing: 0.02em;
 	position: relative;
 }
+
 /* Hide Obsidian default ::before accent line */
 .markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote::before {
 	display: none;
@@ -1465,16 +1371,18 @@ body .markdown-source-view.mod-cm6 tbody tr:nth-child(even) {
 	border-top-right-radius: var(--radius);
 }
 
-/*
- * Live Preview — bottom padding and rounding on the final quote row only.
- */
-.markdown-source-view.mod-cm6.is-live-preview
-.HyperMD-quote:has(+ :not(.HyperMD-quote)),
-.markdown-source-view.mod-cm6.is-live-preview
-.cm-content > .HyperMD-quote:last-child {
+/* Every quote row owns the bottom cap; a following quote overlaps it. */
+.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote {
 	border-block-end: 0.6em solid var(--blockquote-background-color);
 	border-bottom-left-radius: var(--radius);
 	border-bottom-right-radius: var(--radius);
+}
+
+.markdown-source-view.mod-cm6.is-live-preview
+.HyperMD-quote + .HyperMD-quote {
+	margin-block-start: -0.6em;
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
 }
 
 
@@ -1534,7 +1442,7 @@ body .cm-hashtag-end {
 	-moz-appearance: none;
 	appearance: none;
 	background-image: none;
-	background: var(--background-primary);
+	background-color: var(--background-primary);
 	border: 1px solid var(--text-accent);
 	width: 14px;
 	height: 14px;
@@ -1548,7 +1456,7 @@ body .cm-hashtag-end {
 	-moz-appearance: none;
 	appearance: none;
 	background-image: none;
-	background: var(--background-primary);
+	background-color: var(--background-primary);
 	border: 1px solid var(--text-accent);
 	width: 14px;
 	height: 14px;
@@ -1560,8 +1468,6 @@ body .cm-hashtag-end {
 .HyperMD-list-line input[type="checkbox"]:checked::after,
 .markdown-preview-view .task-list-item-checkbox:checked::after {
 	content: none;
-	-webkit-mask-image: none;
-	mask-image: none;
 	background: transparent;
 }
 
@@ -1635,6 +1541,12 @@ input[data-task="–"]:checked,
 .HyperMD-list-line input[data-task="-"]:checked,
 .HyperMD-list-line input[data-task="–"]:checked {
 	background-color: var(--background-primary);
+	background-image:
+		linear-gradient(45deg, transparent 42%, var(--text-muted) 42% 58%, transparent 58%),
+		linear-gradient(-45deg, transparent 42%, var(--text-muted) 42% 58%, transparent 58%);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: 8px 8px;
 	border-color: var(--text-muted);
 }
 
@@ -1644,20 +1556,7 @@ input[data-task="–"]:checked::after,
 .markdown-preview-view li[data-task="–"] > .task-list-item-checkbox:checked::after,
 .HyperMD-list-line input[data-task="-"]:checked::after,
 .HyperMD-list-line input[data-task="–"]:checked::after {
-	content: '';
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	width: 8px;
-	height: 8px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	color: var(--text-muted);
-	background: currentColor;
-	-webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 2l8 8M10 2l-8 8' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E") center / contain no-repeat;
-	mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 2l8 8M10 2l-8 8' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E") center / contain no-repeat;
+	display: none;
 }
 
 /* [-] / [–] item text — dimmed + strikethrough */
@@ -1758,6 +1657,7 @@ input[data-task="–"]:checked::after,
 /* Base reset: no radius, left border only */
 .callout {
 	--callout-radius: var(--radius);
+
 	border-radius: var(--radius);
 	border-left: 2px solid;
 	border-top: none;
@@ -1779,20 +1679,24 @@ body .markdown-source-view.mod-cm6 .callout .callout-title {
 
 /* ── Informational: hue shifts from accent, 8 groups × 45° ── */
 
-.callout[data-callout="note"]                                    { --co: oklch(from var(--color-accent) l c calc(h +   0)); }
+.callout[data-callout="note"]                                    { --co: oklch(from var(--color-accent) l c calc(h + 0)); }
+
 .callout[data-callout="abstract"],
 .callout[data-callout="summary"],
-.callout[data-callout="tldr"]                                    { --co: oklch(from var(--color-accent) 0.85 0.07 calc(h +  45)); }
-.callout[data-callout="info"]                                    { --co: oklch(from var(--color-accent) l c calc(h +  90)); }
+.callout[data-callout="tldr"]                                    { --co: oklch(from var(--color-accent) 85% 0.07 calc(h + 45)); }
+.callout[data-callout="info"]                                    { --co: oklch(from var(--color-accent) l c calc(h + 90)); }
 .callout[data-callout="todo"]                                    { --co: oklch(from var(--color-accent) l c calc(h + 135)); }
+
 .callout[data-callout="tip"],
 .callout[data-callout="hint"]                                    { --co: oklch(from var(--color-accent) l c calc(h + 180)); }
+
 .callout[data-callout="question"],
 .callout[data-callout="help"],
 .callout[data-callout="faq"]                                     { --co: oklch(from var(--color-accent) l c calc(h + 225)); }
-.callout[data-callout="example"]                                 { --co: oklch(from var(--color-accent) 0.85 0.07 calc(h + 270)); }
+.callout[data-callout="example"]                                 { --co: oklch(from var(--color-accent) 85% 0.07 calc(h + 270)); }
+
 .callout[data-callout="quote"],
-.callout[data-callout="cite"]                                    { --co: oklch(from var(--color-accent) 0.85 0.07 calc(h + 315)); }
+.callout[data-callout="cite"]                                    { --co: oklch(from var(--color-accent) 85% 0.07 calc(h + 315)); }
 
 /* abstract / example / quote: lighter background */
 .callout[data-callout="abstract"],
@@ -1808,22 +1712,26 @@ body .markdown-source-view.mod-cm6 .callout .callout-title {
 
 .callout[data-callout="success"],
 .callout[data-callout="check"],
-.callout[data-callout="done"]                                    { --co: oklch(from var(--color-accent) l c 145); }
+.callout[data-callout="done"]                                    { --co: oklch(from var(--color-accent) l c 145deg); }
+
 .callout[data-callout="warning"],
 .callout[data-callout="caution"],
-.callout[data-callout="attention"]                               { --co: oklch(from var(--color-accent) l c 60);  }
+.callout[data-callout="attention"]                               { --co: oklch(from var(--color-accent) l c 60deg);  }
+
 .callout[data-callout="failure"],
 .callout[data-callout="fail"],
-.callout[data-callout="missing"]                                 { --co: oklch(from var(--color-accent) l c 30);  }
+.callout[data-callout="missing"]                                 { --co: oklch(from var(--color-accent) l c 30deg);  }
+
 .callout[data-callout="danger"],
-.callout[data-callout="error"]                                   { --co: oklch(from var(--color-accent) l c 20);  }
-.callout[data-callout="bug"]                                     { --co: oklch(from var(--color-accent) l c 10);  }
+.callout[data-callout="error"]                                   { --co: oklch(from var(--color-accent) l c 20deg);  }
+.callout[data-callout="bug"]                                     { --co: oklch(from var(--color-accent) l c 10deg);  }
 
 /* Apply --co to all callouts */
 .callout {
 	background-color: color-mix(in oklch, var(--co, var(--color-accent)) 8%, var(--background-primary));
 	border-left-color: var(--co, var(--color-accent));
 }
+
 .callout .callout-title,
 .callout .callout-icon .svg-icon {
 	color: var(--co, var(--color-accent));
@@ -1836,7 +1744,7 @@ body .markdown-source-view.mod-cm6 .callout .callout-title {
 /* Restore variables flat theme removes — linDar needs grid borders + weekend bg */
 .theme-dark [data-type="lindar-year-view"],
 .theme-dark .lindar-view {
-	--background-modifier-border: rgba(255, 255, 255, 0.07);
+	--background-modifier-border: rgb(255 255 255 / 7%);
 	--background-secondary: #141414;
 }
 
@@ -1850,14 +1758,17 @@ body .markdown-source-view.mod-cm6 .callout .callout-title {
 	color: var(--text-accent);
 	font-weight: 600;
 }
+
 .search-result-file-matched-text {
 	background: transparent;
 	color: var(--text-accent);
 	font-weight: 600;
 }
+
 .search-result-file-match {
 	color: var(--text-muted);
 }
+
 .search-result:hover {
 	background: var(--background-secondary);
 }
@@ -1874,61 +1785,77 @@ body .markdown-source-view.mod-cm6 .callout .callout-title {
 	margin-bottom: var(--size-4-4);
 	transition: background 0.15s ease;
 }
+
 .metadata-container:hover {
 	background: var(--background-secondary);
 }
+
 .metadata-properties-heading {
 	opacity: 0;
 	color: var(--text-accent);
 	transition: opacity 0.15s ease;
 }
+
 .metadata-container:hover .metadata-properties-heading {
 	opacity: 1;
 }
+
 .metadata-properties-heading .collapse-indicator {
 	color: var(--text-muted);
 }
+
 .metadata-property {
 	border-bottom: none;
 	border-top: none;
 	outline: none;
 	box-shadow: none;
 }
+
 .metadata-property .metadata-property-key,
 .metadata-property .metadata-property-value {
 	border: none;
 }
+
 .metadata-property:focus-within {
 	background: transparent;
 }
+
 .metadata-property-key {
 	color: var(--text-muted);
 }
+
 .metadata-property-value {
 	color: var(--text-normal);
 }
+
 .metadata-property-value input,
 .metadata-property-value .multi-select-container {
 	background: transparent;
 	border: none;
 	transition: background 0.15s ease;
 }
+
 .metadata-container:hover .metadata-property-value input {
 	background: var(--background-primary);
 }
+
 .metadata-container:hover .metadata-property-value .multi-select-container {
 	background: transparent;
 }
+
 .metadata-property-value .multi-select-pill {
 	background: transparent;
 	color: var(--text-accent);
 	border: none;
+
 	--pill-color-remove: var(--text-faint);
 	--pill-color-remove-hover: var(--text-faint);
 }
+
 .metadata-properties .multi-select-pill svg.svg-icon {
 	--icon-color: var(--text-faint);
 	--icon-size: 11px;
+
 	color: var(--text-faint);
 }
 
@@ -1937,6 +1864,7 @@ body .markdown-source-view.mod-cm6 .callout .callout-title {
 	border-top: none;
 	transition: opacity 0.15s ease;
 }
+
 .metadata-container:hover .metadata-add-button,
 .metadata-add-button:focus-visible {
 	opacity: 1;
@@ -1949,22 +1877,28 @@ body .markdown-source-view.mod-cm6 .callout .callout-title {
 .is-mobile .workspace-drawer {
 	background: var(--background-primary);
 }
+
 .is-mobile .workspace-drawer-header {
 	background: var(--background-secondary);
 }
+
 .is-mobile .workspace-drawer-header-name {
 	color: var(--text-accent);
 }
+
 .is-mobile .workspace-drawer-actions,
 .is-mobile .workspace-drawer-action-icon {
 	color: var(--text-accent);
 }
+
 .is-mobile .workspace-drawer-tab-option-item {
 	color: var(--text-normal);
 }
+
 .is-mobile .workspace-drawer-tab-option-item.is-active {
 	color: var(--text-accent);
 }
+
 .is-mobile .nav-files-container {
 	background: var(--background-primary);
 }
@@ -1977,13 +1911,16 @@ body .markdown-source-view.mod-cm6 .callout .callout-title {
 .kanban-plugin__board {
 	background: var(--background-primary);
 }
+
 .kanban-plugin__lane {
 	background: var(--background-secondary);
 	border: none;
 }
+
 .kanban-plugin__lane-title {
 	color: var(--text-accent);
 }
+
 .kanban-plugin__item {
 	background: var(--background-primary);
 	border: none;
@@ -1993,6 +1930,7 @@ body .markdown-source-view.mod-cm6 .callout .callout-title {
 .excalidraw .App-menu_top,
 .excalidraw .App-menu_bottom {
 	background: var(--background-secondary);
+
 	--button-border: none;
 }
 
@@ -2003,6 +1941,7 @@ body .markdown-source-view.mod-cm6 .callout .callout-title {
 .theme-dark .graph-view canvas {
 	background: #0A0A0A;
 }
+
 .theme-light .graph-view canvas {
 	background: #D8D8D8;
 }
