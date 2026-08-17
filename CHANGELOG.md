@@ -2,6 +2,18 @@
 
 ## [Unreleased]
 
+## [0.2.1] — 2026-08-18
+
+### Fixed
+
+- Obsidian theme-review checks now pass with zero errors and zero warnings; removed `!important`, `:has()`, CSS masks, named colors, and unsupported `text-indent` usage (#51)
+- Fenced code blocks inside lists render consistently through six nesting levels, including aligned fences, backgrounds, bullets, copy controls, and language labels (#52, #58)
+- Ordered, unordered, and task-list content aligns with in-list code-block edges (#53)
+- Side-pane divider lines remain translucent instead of bright (#55)
+- Balanced spacing around regular code blocks, paragraphs, and lists (#56, #57)
+- Tags inherit the regular text font without changing tag colors (#59)
+- Cancelled task boxes use a styled cross and strikethrough; completed tasks remain unstruck (#60)
+
 ## [0.2.0] — 2026-07-20
 
 ### Fixed
